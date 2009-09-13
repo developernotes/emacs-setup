@@ -1,0 +1,3 @@
+#+STARTUP: overview
+#+TAGS: WORK(w)  HOME(h) PROJECT(p) READING(r) 
+#+STARTUP: hidestars
