@@ -16,6 +16,7 @@
 (require 'mine-org)
 (require 'mine-color-theme)
 (require 'mine-maxframe)
+(require 'mine-slime)
 
 (setq debug-on-error nil)
 
