@@ -5,6 +5,11 @@
 (add-to-list 'exec-path "C:/Program Files/gs/gs8.64/bin/")
 (setq doc-view-ghostscript-program (executable-find "gswin32c"))
 
+;; Additional pathing for OSX
+(when (equal system-type 'darwin)
+  (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
+  (push "/opt/local/bin" exec-path))
+
 ;; Disable the startup screen
 (setq inhibit-startup-screen t)
 

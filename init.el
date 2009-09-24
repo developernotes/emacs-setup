@@ -17,6 +17,7 @@
 (require 'mine-color-theme)
 (require 'mine-maxframe)
 (require 'mine-slime)
+(require 'mine-clojure)
 
 (setq debug-on-error nil)
 
