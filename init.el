@@ -12,6 +12,7 @@
 (add-path "vendor/color-theme-6.6.0")
 
 (require 'mine-customizations)
+(require 'mine-osx)
 (require 'mine-erc)
 (require 'mine-org)
 (require 'mine-color-theme)
