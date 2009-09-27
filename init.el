@@ -12,13 +12,17 @@
 (add-path "vendor/color-theme-6.6.0")
 
 (require 'mine-customizations)
-(require 'mine-osx)
+(require 'mine-pretty)
 (require 'mine-erc)
 (require 'mine-org)
 (require 'mine-color-theme)
 (require 'mine-maxframe)
 (require 'mine-slime)
 (require 'mine-clojure)
+
+(case system-type
+  ('windows-nt (require 'mine-windows))
+  ('darwin (require 'mine-osx)))
 
 (setq debug-on-error nil)
 
