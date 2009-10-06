@@ -1,9 +1,19 @@
 (provide 'mine-pretty)
 
+(defvar mine-font-name-normal)
+(defvar mine-font-name-large)
+
+(case system-type
+  ('windows-nt (setq mine-font-name-normal "Envy Code R-13" 
+		     mine-font-name-large "Envy Code R-20"))
+  ('darwin     (setq mine-font-name-normal "Monaco-14"
+		     mine-font-name-large "Monaco-20")))
+
+
 (defun mine-use-normal-font()
   (interactive)
-  (set-frame-parameter (selected-frame) 'font "Envy Code R-13")
-  (add-to-list 'default-frame-alist '(font . "Envy Code R-13")))
+  (set-frame-parameter (selected-frame) 'font mine-font-name-normal)
+  (add-to-list 'default-frame-alist `(`font "." mine-font-name-normal)))
 
 (defun mine-use-fullscreen ()
   (interactive)
@@ -12,8 +22,8 @@
 
 (defun mine-use-big-font()
   (interactive)
-  (set-frame-parameter (selected-frame) 'font "Envy Code R-20")
-  (add-to-list 'default-frame-alist '(font . "Envy Code R-20")))
+  (set-frame-parameter (selected-frame) 'font mine-font-name-large)
+  (add-to-list 'default-frame-alist `(`font "." mine-font-name-large)))
 
 (defun mine-use-transparency ()
   (interactive)

@@ -11,6 +11,7 @@
 (add-path "themes")
 (add-path "vendor/color-theme-6.6.0")
 
+(require 'cl)
 (require 'mine-bindings)
 (require 'mine-customizations)
 (require 'mine-pretty)
