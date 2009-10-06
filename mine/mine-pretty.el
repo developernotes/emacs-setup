@@ -6,7 +6,7 @@
 (case system-type
   ('windows-nt (setq mine-font-name-normal "Envy Code R-13" 
 		     mine-font-name-large "Envy Code R-20"))
-  ('darwin     (setq mine-font-name-normal "Monaco-14"
+  ('darwin     (setq mine-font-name-normal "Monaco-16"
 		     mine-font-name-large "Monaco-20")))
 
 
