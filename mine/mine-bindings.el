@@ -1,3 +1,3 @@
 (provide 'mine-bindings)
 
-(global-set-key "\C-ct" 'mine-toggle-transparency)
+(global-set-key "\C-cv" 'mine-toggle-transparency)
