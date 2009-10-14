@@ -216,9 +216,9 @@
 	     [(1 5)
 	      nil "clean a patch for submission via email" single])
  (lisppaste .
-	    [(1 7)
+	    [(1 8)
 	     ((xml-rpc
-	       (1 6 4)))
+	       (1 6 7)))
 	     "Interact with the lisppaste pastebot via XML-RPC." single])
  (weblogger .
 	    [(1 4 3)
