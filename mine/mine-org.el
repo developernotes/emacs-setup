@@ -1,8 +1,8 @@
 
 (provide 'mine-org)
 
-(setq load-path (cons "~/.emacs.d/site-lisp/org-mode/lisp" load-path))
-(setq load-path (cons "~/.emacs.d/site-lisp/org-mode/contrib/lisp" load-path))
+(add-path "site-lisp/org-mode/lisp")
+(add-path "site-lisp/org-mode/contrib/lisp")
 
 ;; Enable Org Mode
 (require 'org-install)
