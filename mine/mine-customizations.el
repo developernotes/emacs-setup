@@ -16,9 +16,6 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 
-;; Enable 100% window 
-;;(set-frame-parameter (selected-frame) 'alpha 100)
-
 ;; Enable line numbers
 (global-linum-mode 1)
 
@@ -31,14 +28,6 @@
 
 ;; Highlight current line
 (global-hl-line-mode t)
-
-;; Set default window size and position
-;;(setq default-frame-alist
-;;      '((top . 40) (left . 45)
-;;        (width . 170) (height . 45)))
-
-;; Set font
-;;k(set-default-font "Envy Code R-13")
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
