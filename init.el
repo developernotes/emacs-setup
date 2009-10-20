@@ -21,6 +21,7 @@
 (require 'mine-maxframe)
 (require 'mine-slime)
 (require 'mine-clojure)
+(require 'mine-dired)
 (require 'mine-jira)
 
 (case system-type
