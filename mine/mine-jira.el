@@ -1,4 +1,4 @@
 
 (provide 'mine-jira)
-
-(setq jira-url "https://jira.corp.geolearning.com/rpc/xmlrpc")
+(require 'jira)
+(setq jira-url "https://jira.geolearning.com/rpc/xmlrpc")

@@ -691,7 +691,7 @@
 ;; Modified by Brian Zwahr to use getProjectsNoSchemes instead of getProjects
 (defun jira-get-projects ()
   "Returns a list of projects available to the user"
-  (jira-call 'jira1.getProjectsNoSchemes))
+  (jira-call 'jira1.getProjects))
 
 (defun jira-get-resolutions ()
   "Returns all resolutions in the system"

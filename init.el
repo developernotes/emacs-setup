@@ -11,7 +11,6 @@
 (add-path "themes")
 (add-path "vendor/color-theme-6.6.0")
 
-
 (require 'cl)
 (require 'mine-bindings)
 (require 'mine-customizations)
@@ -22,6 +21,7 @@
 (require 'mine-maxframe)
 (require 'mine-slime)
 (require 'mine-clojure)
+(require 'mine-jira)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
