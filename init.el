@@ -23,6 +23,7 @@
 (require 'mine-clojure)
 (require 'mine-dired)
 (require 'mine-jira)
+(require 'mine-minimap)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
