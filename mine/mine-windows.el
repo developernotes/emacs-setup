@@ -18,4 +18,4 @@
 (setq shell-file-name explicit-shell-file-name)
 
 ;; Display ansi color escape sequences
-ansi-color-for-comint-mode-on
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
