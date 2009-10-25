@@ -8,3 +8,6 @@
 
 
 (setq doc-view-ghostscript-program "/usr/local/bin/gs")
+
+;; Display ansi color escape sequences
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
