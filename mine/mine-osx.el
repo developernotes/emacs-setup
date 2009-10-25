@@ -9,5 +9,7 @@
 
 (setq doc-view-ghostscript-program "/usr/local/bin/gs")
 
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+
 ;; Display ansi color escape sequences
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
