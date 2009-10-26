@@ -2,6 +2,6 @@
   (require 'color-theme)
   (color-theme-initialize)
 
-(require 'color-theme-twilight)
-(color-theme-twilight)
+(require 'color-theme-merbivore)
+(color-theme-merbivore)
 
