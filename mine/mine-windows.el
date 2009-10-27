@@ -2,6 +2,7 @@
 
 (setq doc-view-ghostscript-program "C:/Program Files/gs/gs8.70/bin/gswin32c.exe")
 
+(setq exec-path (append exec-path '("c:/tools/bin")))
 
 (setenv "PATH" (concat "c:/cygwin/bin;" (getenv "PATH")))
 (setq exec-path (cons "c:/cygwin/bin/" exec-path))
