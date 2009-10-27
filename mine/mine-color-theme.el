@@ -2,6 +2,6 @@
   (require 'color-theme)
   (color-theme-initialize)
 
-(require 'color-theme-merbivore)
-(color-theme-merbivore)
+(require 'color-theme-vibrant-ink)
+(color-theme-vibrant-ink)
 
