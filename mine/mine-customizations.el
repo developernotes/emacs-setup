@@ -23,8 +23,8 @@
 (setq visible-bell t)
 
 ;; Remove menubar/toolbar
-(menu-bar-mode nil)
-(tool-bar-mode nil)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 ;; Highlight current line
 (global-hl-line-mode t)
