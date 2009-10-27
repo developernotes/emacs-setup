@@ -4,8 +4,8 @@
 (defvar mine-font-name-large)
 
 (case system-type
-  ('windows-nt (setq mine-font-name-normal "Monaco-12" 
-		     mine-font-name-large "Monaco-18"))
+  ('windows-nt (setq mine-font-name-normal "Anonymous Pro-14" 
+		     mine-font-name-large "Anonymous Pro-18"))
   ('darwin     (setq mine-font-name-normal "Monaco-16"
 		     mine-font-name-large "Monaco-20")))
 
