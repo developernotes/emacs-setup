@@ -25,7 +25,6 @@
 (require 'mine-jira)
 (require 'mine-minimap)
 (require 'mine-eshell)
-(require 'mine-ack)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
