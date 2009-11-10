@@ -8,6 +8,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq indent-tabs-mode nil) 
+(delete-selection-mode t)
 
 ;; Disable user prompt
 (put 'upcase-region 'disabled nil)
