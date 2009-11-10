@@ -7,6 +7,8 @@
 ;; Type only y or n for confirmation
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(setq indent-tabs-mode nil) 
+
 ;; Disable user prompt
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
