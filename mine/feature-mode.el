@@ -58,176 +58,176 @@
    '("^ *Feature:" (0 font-lock-keyword-face) (".*" nil nil (0 font-lock-type-face t)))
    '("^ *Background:$" (0 font-lock-keyword-face))
    '("^ *Scenarios?\\(?: Outline\\)?:" (0 font-lock-keyword-face) (".*" nil nil (0 font-lock-function-name-face t)))
-   '("^ *Given" . font-lock-keyword-face)
-   '("^ *When" . font-lock-keyword-face)
-   '("^ *Then" . font-lock-keyword-face)
-   '("^ *But" . font-lock-keyword-face)
-   '("^ *And" . font-lock-keyword-face)
-   '("^ *@.*" . font-lock-preprocessor-face)
-   '("^ *\\(?:More \\)?Examples:" . font-lock-keyword-face)
-   '("^ *#.*" 0 font-lock-comment-face t)
-   ))
+    '("^ *Given" . font-lock-keyword-face)
+    '("^ *When" . font-lock-keyword-face)
+    '("^ *Then" . font-lock-keyword-face)
+    '("^ *But" . font-lock-keyword-face)
+    '("^ *And" . font-lock-keyword-face)
+    '("^ *@.*" . font-lock-preprocessor-face)
+    '("^ *\\(?:More \\)?Examples:" . font-lock-keyword-face)
+    '("^ *#.*" 0 font-lock-comment-face t)
+    ))
 
 
-;;
-;; Keymap
-;;
+ ;;
+ ;; Keymap
+ ;;
 
-(defvar feature-mode-map nil "Keymap used in feature mode")
+ (defvar feature-mode-map nil "Keymap used in feature mode")
 
-(if feature-mode-map
-    nil
-  (setq feature-mode-map (make-sparse-keymap))
-  (define-key feature-mode-map "\C-m" 'newline)
-  (define-key feature-mode-map  (kbd "C-c ,s") 'feature-verify-scenario-at-pos)
-  (define-key feature-mode-map  (kbd "C-c ,v") 'feature-verify-all-scenarios-in-buffer)
-  (define-key feature-mode-map  (kbd "C-c ,f") 'feature-verify-all-scenarios-in-project))
+ (if feature-mode-map
+     nil
+   (setq feature-mode-map (make-sparse-keymap))
+   (define-key feature-mode-map "\C-m" 'newline)
+   (define-key feature-mode-map  (kbd "C-c ,s") 'feature-verify-scenario-at-pos)
+   (define-key feature-mode-map  (kbd "C-c ,v") 'feature-verify-all-scenarios-in-buffer)
+   (define-key feature-mode-map  (kbd "C-c ,f") 'feature-verify-all-scenarios-in-project))
 
-;; Add relevant feature keybindings to ruby modes
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c ,f") 'feature-verify-all-scenarios-in-project)))
-
-
-;;
-;; Syntax table
-;;
-
-(defvar feature-mode-syntax-table nil
-  "Syntax table in use in ruby-mode buffers.")
-
-(unless feature-mode-syntax-table
-  (setq feature-mode-syntax-table (make-syntax-table)))
-
-;; Constants
-
-(defconst feature-blank-line-re "^[ \t]*$"
-  "Regexp matching a line containing only whitespace.")
-
-(defconst feature-feature-re "^ *Feature:"
-  "Regexp matching the feature statement.")
-
-(defconst feature-scenario-re "^ *Scenarios?\\(?: Outline\\)?:"
-  "Regexp matching the scenario statement.")
-
-;;
-;; Variables
-;;
-
-(defvar feature-mode-hook nil
-  "Hook run when entering `feature-mode'.")
-
-(defcustom feature-indent-level 2
-  "Indentation of feature statements"
-  :type 'integer :group 'feature)
-
-(defcustom feature-indent-offset 2
-  "*Amount of offset per level of indentation."
-  :type 'integer :group 'feature)
-
-(defun feature-compute-indentation ()
-  "Calculate the maximum sensible indentation for the current line."
-  (save-excursion
-    (beginning-of-line)
-    (if (bobp) 10
-      (forward-line -1)
-      (while (and (looking-at feature-blank-line-re)
-                  (> (point) (point-min)))
-        (forward-line -1))
-      (+ (current-indentation)
-         (if (or (looking-at feature-feature-re)
-                 (looking-at feature-scenario-re))
-             feature-indent-offset 0)))))
-
-(defun feature-indent-line ()
-    "Indent the current line.
-The first time this command is used, the line will be indented to the
-maximum sensible indentation.  Each immediately subsequent usage will
-back-dent the line by `feature-indent-offset' spaces.  On reaching column
-0, it will cycle back to the maximum sensible indentation."
-  (interactive "*")
-  (let ((ci (current-indentation))
-        (cc (current-column))
-        (need (feature-compute-indentation)))
-    (save-excursion
-      (beginning-of-line)
-      (delete-horizontal-space)
-      (if (and (equal last-command this-command) (/= ci 0))
-          (indent-to (* (/ (- ci 1) feature-indent-offset) feature-indent-offset))
-        (indent-to need)))
-      (if (< (current-column) (current-indentation))
-          (forward-to-indentation 0))))
-
-(defun feature-mode-variables ()
-  (set-syntax-table feature-mode-syntax-table)
-  (setq require-final-newline t)
-  (setq comment-start "# ")
-  (setq comment-start-skip "#+ *")
-  (setq comment-end "")
-  (setq parse-sexp-ignore-comments t)
-  (set (make-local-variable 'indent-tabs-mode) 'nil)
-  (set (make-local-variable 'indent-line-function) 'feature-indent-line)
-  (set (make-local-variable 'font-lock-defaults) '((feature-font-lock-keywords) nil nil))
-  (set (make-local-variable 'font-lock-keywords) feature-font-lock-keywords))
-
-(defun feature-minor-modes ()
-  "Enable all minor modes for feature mode."
-  (turn-on-orgtbl))
-
-;;
-;; Mode function
-;;
-
-;;;###autoload
-(defun feature-mode()
-  "Major mode for editing plain text stories"
-  (interactive)
-  (kill-all-local-variables)
-  (use-local-map feature-mode-map)
-  (setq mode-name "Feature")
-  (setq major-mode 'feature-mode)
-  (feature-mode-variables)
-  (feature-minor-modes)
-  (run-mode-hooks 'feature-mode-hook))
-
-(add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
-
-;;
-;; Snippets
-;;
-
-(defvar feature-snippet-directory (concat (file-name-directory load-file-name) "snippets")
-  "Path to the feature-mode snippets.
-
-If the yasnippet library is loaded, snippets in this directory
-are loaded on startup.  If nil, don't load snippets.")
-
-(when (and (featurep 'yasnippet)
-           feature-snippet-directory
-           (file-exists-p feature-snippet-directory))
-  (yas/load-directory feature-snippet-directory))
+ ;; Add relevant feature keybindings to ruby modes
+ (add-hook 'ruby-mode-hook
+	   (lambda ()
+	     (local-set-key (kbd "C-c ,f") 'feature-verify-all-scenarios-in-project)))
 
 
-;;
-;; Verifying features
-;;
+ ;;
+ ;; Syntax table
+ ;;
 
-(defconst feature-scenario-pattern  "^[[:space:]]*Scenario:[[:space:]]*\\(.*\\)[[:space:]]*$")
+ (defvar feature-mode-syntax-table nil
+   "Syntax table in use in ruby-mode buffers.")
 
-(defun feature-scenario-name-at-pos (&optional pos)
-  "Returns the name of the scenario at the specified position. if pos is not specified the current buffer location will be used."
-  (interactive)
-  (let ((start (or pos (point))))
-    (save-excursion
-      (end-of-line)
-      (unless (re-search-backward feature-scenario-pattern nil t)
-	(error "Unable to find an scenario"))
-      (match-string-no-properties 1))))
+ (unless feature-mode-syntax-table
+   (setq feature-mode-syntax-table (make-syntax-table)))
 
-(defun feature-verify-scenario-at-pos (&optional pos)
-  "Run the scenario defined at pos.  If post is not specified the current buffer location will be used."
-  (interactive)
-  (feature-run-cucumber 
+ ;; Constants
+
+ (defconst feature-blank-line-re "^[ \t]*$"
+   "Regexp matching a line containing only whitespace.")
+
+ (defconst feature-feature-re "^ *Feature:"
+   "Regexp matching the feature statement.")
+
+ (defconst feature-scenario-re "^ *Scenarios?\\(?: Outline\\)?:"
+   "Regexp matching the scenario statement.")
+
+ ;;
+ ;; Variables
+ ;;
+
+ (defvar feature-mode-hook nil
+   "Hook run when entering `feature-mode'.")
+
+ (defcustom feature-indent-level 2
+   "Indentation of feature statements"
+   :type 'integer :group 'feature)
+
+ (defcustom feature-indent-offset 2
+   "*Amount of offset per level of indentation."
+   :type 'integer :group 'feature)
+
+ (defun feature-compute-indentation ()
+   "Calculate the maximum sensible indentation for the current line."
+   (save-excursion
+     (beginning-of-line)
+     (if (bobp) 10
+       (forward-line -1)
+       (while (and (looking-at feature-blank-line-re)
+		   (> (point) (point-min)))
+	 (forward-line -1))
+       (+ (current-indentation)
+	  (if (or (looking-at feature-feature-re)
+		  (looking-at feature-scenario-re))
+	      feature-indent-offset 0)))))
+
+ (defun feature-indent-line ()
+     "Indent the current line.
+ The first time this command is used, the line will be indented to the
+ maximum sensible indentation.  Each immediately subsequent usage will
+ back-dent the line by `feature-indent-offset' spaces.  On reaching column
+ 0, it will cycle back to the maximum sensible indentation."
+   (interactive "*")
+   (let ((ci (current-indentation))
+	 (cc (current-column))
+	 (need (feature-compute-indentation)))
+     (save-excursion
+       (beginning-of-line)
+       (delete-horizontal-space)
+       (if (and (equal last-command this-command) (/= ci 0))
+	   (indent-to (* (/ (- ci 1) feature-indent-offset) feature-indent-offset))
+	 (indent-to need)))
+       (if (< (current-column) (current-indentation))
+	   (forward-to-indentation 0))))
+
+ (defun feature-mode-variables ()
+   (set-syntax-table feature-mode-syntax-table)
+   (setq require-final-newline t)
+   (setq comment-start "# ")
+   (setq comment-start-skip "#+ *")
+   (setq comment-end "")
+   (setq parse-sexp-ignore-comments t)
+   (set (make-local-variable 'indent-tabs-mode) 'nil)
+   (set (make-local-variable 'indent-line-function) 'feature-indent-line)
+   (set (make-local-variable 'font-lock-defaults) '((feature-font-lock-keywords) nil nil))
+   (set (make-local-variable 'font-lock-keywords) feature-font-lock-keywords))
+
+ (defun feature-minor-modes ()
+   "Enable all minor modes for feature mode."
+   (turn-on-orgtbl))
+
+ ;;
+ ;; Mode function
+ ;;
+
+ ;;;###autoload
+ (defun feature-mode()
+   "Major mode for editing plain text stories"
+   (interactive)
+   (kill-all-local-variables)
+   (use-local-map feature-mode-map)
+   (setq mode-name "Feature")
+   (setq major-mode 'feature-mode)
+   (feature-mode-variables)
+   (feature-minor-modes)
+   (run-mode-hooks 'feature-mode-hook))
+
+ (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
+
+ ;;
+ ;; Snippets
+ ;;
+
+ (defvar feature-snippet-directory (concat (file-name-directory load-file-name) "snippets")
+   "Path to the feature-mode snippets.
+
+ If the yasnippet library is loaded, snippets in this directory
+ are loaded on startup.  If nil, don't load snippets.")
+
+ (when (and (featurep 'yasnippet)
+	    feature-snippet-directory
+	    (file-exists-p feature-snippet-directory))
+   (yas/load-directory feature-snippet-directory))
+
+
+ ;;
+ ;; Verifying features
+ ;;
+
+ (defconst feature-scenario-pattern  "^[[:space:]]*Scenario:[[:space:]]*\\(.*\\)[[:space:]]*$")
+
+ (defun feature-scenario-name-at-pos (&optional pos)
+   "Returns the name of the scenario at the specified position. if pos is not specified the current buffer location will be used."
+   (interactive)
+   (let ((start (or pos (point))))
+     (save-excursion
+       (end-of-line)
+       (unless (re-search-backward feature-scenario-pattern nil t)
+	 (error "Unable to find an scenario"))
+       (match-string-no-properties 1))))
+
+ (defun feature-verify-scenario-at-pos (&optional pos)
+   "Run the scenario defined at pos.  If post is not specified the current buffer location will be used."
+   (interactive)
+   (feature-run-cucumber 
    (list "-n" (concat "'" (feature-escape-scenario-name (feature-scenario-name-at-pos)) "'"))
    :feature-file (buffer-file-name)))
 
@@ -262,8 +262,11 @@ are loaded on startup.  If nil, don't load snippets.")
   (let ((opts-str    (mapconcat 'identity cuke-opts " "))
 	(feature-arg (if feature-file 
 			 (concat " FEATURE='" feature-file "'")
-		       "")))
-    (compile (concat "rake features CUCUMBER_OPTS=\"--no-color " opts-str "\"" feature-arg)))
+		       ""))
+	(feature-buffer (shell "*features*")))
+    (switch-to-buffer feature-buffer)
+    (compilation-shell-minor-mode)
+    (comint-send-string feature-buffer (concat "rake features CUCUMBER_OPTS=\" " opts-str "\"" feature-arg "\n")))
   (end-of-buffer-other-window 0))
 
 (defun feature-escape-scenario-name (scenario-name)
