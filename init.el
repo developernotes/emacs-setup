@@ -25,6 +25,8 @@
 (require 'mine-jira)
 (require 'mine-minimap)
 (require 'mine-eshell)
+(require 'feature-mode)
+(require 'cucumber-mode)
 
 (case system-type
   ('windows-nt (require 'mine-windows))

@@ -6,8 +6,8 @@
 (case system-type
   ('windows-nt (setq mine-font-name-normal "Anonymous Pro-14" 
 		     mine-font-name-large "Anonymous Pro-18"))
-  ('darwin     (setq mine-font-name-normal "Anonymous Pro-18"
-		     mine-font-name-large "Anonymous Pro-20")))
+  ('darwin     (setq mine-font-name-normal "Anonymous Pro-Bold-18"
+		     mine-font-name-large "Anonymous Pro-Bold-20")))
 
 
 (defun mine-use-normal-font()
