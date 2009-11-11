@@ -11,5 +11,6 @@
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
-;; Display ansi color escape sequences
 (ansi-color-for-comint-mode-on)
+
+(menu-bar-mode t)
