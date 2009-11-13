@@ -25,6 +25,7 @@
 (require 'mine-jira)
 (require 'mine-minimap)
 (require 'mine-eshell)
+(require 'mine-textmate)
 (require 'feature-mode)
 (require 'cucumber-mode)
 
