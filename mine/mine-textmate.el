@@ -1,3 +1,3 @@
 (provide 'mine-textmate)
-(require 'textmate)
-(textmate-mode)
+;;(require 'textmate)
+;;(textmate-mode)
