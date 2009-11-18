@@ -14,3 +14,5 @@
 (ansi-color-for-comint-mode-on)
 
 (menu-bar-mode t)
+
+(setq ns-command-modifier 'meta)
