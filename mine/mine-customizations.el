@@ -19,7 +19,6 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq confirm-nonexistent-file-or-buffer nil)
-(ido-everywhere t)
 
 ;; Enable line numbers
 (global-linum-mode 1)
