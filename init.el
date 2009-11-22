@@ -28,6 +28,7 @@
 (require 'mine-textmate)
 (require 'feature-mode)
 (require 'cucumber-mode)
+(require 'mine-ruby)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
