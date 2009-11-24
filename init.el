@@ -11,6 +11,7 @@
 (add-path "vendor/color-theme-6.6.0")
 
 (require 'cl)
+(require 'mine-dependencies)
 (require 'mine-bindings)
 (require 'mine-customizations)
 (require 'mine-pretty)
@@ -18,16 +19,16 @@
 (require 'mine-org)
 (require 'mine-color-theme)
 (require 'mine-maxframe)
-(require 'mine-slime)
-(require 'mine-clojure)
 (require 'mine-dired)
 (require 'mine-jira)
 (require 'mine-minimap)
 (require 'mine-eshell)
-(require 'mine-ruby)
 (require 'mine-textmate)
 (require 'feature-mode)
 (require 'cucumber-mode)
+(require 'mine-slime)
+(require 'mine-clojure)
+(require 'mine-ruby)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
