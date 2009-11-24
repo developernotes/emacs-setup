@@ -52,7 +52,7 @@
   (mine-use-normal-font)
   (mine-use-transparency))
  
-(defun mine-pair-display ()
+(defun mine-presenter-display ()
   (interactive)
   (mine-use-big-font)
   (mine-use-no-transparency))

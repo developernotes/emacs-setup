@@ -1,4 +1,3 @@
-
 (defvar emacs-root (concat (getenv "HOME") "/.emacs.d/"))
 
 (defun add-path (path)
@@ -25,10 +24,10 @@
 (require 'mine-jira)
 (require 'mine-minimap)
 (require 'mine-eshell)
+(require 'mine-ruby)
 (require 'mine-textmate)
 (require 'feature-mode)
 (require 'cucumber-mode)
-(require 'mine-ruby)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
