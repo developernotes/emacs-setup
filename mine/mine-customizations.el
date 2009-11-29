@@ -32,6 +32,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
+(setq-default tab-width 2)
+
 ;; Highlight current line
 (global-hl-line-mode t)
 
