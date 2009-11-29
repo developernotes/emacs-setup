@@ -1,5 +1,8 @@
-(setq custom-file (concat emacs-root "/mine/mine-customizations.el"))
 (provide 'mine-customizations)
+(require 'ido)
+(require 'uniquify) 
+
+(setq custom-file (concat emacs-root "/mine/mine-customizations.el"))
 
 ;; Disable the startup screen
 (setq inhibit-startup-screen t)
@@ -15,7 +18,6 @@
 (put 'downcase-region 'disabled nil)
 
 ;; Enable ido mode
-(require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq confirm-nonexistent-file-or-buffer -1)
@@ -34,7 +36,6 @@
 (global-hl-line-mode t)
 
 ;; Identify buffers with same name, postfix folder name
-(require 'uniquify) 
 (setq 
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
@@ -45,6 +46,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; Copy or kill entire line if mark not set
 (defadvice kill-ring-save (before slick-copy activate compile) "When called
   interactively with no active region, copy a single line instead."
   (interactive (if mark-active (list (region-beginning) (region-end)) (message
@@ -58,13 +60,7 @@
       (list (line-beginning-position)
         (line-beginning-position 2)))))
 
-
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
+;; ELPA
 (when
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
