@@ -1,4 +1,5 @@
 (provide 'mine-windows)
+(require 'cygwin-mount)
 
 (setq doc-view-ghostscript-program "C:/Program Files/gs/gs8.70/bin/gswin32c.exe")
 
@@ -6,7 +7,6 @@
 
 (setenv "PATH" (concat "c:/cygwin/bin;" (getenv "PATH")))
 (setq exec-path (cons "c:/cygwin/bin/" exec-path))
-(require 'cygwin-mount)
 (cygwin-mount-activate)
 
 (add-hook 'comint-output-filter-functions
