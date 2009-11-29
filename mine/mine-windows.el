@@ -1,4 +1,4 @@
-(provide 'mine-windows)
+
 (require 'cygwin-mount)
 
 (setq doc-view-ghostscript-program "C:/Program Files/gs/gs8.70/bin/gswin32c.exe")
@@ -14,11 +14,13 @@
 (add-hook 'comint-output-filter-functions
     'comint-watch-for-password-prompt nil t)
 (setq explicit-shell-file-name "bash.exe")
-;; For subprocesses invoked via the shell
-;; (e.g., "shell -c command")
+
+;; For subprocesses invoked via the shell (e.g., "shell -c command")
 (setq shell-file-name explicit-shell-file-name)
 
 ;; Display ansi color escape sequences
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (set-face-font 'default "-*-Anonymous Pro-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+
+(provide 'mine-windows)

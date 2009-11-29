@@ -1,8 +1,8 @@
 
-(provide 'mine-eshell)
-
 (defun eshell/clear ()
   "clear the eshell buffer."
   (interactive)
   (let ((inhibit-read-only t))
     (erase-buffer)))
+
+(provide 'mine-eshell)

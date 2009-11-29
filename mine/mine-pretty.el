@@ -1,4 +1,3 @@
-(provide 'mine-pretty)
 
 (defvar mine-font-name-normal)
 (defvar mine-font-name-large)
@@ -58,3 +57,5 @@
   (mine-use-no-transparency))
  
 (mine-normal-display)
+
+(provide 'mine-pretty)

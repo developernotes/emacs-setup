@@ -1,6 +1,4 @@
 
-(provide 'mine-osx)
-
 ;; Additional pathing for OSX
 (when (equal system-type 'darwin)
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
@@ -16,3 +14,5 @@
 (menu-bar-mode t)
 
 (setq ns-command-modifier 'meta)
+
+(provide 'mine-osx)

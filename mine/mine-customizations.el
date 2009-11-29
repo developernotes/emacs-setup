@@ -1,4 +1,4 @@
-(provide 'mine-customizations)
+
 (require 'ido)
 (require 'uniquify) 
 
@@ -68,3 +68,4 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
+(provide 'mine-customizations)

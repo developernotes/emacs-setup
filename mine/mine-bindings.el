@@ -1,4 +1,3 @@
-(provide 'mine-bindings)
 
 (global-set-key "\C-cv" 'mine-toggle-transparency)
 (global-set-key "\C-cw" 'toggle-truncate-lines)
@@ -14,3 +13,8 @@
 ;; smex
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; dired
+(global-set-key "\C-x\C-d" 'dired)
+
+(provide 'mine-bindings)

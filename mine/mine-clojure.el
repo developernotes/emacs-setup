@@ -1,3 +1,3 @@
-(provide 'mine-clojure)
 
 (clojure-slime-config)
+(provide 'mine-clojure)

@@ -1,3 +1,3 @@
 
-(provide 'mine-minimap)
 (require 'minimap)
+(provide 'mine-minimap)

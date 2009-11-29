@@ -1,4 +1,3 @@
-(provide 'mine-dependencies)
 
 ;; smex
 (add-path "site-lisp/smex")
@@ -6,3 +5,4 @@
 (eval-after-load "init.el" '(smex-initialize))
 (smex-auto-update)
 
+(provide 'mine-dependencies)

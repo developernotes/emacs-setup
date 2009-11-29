@@ -1,3 +1,4 @@
+
 (setq erc-nick "developernotes")
 (setq erc-prompt-for-password t)
 (setq erc-server "irc.freenode.net")
