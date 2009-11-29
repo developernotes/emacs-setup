@@ -33,6 +33,12 @@
 ;; Highlight current line
 (global-hl-line-mode t)
 
+;; Identify buffers with same name, postfix folder name
+(require 'uniquify) 
+(setq 
+  uniquify-buffer-name-style 'post-forward
+  uniquify-separator ":")
+
 ;; All backup files in one place
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
