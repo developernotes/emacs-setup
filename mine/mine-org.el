@@ -1,13 +1,19 @@
-
 (add-path "site-lisp/org-mode/lisp")
 (add-path "site-lisp/org-mode/contrib/lisp")
 
-;; Enable Org Mode
+;; enable org-mode
 (require 'org)
+
+;; configuration
+(setq org-directory "~/org/")
+(setq org-agenda-files '("~/org/gtd-items.org"))
+(setq org-log-done t)
+(add-to-list 'org-modules 'org-habit)
+
+;; keybindings
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cr" 'org-remember)
-
 (global-set-key (kbd "C-c g g") 'gtd)
 (global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
 
@@ -16,12 +22,6 @@
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
-
-(add-to-list 'org-modules 'org-habit)
-
-(setq org-directory "~/org/")
-(setq org-agenda-files '("~/org/gtd-items.org"))
-(setq org-log-done t)
 
 ;; agenda configuraion
 (setq org-agenda-search-headline-for-time nil
@@ -89,7 +89,6 @@
         (org-fit-agenda-window))
       (org-agenda nil "A")))
 
-
 ;; for a popup window for remember mode
 (defadvice remember-finalize (after delete-remember-frame activate)
   "Advise remember-finalize to close the frame if it is the remember frame"
@@ -112,7 +111,6 @@
   (make-frame '((name . "remember") (width . 80) (height . 10)))
   (select-frame-by-name "remember")
   (org-remember))
-
 
 (custom-set-faces
  '(outline-1 ((t (:foreground "#D6B163" :bold t))))
