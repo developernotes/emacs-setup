@@ -16,7 +16,7 @@
 (require 'mine-customizations)
 (require 'mine-pretty)
 (require 'mine-erc)
-(require 'mine-org)
+(require 'mine-org-mode)
 (require 'mine-color-theme)
 (require 'mine-maxframe)
 (require 'mine-dired)

@@ -137,4 +137,4 @@
  '(org-column ((t (:background "#222222"))))
  '(org-column-title ((t (:background "DarkGreen" :foreground "white" :bold t :box (:line-width 1 :style released-button))))))
 
-(provide 'mine-org)
+(provide 'mine-org-mode)
