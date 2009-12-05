@@ -3,7 +3,7 @@
 (add-path "site-lisp/org-mode/contrib/lisp")
 
 ;; Enable Org Mode
-(require 'org-install)
+(require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cr" 'org-remember)
@@ -17,13 +17,48 @@
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
 
+(add-to-list 'org-modules 'org-habit)
+
 (setq org-directory "~/org/")
 (setq org-agenda-files '("~/org/gtd-items.org"))
 (setq org-log-done t)
 
+;; agenda configuraion
+(setq org-agenda-search-headline-for-time nil
+      org-agenda-dim-blocked-tasks 'invisible
+      org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-deadline-if-done t
+      org-deadline-warning-days 2
+      org-agenda-ndays 1
+      org-agenda-compact-blocks t
+      org-agenda-tags-column -92
+      org-habit-preceding-days 20
+      org-habit-following-days 3
+      org-habit-graph-column 55)
+
+(setq org-agenda-custom-commands
+      '(("A" "Action List"
+         ((agenda "")
+          (alltodo))
+         ((org-agenda-todo-ignore-deadlines t)
+          (org-agenda-todo-ignore-scheduled t)
+          (org-agenda-todo-ignore-with-date t)
+          (org-agenda-sorting-strategy '(priority-down tag-up))))))
+
 (defun gtd()
   (interactive)
   (find-file "~/org/gtd-items.org"))
+
+(defun gtd-agenda ()
+  (interactive)
+  (if (equal (buffer-name (current-buffer))
+             "*Org Agenda*")
+      (switch-to-buffer (other-buffer))
+    (if (get-buffer "*Org Agenda*")
+        (switch-to-buffer "*Org Agenda*")
+      (progn
+        (org-agenda nil "A")
+        (delete-other-windows)))))
 
 (setq org-enforce-todo-dependencies t
       org-todo-keywords
@@ -53,6 +88,31 @@
         (switch-to-buffer "*Org Agenda*")
         (org-fit-agenda-window))
       (org-agenda nil "A")))
+
+
+;; for a popup window for remember mode
+(defadvice remember-finalize (after delete-remember-frame activate)
+  "Advise remember-finalize to close the frame if it is the remember frame"
+  (if (equal "remember" (frame-parameter nil 'name))
+      (delete-frame)))
+
+(defadvice remember-destroy (after delete-remember-frame activate)
+  "Advise remember-destroy to close the frame if it is the rememeber frame"
+  (if (equal "remember" (frame-parameter nil 'name))
+      (delete-frame)))
+
+;; make the frame contain a single window. by default org-remember
+;; splits the window.
+(add-hook 'remember-mode-hook
+          'delete-other-windows)
+
+(defun make-remember-frame ()
+  "Create a new frame and run org-remember."
+  (interactive)
+  (make-frame '((name . "remember") (width . 80) (height . 10)))
+  (select-frame-by-name "remember")
+  (org-remember))
+
 
 (custom-set-faces
  '(outline-1 ((t (:foreground "#D6B163" :bold t))))
