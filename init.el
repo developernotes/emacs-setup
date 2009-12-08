@@ -19,7 +19,7 @@
 (require 'mine-org-mode)
 (require 'mine-info-mode)
 (require 'mine-bookmark)
-;;(require 'mine-color-theme)
+(require 'mine-color-theme)
 (require 'mine-maxframe)
 (require 'mine-dired)
 (require 'mine-jira)
