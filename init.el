@@ -40,5 +40,5 @@
 
 (message "My .emacs loaded in %ds." (destructuring-bind (hi lo ms) (current-time) (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
 
+(cd "~/")
 (gtd-agenda)
-(cd "~")
