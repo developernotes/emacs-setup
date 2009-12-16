@@ -9,6 +9,15 @@
 			(progn 
 				(bookmark-prop-set 
 				 (bookmark-get-bookmark "sicp") 
-				 'filename "~/info/sicp.info"))))
+				 'filename "~/info/sicp.info")))
+	(if (bookmark-get-book-mark "clj")
+			(progn
+				(bookmark-prop-set
+				 (bookmark-get-bookmark "clj")
+				 'filename "~/pdf/ClojureInAction.pdf")))
+	)
+
+
+
 
 (provide 'mine-bookmark)
