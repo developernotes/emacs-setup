@@ -1,5 +1,4 @@
 
-(require 'ido)
 (require 'uniquify) 
 
 (setq custom-file (concat emacs-root "/mine/mine-customizations.el"))
@@ -16,11 +15,6 @@
 ;; Disable user prompt
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-
-;; Enable ido mode
-(ido-mode t)
-(setq ido-enable-flex-matching t)
-(setq confirm-nonexistent-file-or-buffer -1)
 
 ;; Enable line numbers
 (global-linum-mode 1)
