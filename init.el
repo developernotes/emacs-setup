@@ -11,6 +11,7 @@
 (add-path "vendor/color-theme-6.6.0")
 
 (require 'cl)
+(require 'mine-ido)
 (require 'mine-dependencies)
 (require 'mine-bindings)
 (require 'mine-customizations)
