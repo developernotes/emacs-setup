@@ -29,8 +29,6 @@
 (require 'mine-textmate)
 (require 'feature-mode)
 (require 'cucumber-mode)
-(require 'mine-slime)
-(require 'mine-clojure)
 (require 'mine-ruby)
 
 (case system-type
