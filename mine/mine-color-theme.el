@@ -2,7 +2,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 
-(require 'color-theme-twilight)
-(color-theme-twilight)
+(require 'color-theme-vibrant-ink)
+(color-theme-vibrant-ink))
 
 (provide 'mine-color-theme)
