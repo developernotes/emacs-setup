@@ -30,6 +30,7 @@
 (require 'feature-mode)
 (require 'cucumber-mode)
 (require 'mine-ruby)
+(require 'mine-rinari)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
