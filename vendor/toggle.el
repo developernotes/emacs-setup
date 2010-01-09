@@ -83,16 +83,12 @@
     (rspec   . (("app/models/\\1.rb"      . "spec/models/\\1_spec.rb")
                 ("app/controllers/\\1.rb" . "spec/controllers/\\1_spec.rb")
                 ("app/views/\\1.rb"       . "spec/views/\\1_spec.rb")
-                ("app/helpers/\\1.rb"     . "spec/helpers/\\1_spec.rb")
-								("lib/\\\\1.rb"             . "spec/\\\\1_spec.rb")))
+                ("app/helpers/\\1.rb"     . "spec/helpers/\\1_spec.rb")))
     (rails   . (("app/controllers/\\1.rb" . "test/functional/\\1_test.rb")
                 ("app/models/\\1.rb"      . "test/unit/\\1_test.rb")
                 ("lib/\\1.rb"             . "test/unit/test_\\1.rb")))
     (ruby    . (("lib/\\1.rb"             . "test/test_\\1.rb")
-                ("\\1.rb"                 . "test_\\1.rb")
-								("lib/\\1.rb"             . "spec/\\1_spec.rb"))))
-
-
+                ("\\1.rb"                 . "test_\\1.rb"))))
   "A list of (name . toggle-mapping) rules used by toggle-filename."
   :group 'toggle
   :type '(repeat (cons string string)))
