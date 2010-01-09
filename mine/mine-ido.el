@@ -4,6 +4,7 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq confirm-nonexistent-file-or-buffer -1)
+(ido-everywhere 1)
 
 (defun ido-goto-symbol ()
     "Will update the imenu index and then use ido to select a symbol to navigate to"
