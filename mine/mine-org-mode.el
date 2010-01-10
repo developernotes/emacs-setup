@@ -40,9 +40,9 @@
       '(("A" "Action List"
          ((agenda "")
           (alltodo))
-         ((org-agenda-todo-ignore-deadlines t)
-          (org-agenda-todo-ignore-scheduled t)
-          (org-agenda-todo-ignore-with-date t)
+         ((org-agenda-todo-ignore-deadlines nil)
+          (org-agenda-todo-ignore-scheduled nil)
+          (org-agenda-todo-ignore-with-date nil)
           (org-agenda-sorting-strategy '(priority-down tag-up))))))
 
 (defun gtd()
@@ -62,22 +62,12 @@
 
 (setq org-enforce-todo-dependencies t
       org-todo-keywords
-      '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)"))
+      '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)"))
       org-use-fast-todo-selection t)
 
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n %i\n %a" "gtd-items.org" "Todo")
-        ("Inbox" ?i "* %?" "gtd-items.org" "Inbox")
-        ("Misc Task" ?m "* TODO %? %^g\n" "gtd-items.org" "Misc Tasks")))
-
-(setq org-agenda-custom-commands
-      '(("A" "Action List"
-         ((agenda "")
-          (alltodo))
-         ((org-agenda-todo-ignore-deadlines t)
-          (org-agenda-todo-ignore-scheduled t)
-          (org-agenda-todo-ignore-with-date t)
-          (org-agenda-sorting-strategy '(tag-up))))))
+        ("In Progress" ?i "* IN-PROGRESS %?" "gtd-items.org" "Todo")))
 
 (defun gtd-switch-to-agenda ()
   (interactive)
