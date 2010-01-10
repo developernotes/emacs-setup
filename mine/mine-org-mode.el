@@ -8,7 +8,7 @@
 (setq org-directory "~/org/")
 (setq org-agenda-files '("~/org/gtd-items.org"))
 (setq org-log-done t)
-(add-to-list 'org-modules 'org-habit)
+;;(add-to-list 'org-modules 'org-habit)
 
 ;; keybindings
 (define-key global-map "\C-cl" 'org-store-link)
