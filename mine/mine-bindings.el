@@ -29,4 +29,7 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
+;; file navigation
+(global-set-key "\C-x\C-p" 'find-file-at-point)
+
 (provide 'mine-bindings)

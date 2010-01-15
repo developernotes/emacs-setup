@@ -13,6 +13,7 @@
 (require 'cl)
 (require 'mine-ido)
 (require 'mine-dependencies)
+(require 'mine-advice)
 (require 'mine-bindings)
 (require 'mine-customizations)
 (require 'mine-pretty)
