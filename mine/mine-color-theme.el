@@ -1,5 +1,5 @@
 
-(add-path "themes")
+(add-path "site-lisp/themes")
 (add-path "site-lisp/color-theme-6.6.0")
 
 (require 'color-theme)
