@@ -9,7 +9,7 @@
     (lambda () (interactive) (find-alternate-file "..")))
  ))
 
-(defun dired-open-files ()
+(defun open-marked-files ()
   "Opens all marked files"
   (interactive)
   (dolist (file (dired-get-marked-files))

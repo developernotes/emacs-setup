@@ -6,9 +6,7 @@
 (defvar *emacs-load-start* (current-time))
 
 (add-path "mine")
-(add-path "vendor")
-(add-path "themes")
-(add-path "vendor/color-theme-6.6.0")
+(add-path "site-lisp")
 
 (require 'cl)
 (require 'mine-ido)
@@ -25,13 +23,11 @@
 (require 'mine-maxframe)
 (require 'mine-dired)
 (require 'mine-jira)
-(require 'mine-minimap)
 (require 'mine-eshell)
 (require 'mine-textmate)
 (require 'feature-mode)
 (require 'cucumber-mode)
 (require 'mine-ruby)
-(require 'mine-rinari)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
