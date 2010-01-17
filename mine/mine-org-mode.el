@@ -19,7 +19,7 @@
 
 (run-at-time t 3600 'org-save-all-org-buffers)
 
-(setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r)))
+(setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m)))
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
