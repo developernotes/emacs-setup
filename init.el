@@ -28,6 +28,7 @@
 (require 'feature-mode)
 (require 'cucumber-mode)
 (require 'mine-ruby)
+(require 'mine-html)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
