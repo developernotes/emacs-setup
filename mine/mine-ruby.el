@@ -31,5 +31,6 @@
   (autotest)
   (setq autotest-command "autotest"))
 
+(define-key ruby-mode-map (kbd "C-c C-a") 'autotest-switch)
 
 (provide 'mine-ruby)
