@@ -1,0 +1,12 @@
+#name : rspec describe
+#group : rspec
+# --
+describe ${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+				 (or (buffer-file-name)
+				     (buffer-name (current-buffer))))))))
+           (cond
+             ((string-match "_spec" fn) (replace-match "" nil nil fn))
+              (t fn)))`} do
+  $0
+end
