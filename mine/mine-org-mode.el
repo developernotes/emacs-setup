@@ -29,8 +29,9 @@
       org-agenda-dim-blocked-tasks 'invisible
       org-agenda-skip-scheduled-if-done t
       org-agenda-skip-deadline-if-done t
+			org-agenda-start-on-weekday nil
       org-deadline-warning-days 2
-      org-agenda-ndays 1
+      org-agenda-ndays 7
       org-agenda-compact-blocks t
       org-agenda-tags-column -92
       org-habit-preceding-days 20
