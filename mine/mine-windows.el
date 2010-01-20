@@ -24,4 +24,9 @@
 
 (set-face-font 'default "-*-Anonymous Pro-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
+ ;; suppress 'directory is unsafe error
+(require 'server)
+(when (and (= emacs-major-version 23) (equal window-system 'w32))
+  (defun server-ensure-safe-dir (dir) "Noop" t))
+
 (provide 'mine-windows)
