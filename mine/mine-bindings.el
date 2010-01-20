@@ -32,4 +32,8 @@
 ;; file navigation
 (global-set-key "\C-x\C-p" 'find-file-at-point)
 
+;; diff the current buffer with the file contents
+(global-set-key (kbd "C-c d")
+   (lambda () (interactive) (diff-buffer-with-file (current-buffer))))
+
 (provide 'mine-bindings)
