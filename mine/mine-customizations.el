@@ -3,6 +3,8 @@
 
 (setq custom-file (concat emacs-root "/mine/mine-customizations.el"))
 
+(setenv "EDITOR" "emacsclient -a=vim")
+
 ;; Disable the startup screen
 (setq inhibit-startup-screen t)
 
