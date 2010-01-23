@@ -31,6 +31,8 @@
   (autotest)
   (setq autotest-command "autotest"))
 
+(autoload 'feature-mode "feature-mode" "Major mode for editing plain text stories" t)
+(add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
 (define-key ruby-mode-map (kbd "C-c C-a") 'autotest-switch)
 
 (provide 'mine-ruby)

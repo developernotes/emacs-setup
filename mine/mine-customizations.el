@@ -5,52 +5,45 @@
 
 (setenv "EDITOR" "emacsclient -a=vim")
 
-;; Disable the startup screen
+;; disable the startup screen
 (setq inhibit-startup-screen t)
 
-;; Type only y or n for confirmation
+;; type only y or n for confirmation
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq indent-tabs-mode nil) 
 (delete-selection-mode t)
 
-;; Disable user prompt
+;; disable user prompt
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-;; Enable line numbers
+;; enable line numbers
 (global-linum-mode 1)
 
-;; Disable audible bell
+;; disable audible bell
 (setq visible-bell t)
 
-;; Remove menubar/toolbar
+;; remove menubar/toolbar
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
 	(tool-bar-mode -1))
 
 (setq-default tab-width 2)
 
-;; Highlight current line
+;; highlight current line
 (global-hl-line-mode t)
 
-;; Identify buffers with same name, postfix folder name
+;; identify buffers with same name, postfix folder name
 (setq 
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
 
-;; All backup files in one place
+;; all backup files in one place
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-
-(defun kill-all-buffers ()
-  "kill all buffers, leaving *scratch* only"
-  (interactive)
-  (mapcar (lambda (x) (kill-buffer x))
-	  (buffer-list))
-  (delete-other-windows))
 
 ;; ELPA
 (when

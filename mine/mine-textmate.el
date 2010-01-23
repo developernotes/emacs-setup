@@ -1,4 +1,4 @@
 
 ;;(require 'textmate)
 ;;(textmate-mode)
-(provide 'mine-textmate)
+;;(provide 'mine-textmate)

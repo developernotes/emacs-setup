@@ -1,8 +1,7 @@
 
+;; misc
 (global-set-key "\C-cv" 'mine-toggle-transparency)
 (global-set-key "\C-cw" 'toggle-truncate-lines)
-
-;; Ido
 (global-set-key "\C-cs" 'ido-goto-symbol)
 
 ;; extend search to show occurances
@@ -17,7 +16,6 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c M-x") 'smex-update-and-run)
-;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; dired
