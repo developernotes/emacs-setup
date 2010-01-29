@@ -47,6 +47,8 @@
           (org-agenda-todo-ignore-with-date nil)
           (org-agenda-sorting-strategy '(priority-down tag-up))))))
 
+(setq org-agenda-prefix-format "           %t %s")
+
 (defun gtd()
   (interactive)
   (find-file "~/org/gtd-items.org"))
