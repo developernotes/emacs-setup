@@ -24,6 +24,9 @@
 
 (set-face-font 'default "-*-Anonymous Pro-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 
+(require 'w32-fullscreen)
+(global-set-key (kbd "M-RET") 'w32-fullscreen)
+
  ;; suppress 'directory is unsafe error
 (require 'server)
 (when (and (= emacs-major-version 23) (equal window-system 'w32))
