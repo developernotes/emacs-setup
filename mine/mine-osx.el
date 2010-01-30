@@ -15,4 +15,6 @@
 
 (setq ns-command-modifier 'meta)
 
+(global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
+
 (provide 'mine-osx)
