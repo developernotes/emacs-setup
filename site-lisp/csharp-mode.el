@@ -494,6 +494,26 @@ Each list item should be a regexp matching a single identifier.")
     ("catch" "catch" c-electric-continued-statement 0)
     ("finally" "finally" c-electric-continued-statement 0)))
 
+(defvar cc-imenu-csharp-generic-expression
+  `((nil
+     ,(concat
+       "[" c-alpha "_][\]\[." c-alnum "_]+[ \t\n\r]+" ; type spec
+       "\\([" c-alpha "_][" c-alnum "_]+\\)" ; method name
+       "[ \t\n\r]*"
+       ;; An argument list that is either empty or contains at least
+       ;; two identifiers with only space between them.  This avoids
+       ;; matching e.g. "else if (foo)".
+       (concat "([ \t\n\r]*"
+	       "\\([\]\[.," c-alnum "_]+"
+	       "[ \t\n\r]+"
+	       "[\]\[.," c-alnum "_]"
+	       "[\]\[.," c-alnum "_ \t\n\r]*"
+	       "\\)?)")
+       "[.," c-alnum "_ \t\n\r]*"
+       "{"
+       ) 1))
+  "Imenu generic expression for CSharp mode.  See `imenu-generic-expression'.")
+
 (defvar csharp-mode-map (let ((map (c-make-inherited-keymap)))
                       ;; Add bindings which are only useful for C#
                       map)
@@ -539,6 +559,7 @@ Key bindings:
         mode-name "C#"
         local-abbrev-table csharp-mode-abbrev-table
         abbrev-mode t)
+	(cc-imenu-init cc-imenu-csharp-generic-expression)
   (use-local-map c-mode-map)
   ;; `c-init-language-vars' is a macro that is expanded at compile
   ;; time to a large `setq' with all the language variables and their
