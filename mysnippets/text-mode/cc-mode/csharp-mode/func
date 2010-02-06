@@ -1,0 +1,7 @@
+#name : func
+#group : general
+# --
+${4:public} virtual ${3:void} ${1:Function}($2)
+{
+				$0
+}

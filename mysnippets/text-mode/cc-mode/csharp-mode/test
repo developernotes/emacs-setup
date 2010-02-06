@@ -1,0 +1,8 @@
+#name :  test
+#group : general
+# --
+[Test]
+public void Should${1}()
+{
+  $0
+}

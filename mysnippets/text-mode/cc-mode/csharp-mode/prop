@@ -1,0 +1,5 @@
+#name : prop
+#group : general
+# --
+${3:public} ${2:Type} ${1:Name} { get; set; }
+$0
