@@ -33,6 +33,7 @@
 
 ;; highlight current line
 (global-hl-line-mode t)
+(set-face-background 'hl-line "#333638")
 
 ;; identify buffers with same name, postfix folder name
 (setq 
