@@ -2,7 +2,7 @@
 #group : general
 # --
 [Test]
-public void Should${1}()
+public void Should${1:DoSomething}()
 {
   $0
 }
