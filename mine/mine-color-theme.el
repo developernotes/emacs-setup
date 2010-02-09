@@ -5,7 +5,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 
-(require 'color-theme-twilight)
-(color-theme-twilight)
+(require 'color-theme-zen-and-art)
+(color-theme-zen-and-art)
 
 (provide 'mine-color-theme)
