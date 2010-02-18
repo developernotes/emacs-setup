@@ -6,7 +6,7 @@
 
 ;; configuration
 (setq org-directory "~/org/")
-(setq org-agenda-files '("~/org/gtd-items.org"))
+(setq org-agenda-files '("~/org/gtd-items.org" "~/org/blog.org"))
 (setq org-log-done t)
 ;;(add-to-list 'org-modules 'org-habit)
 
@@ -45,6 +45,7 @@
          ((org-agenda-todo-ignore-deadlines nil)
           (org-agenda-todo-ignore-scheduled nil)
           (org-agenda-todo-ignore-with-date nil)
+					(org-agenda-files '("~/org/gtd-items.org"))
           (org-agenda-sorting-strategy '(priority-down tag-up))))))
 
 (setq org-agenda-prefix-format "           %t %s")
