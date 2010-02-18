@@ -71,7 +71,8 @@
 
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n %i\n %a" "gtd-items.org" "Todo")
-        ("In Progress" ?i "* IN-PROGRESS %?" "gtd-items.org" "Todo")))
+        ("In Progress" ?i "* IN-PROGRESS %?" "gtd-items.org" "Todo")
+				("Blog" ?b "* %^{Title}  :blog:\n  :PROPERTIES:\n  :on: %T\n  :END:\n  %?\n  %x" "blog.org" date-tree)))
 
 (defun gtd-switch-to-agenda ()
   (interactive)
