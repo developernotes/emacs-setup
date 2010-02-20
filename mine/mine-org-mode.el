@@ -1,14 +1,26 @@
 (add-path "site-lisp/org-mode/lisp")
 (add-path "site-lisp/org-mode/contrib/lisp")
+(add-path "site-lisp/org-jekyll")
 
 ;; enable org-mode
 (require 'org)
+(require 'org-publish)
+(require 'org-jekyll)
 
 ;; configuration
 (setq org-directory "~/org/")
-(setq org-agenda-files '("~/org/gtd-items.org" "~/org/blog.org"))
+(setq org-agenda-files '("~/org/gtd-items.org" "~/blog/blog.org"))
 (setq org-log-done t)
-;;(add-to-list 'org-modules 'org-habit)
+
+;; org-jekyll
+(add-to-list 'org-publish-project-alist
+						 `("blog"
+							 :base-directory "~/blog"
+							 :recursive t
+							 :base-extension "org"
+							 :blog-publishing-directory "~/blog"
+							 :jekyll-sanitize-permalinks t
+							 :site-root "http://developernotes.com"))
 
 ;; keybindings
 (define-key global-map "\C-cl" 'org-store-link)
