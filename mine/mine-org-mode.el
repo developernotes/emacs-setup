@@ -46,7 +46,7 @@
           (org-agenda-todo-ignore-scheduled nil)
           (org-agenda-todo-ignore-with-date nil)
 					(org-agenda-files '("~/org/gtd-items.org"))
-          (org-agenda-sorting-strategy '(priority-down tag-up))))))
+          (org-agenda-sorting-strategy '(priority-down time-up tag-up))))))
 
 (setq org-agenda-prefix-format "           %t %s")
 
