@@ -9,7 +9,7 @@
 
 ;; configuration
 (setq org-directory "~/org/")
-(setq org-agenda-files '("~/org/gtd-items.org" "~/blog/blog.org"))
+(setq org-agenda-files '("~/org/gtd-items.org" "~/blog/content.org"))
 (setq org-log-done t)
 
 ;; org-jekyll
