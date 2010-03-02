@@ -62,6 +62,24 @@
 
 (setq org-agenda-prefix-format "           %t %s")
 
+(defun string-replace (old-value new-value source)
+  "replace old-value with new-value from source"
+  (with-temp-buffer
+    (insert source)
+    (goto-char (point-min))
+    (while (search-forward old-value nil t)
+      (replace-match new-value nil t))
+    (buffer-substring (point-min) (point-max))))
+
+(defun generate-timestamp ()
+	(format-time-string "%Y-%m-%d" (current-time)))
+
+(defun sanitize-title (title)
+	(string-replace " " "-" (downcase title)))
+
+(defun generate-filename (title)
+	(format "%s-%s.textile" (generate-timestamp) (sanitize-title title)))
+
 (defun gtd()
   (interactive)
   (find-file "~/org/gtd-items.org"))
@@ -85,7 +103,7 @@
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n %i\n %a" "gtd-items.org" "Todo")
         ("In Progress" ?i "* IN-PROGRESS %?" "gtd-items.org" "Todo")
-				("Blog" ?b "* %^{Title}  :blog:\n  :PROPERTIES:\n  :on: %T\n  :END:\n  %?\n  %x" "blog.org" date-tree)))
+				("Blog" ?b "---\nlayout: post\ntitle: \"%^{Title of post? }\"\n---\n" "%(generate-filename (read-from-minibuffer \"File name? \"))")))
 
 (defun gtd-switch-to-agenda ()
   (interactive)
