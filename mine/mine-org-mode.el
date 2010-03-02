@@ -62,15 +62,6 @@
 
 (setq org-agenda-prefix-format "           %t %s")
 
-(defun string-replace (old-value new-value source)
-  "replace old-value with new-value from source"
-  (with-temp-buffer
-    (insert source)
-    (goto-char (point-min))
-    (while (search-forward old-value nil t)
-      (replace-match new-value nil t))
-    (buffer-substring (point-min) (point-max))))
-
 (defun generate-timestamp ()
 	(format-time-string "%Y-%m-%d" (current-time)))
 
