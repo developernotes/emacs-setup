@@ -9,7 +9,7 @@
 
 ;; configuration
 (setq org-directory "~/org/")
-(setq org-agenda-files '("~/org/gtd-items.org" "~/blog/content.org"))
+(setq org-agenda-files '("~/org/gtd-items.org"))
 (setq org-log-done t)
 
 ;; org-jekyll
@@ -30,6 +30,9 @@
 (global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
 
 (run-at-time t 3600 'org-save-all-org-buffers)
+
+(defun my-org-file (file)
+  (concat org-directory "/" file))
 
 (setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m)))
 (setq remember-annotation-functions '(org-remember-annotation))
@@ -128,6 +131,56 @@
   (make-frame '((name . "remember") (width . 80) (height . 10)))
   (select-frame-by-name "remember")
   (org-remember))
+
+;; org-mobile setup
+(setq org-mobile-directory (my-org-file "stage/"))
+(setq org-mobile-inbox-for-pull (my-org-file "from-mobile.org"))
+
+(case system-type
+  ('windows-nt (setq 
+								mine-shell-copy-command                 "cp -r"
+								mine-org-mobile-local-staging-glob      "~/org/stage/*"
+								mine-org-mobile-local-staging-directory "~/org/stage/"
+								mine-org-mobile-local-staging-file      "~/org/stage/mobileorg.org"
+								mine-org-mobile-remote-staging-file     "m:/org/mobileorg.org"
+								mine-org-mobile-remote-directory        "m:/org/"
+								))) 
+
+(autoload 'org-mobile-push "org-mobile" "Push the state of the org files to org-mobile-directory" t)
+(autoload 'org-mobile-pull "org-mobile" "Pull the contents of org-mobile-capture-file" t)
+
+(defun copy-staged-files-to-remote ()
+	(shell-command (format "%s %s %s"
+												 mine-shell-copy-command 
+												 mine-org-mobile-local-staging-glob 
+												 mine-org-mobile-remote-directory)))
+
+(defun copy-remote-changes-to-local-staging ()
+	(shell-command (format "%s %s %s"
+												 mine-shell-copy-command
+												 mine-org-mobile-remote-staging-file
+												 mine-org-mobile-local-staging-directory)))
+
+(defun update-remote-with-applied-changes ()
+	(shell-command (format "%s %s %s"
+												 mine-shell-copy-command
+												 mine-org-mobile-local-staging-file
+												 mine-org-mobile-remote-directory)))
+
+(defun mine-org-mobile-sync ()
+  (interactive)
+  (message (format "Syncing org-mobile at %s" (current-time-string)))
+  (org-mobile-pull)
+  (org-mobile-push))
+
+(add-hook 'org-mobile-post-push-hook
+       (lambda () (copy-staged-files-to-remote)))
+(add-hook 'org-mobile-pre-pull-hook
+       (lambda () (copy-remote-changes-to-local-staging)))
+(add-hook 'org-mobile-post-pull-hook
+       (lambda () (update-remote-with-applied-changes)))
+
+(run-at-time t 7200 'mine-org-mobile-sync)
 
 (custom-set-faces
  '(outline-1 ((t (:foreground "#D6B163" :bold t))))
