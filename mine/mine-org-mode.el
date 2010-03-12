@@ -136,15 +136,18 @@
 (setq org-mobile-directory (my-org-file "stage/"))
 (setq org-mobile-inbox-for-pull (my-org-file "from-mobile.org"))
 
+(setq mine-shell-copy-command                 "cp -r"
+			mine-org-mobile-local-staging-glob      "~/org/stage/*"
+			mine-org-mobile-local-staging-directory "~/org/stage/"
+			mine-org-mobile-local-staging-file      "~/org/stage/mobileorg.org")
+
 (case system-type
   ('windows-nt (setq 
-								mine-shell-copy-command                 "cp -r"
-								mine-org-mobile-local-staging-glob      "~/org/stage/*"
-								mine-org-mobile-local-staging-directory "~/org/stage/"
-								mine-org-mobile-local-staging-file      "~/org/stage/mobileorg.org"
 								mine-org-mobile-remote-staging-file     "m:/org/mobileorg.org"
-								mine-org-mobile-remote-directory        "m:/org/"
-								))) 
+								mine-org-mobile-remote-directory        "m:/org/"))
+  ('darwin     (setq 
+								mine-org-mobile-remote-staging-file     "/Volumes/developernotes/org/mobileorg.org"
+								mine-org-mobile-remote-directory        "/Volumes/developernotes/org/"))) 
 
 (autoload 'org-mobile-push "org-mobile" "Push the state of the org files to org-mobile-directory" t)
 (autoload 'org-mobile-pull "org-mobile" "Pull the contents of org-mobile-capture-file" t)
@@ -180,7 +183,7 @@
 (add-hook 'org-mobile-post-pull-hook
        (lambda () (update-remote-with-applied-changes)))
 
-(run-at-time t 7200 'mine-org-mobile-sync)
+(run-at-time t 3600 'mine-org-mobile-sync)
 
 (custom-set-faces
  '(outline-1 ((t (:foreground "#D6B163" :bold t))))
