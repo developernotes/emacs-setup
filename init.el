@@ -27,6 +27,7 @@
 (require 'mine-csharp)
 (require 'mine-ruby)
 (require 'mine-javascript)
+(require 'mine-haskell)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
