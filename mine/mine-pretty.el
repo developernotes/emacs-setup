@@ -5,7 +5,7 @@
 (show-paren-mode t)
 
 (case system-type
-  ('windows-nt (setq mine-font-name-normal "Anonymous Pro-14" 
+  ('windows-nt (setq mine-font-name-normal "Inconsolata-14" 
 		     mine-font-name-large "Anonymous Pro-18"))
   ('darwin     (setq mine-font-name-normal "Inconsolata-18"
 		     mine-font-name-large "Monaco-Bold-20")))
