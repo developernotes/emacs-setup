@@ -2,6 +2,7 @@
 (require 'cygwin-mount)
 
 (setq doc-view-ghostscript-program "C:/Program Files/gs/gs8.70/bin/gswin32c.exe")
+(setq haskell-program-name "C:/Program Files/Haskell Platform/2009.2.0.2/bin/ghci.exe")
 
 (setenv "PATH" (concat "c:/cygwin/bin;" (getenv "PATH")))
 (setq exec-path (cons "c:/tools/bin" exec-path))
