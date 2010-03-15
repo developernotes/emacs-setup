@@ -185,6 +185,8 @@
 
 (run-at-time t 3600 'mine-org-mobile-sync)
 
+(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 10) (nil :maxlevel . 10))))
+
 (custom-set-faces
  '(outline-1 ((t (:foreground "#D6B163" :bold t))))
  '(outline-2 ((t (:foreground "#A5F26E" :bold t))))
