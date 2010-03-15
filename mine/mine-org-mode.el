@@ -121,7 +121,7 @@
       (delete-frame)))
 
 ;; make the frame contain a single window. by default org-remember
-v;; splits the window.
+;; splits the window.
 (add-hook 'remember-mode-hook
           'delete-other-windows)
 
