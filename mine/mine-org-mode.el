@@ -121,7 +121,7 @@
       (delete-frame)))
 
 ;; make the frame contain a single window. by default org-remember
-;; splits the window.
+v;; splits the window.
 (add-hook 'remember-mode-hook
           'delete-other-windows)
 
@@ -183,7 +183,7 @@
 (add-hook 'org-mobile-post-pull-hook
        (lambda () (update-remote-with-applied-changes)))
 
-(run-at-time t 3600 'mine-org-mobile-sync)
+(run-at-time t 7200 'mine-org-mobile-sync)
 
 (setq org-refile-targets (quote ((org-agenda-files :maxlevel . 10) (nil :maxlevel . 10))))
 
