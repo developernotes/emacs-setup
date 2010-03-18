@@ -3,6 +3,7 @@
 (global-set-key "\C-cv" 'mine-toggle-transparency)
 (global-set-key "\C-cw" 'toggle-truncate-lines)
 (global-set-key "\C-cs" 'ido-goto-symbol)
+(global-set-key "\C-cp" 'mine-goto-symbol-at-point)
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")

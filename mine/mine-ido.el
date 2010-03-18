@@ -1,12 +1,18 @@
 
 (require 'ido)
+(require 'thingatpt)
 
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq confirm-nonexistent-file-or-buffer -1)
 (ido-everywhere 1)
 
-(defun ido-goto-symbol ()
+(defun mine-goto-symbol-at-point ()
+	"Will navigate to the symbol at the current point of the cursor"
+	(interactive)
+	(ido-goto-symbol (thing-at-point 'symbol)))
+
+(defun ido-goto-symbol (&optional a-symbol)
     "Will update the imenu index and then use ido to select a symbol to navigate to"
     (interactive)
     (imenu--make-index-alist)
@@ -32,7 +38,10 @@
                                  (add-to-list 'symbol-names name)
                                  (add-to-list 'name-and-pos (cons name position))))))))
         (addsymbols imenu--index-alist))
-      (let* ((selected-symbol (ido-completing-read "Symbol? " symbol-names))
+      (let* ((selected-symbol 
+							(if (null a-symbol)
+								(ido-completing-read "Symbol? " symbol-names)
+								a-symbol))
              (position (cdr (assoc selected-symbol name-and-pos))))
         (cond
          ((overlayp position)
