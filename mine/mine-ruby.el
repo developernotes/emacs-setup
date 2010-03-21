@@ -4,6 +4,11 @@
 (require 'rinari)
 (require 'ruby-electric)
 
+;; configure rsense
+(setq rsense-home (getenv "RSENSE_HOME"))
+(add-to-list 'load-path (concat rsense-home "/etc"))
+(require 'rsense)
+
 
 ;;File type associations 
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
