@@ -21,6 +21,7 @@
 (require 'mine-info-mode)
 (require 'mine-bookmark)
 (require 'mine-color-theme)
+(require 'mine-auto-complete)
 (require 'mine-dired)
 (require 'mine-shell)
 (require 'mine-html)
