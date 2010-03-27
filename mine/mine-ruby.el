@@ -5,7 +5,7 @@
 (require 'ruby-electric)
 
 ;; configure rsense
-(setq rsense-home (getenv "RSENSE_HOME"))
+(setq rsense-home (expand-file-name (getenv "RSENSE_HOME")))
 (add-to-list 'load-path (concat rsense-home "/etc"))
 (require 'rsense)
 
