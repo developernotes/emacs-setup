@@ -9,7 +9,7 @@
 (add-path "site-lisp")
 
 (require 'cl)
-(require 'mine-ido)
+(require 'mine-navigation)
 (require 'mine-dependencies)
 (require 'mine-customizations)
 (require 'mine-defuns)

@@ -1,6 +1,22 @@
 
 (require 'ido)
 (require 'thingatpt)
+(require 'ibuffer-git)
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
+
+(setq ibuffer-formats 
+			'((mark modified read-only git-status-mini 
+			  " "
+        (name 18 18 :left :elide)
+        " "
+        (size 9 -1 :right)
+        " "
+        (mode 16 16 :left :elide)
+        " "
+        (git-status 8 8 :left)
+        " " filename-and-process)))
 
 (ido-mode t)
 (setq ido-enable-flex-matching t)
@@ -49,4 +65,4 @@
          (t
           (goto-char position))))))
 
-(provide 'mine-ido)
+(provide 'mine-navigation)
