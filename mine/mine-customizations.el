@@ -1,6 +1,9 @@
 
 (require 'uniquify) 
 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
+
 (setq custom-file (concat emacs-root "/mine/mine-customizations.el"))
 
 (setenv "EDITOR" "emacsclient -a=vim")
