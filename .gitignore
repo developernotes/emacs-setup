@@ -3,3 +3,4 @@ server/
 .org-id-locations
 ac-comphist.dat
 elpa/archive-contents
+tramp
