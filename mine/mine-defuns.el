@@ -3,8 +3,15 @@
   "kill all buffers, leaving *scratch* only"
   (interactive)
   (mapcar (lambda (x) (kill-buffer x))
-	  (buffer-list))
+					(buffer-list))
   (delete-other-windows))
+
+(defun kill-all-buffers-but-current ()
+	"kills all buffers except your current buffer"
+	(interactive)
+	(mapcar (lambda (x) (kill-buffer x))
+					(remove (current-buffer) (buffer-list)))
+	(delete-other-windows))
 
 (defun tail ()
 	"tail the file loaded within the current buffer"
