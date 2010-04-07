@@ -1,9 +1,10 @@
 
 ;; adjust pathing
 (when (equal system-type 'darwin)
-  (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
-  (push "/opt/local/bin" exec-path))
-
+	(append-to-environment-variable "PATH" "/opt/local/bin")
+	(append-to-environment-variable "PATH" "/usr/local/bin")
+	(append-to-environment-variable "PATH" "/usr/local/git/bin")
+	(append-to-environment-variable "PATH" "/opt/local/bin"))
 
 (setq doc-view-ghostscript-program "/usr/local/bin/gs")
 
