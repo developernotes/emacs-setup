@@ -10,3 +10,6 @@
 [submodule "site-lisp/org-jekyll"]
 	path = site-lisp/org-jekyll
 	url = git://github.com/juanre/org-jekyll.git
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
+	url = git://gitorious.org/magit/mainline.git
