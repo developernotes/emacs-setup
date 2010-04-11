@@ -1,6 +1,6 @@
 
 (defun append-to-environment-variable (variable path)
-	(setenv variable (concat (format "%s:%s:" (getenv variable) path)))) 
+	(setenv variable (concat (format "%s:%s" (getenv variable) path)))) 
 
 (defun kill-all-buffers ()
   "kill all buffers, leaving *scratch* only"
