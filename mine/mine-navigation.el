@@ -2,6 +2,7 @@
 (require 'ido)
 (require 'thingatpt)
 (require 'ibuffer-git)
+(require 'bm)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
@@ -17,6 +18,10 @@
         " "
         (git-status 8 8 :left)
         " " filename-and-process)))
+
+(global-set-key (kbd "<C-f2>") 'bm-toggle)
+(global-set-key (kbd "<SM-right>")   'bm-next)
+(global-set-key (kbd "<SM-left>") 'bm-previous)
 
 (ido-mode t)
 (setq ido-enable-flex-matching t)
