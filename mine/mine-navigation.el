@@ -19,9 +19,10 @@
         (git-status 8 8 :left)
         " " filename-and-process)))
 
-(global-set-key (kbd "<C-f2>") 'bm-toggle)
-(global-set-key (kbd "<SM-right>")   'bm-next)
-(global-set-key (kbd "<SM-left>") 'bm-previous)
+(global-set-key (kbd "C-c m")      'bm-toggle)
+(global-set-key (kbd "C-c k")      'bm-remove-all-current-buffer)
+(global-set-key (kbd "C-<right>")  'bm-next)
+(global-set-key (kbd "C-<left>")   'bm-previous)
 
 (ido-mode t)
 (setq ido-enable-flex-matching t)
