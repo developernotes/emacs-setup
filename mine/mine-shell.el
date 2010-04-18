@@ -1,4 +1,6 @@
 
+(add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
+
 (add-hook 'shell-mode-hook 'n-shell-mode-hook)
 (defun n-shell-mode-hook ()
   "shell mode customizations."
