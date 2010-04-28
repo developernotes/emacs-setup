@@ -3,6 +3,9 @@
 (require 'thingatpt)
 (require 'ibuffer-git)
 (require 'bm)
+(require 'browse-kill-ring)
+
+(browse-kill-ring-default-keybindings)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
