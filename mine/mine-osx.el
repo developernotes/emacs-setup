@@ -4,7 +4,8 @@
 	(append-to-environment-variable "PATH" "/opt/local/bin")
 	(append-to-environment-variable "PATH" "/usr/local/bin")
 	(append-to-environment-variable "PATH" "/usr/local/git/bin")
-	(append-to-environment-variable "PATH" "/opt/local/bin"))
+	(append-to-environment-variable "PATH" "/opt/local/bin")
+	(append-to-environment-variable "PATH" "/usr/texbin"))
 
 (add-to-list 'exec-path "/usr/local/git/bin")
 
