@@ -4,11 +4,17 @@
 (require 'ibuffer-git)
 (require 'bm)
 (require 'browse-kill-ring)
+(require 'recentf)
 
-;; Killring
+;; killring
 (browse-kill-ring-default-keybindings)
 
-;; Region/line movement
+;; recent files
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;; region/line movement
 (defun move-text-internal (arg)
   (cond
    ((and mark-active transient-mark-mode)
