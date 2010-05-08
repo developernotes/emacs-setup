@@ -5,6 +5,7 @@
 (global-set-key "\C-cs" 'ido-goto-symbol)
 (global-set-key "\C-cp" 'mine-goto-symbol-at-point)
 (global-set-key "\M-g"  'goto-line)
+(global-set-key "\C-cn" 'clean-up-buffer-or-region)
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")
