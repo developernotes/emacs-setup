@@ -31,10 +31,6 @@
 
 (setq-default tab-width 2)
 
-;; highlight current line
-(global-hl-line-mode t)
-(set-face-background 'hl-line "#333638")
-
 ;; identify buffers with same name, postfix folder name
 (setq 
   uniquify-buffer-name-style 'post-forward
