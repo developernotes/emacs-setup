@@ -25,6 +25,7 @@
 (require 'mine-color-theme)
 (require 'mine-auto-complete)
 (require 'mine-dired)
+(require 'mine-sql)
 (require 'mine-shell)
 (require 'mine-html)
 (require 'mine-csharp)
