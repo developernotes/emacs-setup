@@ -8,6 +8,7 @@
 	(append-to-environment-variable "PATH" "/usr/texbin"))
 
 (add-to-list 'exec-path "/usr/local/git/bin")
+(add-to-list 'exec-path "/usr/local/mysql/bin")
 
 (setq doc-view-ghostscript-program "/usr/local/bin/gs")
 
