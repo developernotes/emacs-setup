@@ -1,5 +1,4 @@
 
-;; dark color theme
 (add-path "site-lisp/themes")
 (add-path "site-lisp/color-theme-6.6.0")
 
@@ -14,6 +13,7 @@
 
 ;; dark color current line
 (set-face-background 'hl-line "#333638")
+
 ;; light color current line
 ;;(set-face-background 'hl-line "#DBDBDB")
 
