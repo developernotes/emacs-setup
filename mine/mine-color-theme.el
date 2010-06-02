@@ -1,17 +1,20 @@
 
 ;; dark color theme
-;;(add-path "site-lisp/themes")
-;;(add-path "site-lisp/color-theme-6.6.0")
+(add-path "site-lisp/themes")
+(add-path "site-lisp/color-theme-6.6.0")
 
-;;(require 'color-theme)
-;;(require 'color-theme-zen-and-art)
+(require 'color-theme)
+(require 'color-theme-zen-and-art)
 
-;;(color-theme-initialize)
-;;(color-theme-zen-and-art)
-;;(set-face-background 'hl-line "#333638")
+(color-theme-initialize)
+(color-theme-zen-and-art)
 
 ;; highlight current line
 (global-hl-line-mode t)
-(set-face-background 'hl-line "#DBDBDB")
+
+;; dark color current line
+(set-face-background 'hl-line "#333638")
+;; light color current line
+;;(set-face-background 'hl-line "#DBDBDB")
 
 (provide 'mine-color-theme)
