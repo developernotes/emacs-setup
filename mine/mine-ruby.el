@@ -4,16 +4,6 @@
 (require 'rinari)
 (require 'ruby-electric)
 
-;; configure rsense
-(require 'rsense)
-(setq rsense-home (getenv "RSENSE_HOME"))
-(add-to-list 'load-path (concat rsense-home "/etc"))
-
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (add-to-list 'ac-sources 'ac-source-rsense-method)
-            (add-to-list 'ac-sources 'ac-source-rsense-constant)))
-
 ;;File type associations 
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
