@@ -133,55 +133,14 @@
   (org-remember))
 
 ;; org-mobile setup
-(setq org-mobile-directory (my-org-file "stage/"))
-(setq org-mobile-inbox-for-pull (my-org-file "from-mobile.org"))
-
-(setq mine-shell-copy-command                 "cp -r"
-			mine-org-mobile-local-staging-glob      "~/org/stage/*"
-			mine-org-mobile-local-staging-directory "~/org/stage/"
-			mine-org-mobile-local-staging-file      "~/org/stage/mobileorg.org")
-
-(case system-type
-  ('windows-nt (setq 
-								mine-org-mobile-remote-staging-file     "m:/org/mobileorg.org"
-								mine-org-mobile-remote-directory        "m:/org/"))
-  ('darwin     (setq 
-								mine-org-mobile-remote-staging-file     "/Volumes/developernotes/org/mobileorg.org"
-								mine-org-mobile-remote-directory        "/Volumes/developernotes/org/"))) 
-
-(autoload 'org-mobile-push "org-mobile" "Push the state of the org files to org-mobile-directory" t)
-(autoload 'org-mobile-pull "org-mobile" "Pull the contents of org-mobile-capture-file" t)
-
-(defun copy-staged-files-to-remote ()
-	(shell-command (format "%s %s %s"
-												 mine-shell-copy-command 
-												 mine-org-mobile-local-staging-glob 
-												 mine-org-mobile-remote-directory)))
-
-(defun copy-remote-changes-to-local-staging ()
-	(shell-command (format "%s %s %s"
-												 mine-shell-copy-command
-												 mine-org-mobile-remote-staging-file
-												 mine-org-mobile-local-staging-directory)))
-
-(defun update-remote-with-applied-changes ()
-	(shell-command (format "%s %s %s"
-												 mine-shell-copy-command
-												 mine-org-mobile-local-staging-file
-												 mine-org-mobile-remote-directory)))
+(setq org-mobile-inbox-for-pull (my-org-file "mobile-updates.org"))
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
 
 (defun mine-org-mobile-sync ()
   (interactive)
   (message (format "Syncing org-mobile at %s" (current-time-string)))
   (org-mobile-pull)
   (org-mobile-push))
-
-(add-hook 'org-mobile-post-push-hook
-       (lambda () (copy-staged-files-to-remote)))
-(add-hook 'org-mobile-pre-pull-hook
-       (lambda () (copy-remote-changes-to-local-staging)))
-(add-hook 'org-mobile-post-pull-hook
-       (lambda () (update-remote-with-applied-changes)))
 
 (run-at-time t 7200 'mine-org-mobile-sync)
 
