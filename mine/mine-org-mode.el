@@ -1,26 +1,13 @@
 (add-path "site-lisp/org-mode/lisp")
 (add-path "site-lisp/org-mode/contrib/lisp")
-(add-path "site-lisp/org-jekyll")
 
 ;; enable org-mode
 (require 'org)
-(require 'org-publish)
-(require 'org-jekyll)
 
 ;; configuration
 (setq org-directory "~/org/")
 (setq org-agenda-files '("~/org/gtd-items.org"))
 (setq org-log-done t)
-
-;; org-jekyll
-(add-to-list 'org-publish-project-alist
-						 `("blog"
-							 :base-directory "~/blog"
-							 :recursive t
-							 :base-extension "org"
-							 :blog-publishing-directory "~/blog"
-							 :jekyll-sanitize-permalinks t
-							 :site-root "http://developernotes.com"))
 
 ;; keybindings
 (define-key global-map "\C-cl" 'org-store-link)
@@ -65,15 +52,6 @@
 
 (setq org-agenda-prefix-format "           %t %s")
 
-(defun generate-timestamp ()
-	(format-time-string "%Y-%m-%d" (current-time)))
-
-(defun sanitize-title (title)
-	(string-replace " " "-" (downcase title)))
-
-(defun generate-filename (title)
-	(format "%s-%s.textile" (generate-timestamp) (sanitize-title title)))
-
 (defun gtd()
   (interactive)
   (find-file "~/org/gtd-items.org"))
@@ -96,8 +74,7 @@
 
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %?\n %i\n %a" "gtd-items.org" "Todo")
-        ("In Progress" ?i "* IN-PROGRESS %?" "gtd-items.org" "Todo")
-				("Blog" ?b "---\nlayout: post\ntitle: \"%^{Title of post? }\"\n---\n" "%(generate-filename (read-from-minibuffer \"File name? \"))")))
+        ("In Progress" ?i "* IN-PROGRESS %?" "gtd-items.org" "Todo")))
 
 (defun gtd-switch-to-agenda ()
   (interactive)
