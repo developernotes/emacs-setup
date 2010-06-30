@@ -1,8 +1,10 @@
 (add-path "site-lisp/org-mode/lisp")
 (add-path "site-lisp/org-mode/contrib/lisp")
+(add-path "site-lisp/google-maps")
 
 ;; enable org-mode
 (require 'org)
+(require 'google-maps)
 
 ;; configuration
 (setq org-directory "~/org/")
