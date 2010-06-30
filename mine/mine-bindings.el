@@ -17,19 +17,19 @@
                (regexp-quote isearch-string))))))
 
 ;; smex
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c M-x") 'smex-update-and-run)
+(global-set-key (kbd "M-x")         'smex)
+(global-set-key (kbd "M-X")         'smex-major-mode-commands)
+(global-set-key (kbd "C-c M-x")     'smex-update-and-run)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; dired
 (global-set-key "\C-x\C-d" 'dired)
 
 ;; window resizing
-(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<left>")  'shrink-window-horizontally)
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "S-C-<down>") 'shrink-window)
-(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+(global-set-key (kbd "S-C-<down>")  'shrink-window)
+(global-set-key (kbd "S-C-<up>")    'enlarge-window)
 
 ;; file navigation
 (global-set-key "\C-x\C-p" 'find-file-at-point)
