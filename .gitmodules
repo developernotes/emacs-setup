@@ -9,7 +9,7 @@
 	url = git://repo.or.cz/org-mode.git
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
-	url = git://gitorious.org/magit/mainline.git
+	url = git://github.com/philjackson/magit.git
 [submodule "site-lisp/google-maps"]
 	path = site-lisp/google-maps
 	url = git://git.naquadah.org/~jd/jd-el.git
