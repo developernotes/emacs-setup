@@ -1,3 +1,10 @@
+(require 'multi-shell)
+
+(setq multi-shell-command "bash")
+
+(global-set-key (kbd "C-c t") 'multi-shell-next)
+(global-set-key (kbd "C-c T") 'multi-shell-new)  ;; create a new one
+
 
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 
