@@ -5,6 +5,8 @@
 
 (setenv "EDITOR" "emacsclient -a=vim")
 
+(display-battery-mode)
+
 ;; disable the startup screen
 (setq inhibit-startup-screen t)
 
