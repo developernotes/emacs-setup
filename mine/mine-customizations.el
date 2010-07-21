@@ -3,14 +3,6 @@
 
 (setq custom-file (concat emacs-root "/mine/mine-customizations.el"))
 
-;; emacs server config.
-(let ((dir (getenv "EOPEN_DIR"))
-      (file (getenv "EOPEN_FILE")))
-  (if dir
-      (cd dir))
-  (if file
-      (find-file file)))
-
 (display-battery-mode)
 
 ;; disable the startup screen

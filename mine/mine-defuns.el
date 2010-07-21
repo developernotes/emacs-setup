@@ -1,4 +1,14 @@
 
+(defun mine-server-start ()
+	"Starts the emacs server, navigating to either a directory or file if set via environment variables"
+	(server-start)
+	(let ((dir  (getenv "EOPEN_DIR"))
+        (file (getenv "EOPEN_FILE")))
+  (if dir
+      (cd dir))
+  (if file
+      (find-file file))))
+
 (defun swap-windows ()
   "If you have 2 windows, it swaps them."
   (interactive)
