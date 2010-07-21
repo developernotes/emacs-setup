@@ -51,7 +51,7 @@
 (defun mine-normal-display ()
   (interactive)
   (mine-use-normal-font)
-  (mine-use-transparency))
+  (mine-use-no-transparency))
  
 (defun mine-presenter-display ()
   (interactive)
