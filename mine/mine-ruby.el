@@ -3,6 +3,9 @@
 
 (require 'rinari)
 (require 'ruby-electric)
+(require 'rvm)
+
+(rvm-use-default)
 
 ;;File type associations 
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
