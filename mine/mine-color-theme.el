@@ -11,9 +11,10 @@
 ;; highlight current line
 (global-hl-line-mode t)
 
-;; dark color current line
+;; adjust coloring for dark theme
 (set-face-background 'hl-line "#333638")
 (set-face-background 'region "#999966")
+(set-face-foreground 'font-lock-comment-face "#d8e5c5")
 
 ;; light color current line
 ;;(set-face-background 'hl-line "#DBDBDB")
