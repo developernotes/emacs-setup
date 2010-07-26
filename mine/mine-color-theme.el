@@ -13,6 +13,7 @@
 
 ;; dark color current line
 (set-face-background 'hl-line "#333638")
+(set-face-background 'region "#999966")
 
 ;; light color current line
 ;;(set-face-background 'hl-line "#DBDBDB")
