@@ -8,6 +8,7 @@
 (global-set-key "\C-cn"     'clean-up-buffer-or-region)
 (global-set-key "\C-c\C-p"  'sql-connection-profiles)
 (global-set-key "\C-c\o"    'clean-up-buffer-or-region)
+(global-set-key "\C-c\g"    'magit-status)
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")
