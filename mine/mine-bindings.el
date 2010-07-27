@@ -7,6 +7,7 @@
 (global-set-key "\M-g"      'goto-line)
 (global-set-key "\C-cn"     'clean-up-buffer-or-region)
 (global-set-key "\C-c\C-p"  'sql-connection-profiles)
+(global-set-key "\C-c\o"    'clean-up-buffer-or-region)
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")
@@ -36,6 +37,6 @@
 
 ;; diff the current buffer with the file contents
 (global-set-key (kbd "C-c d")
-   (lambda () (interactive) (diff-buffer-with-file (current-buffer))))
+                (lambda () (interactive) (diff-buffer-with-file (current-buffer))))
 
 (provide 'mine-bindings)
