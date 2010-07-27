@@ -5,6 +5,8 @@
 (require 'bm)
 (require 'browse-kill-ring)
 (require 'recentf)
+(require 'dim-switch-window)
+
 
 ;; killring
 (browse-kill-ring-default-keybindings)
