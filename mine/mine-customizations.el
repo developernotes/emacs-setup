@@ -42,11 +42,6 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;; enable winmove
-(when (fboundp 'windmove-default-keybindings)
-      (windmove-default-keybindings))
-(windmove-default-keybindings 'meta)
-
 ;; ELPA
 (when
     (load

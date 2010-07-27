@@ -7,6 +7,10 @@
 (require 'recentf)
 (require 'dim-switch-window)
 
+;; enable winmove
+(when (fboundp 'windmove-default-keybindings)
+      (windmove-default-keybindings))
+(windmove-default-keybindings 'meta)
 
 ;; killring
 (browse-kill-ring-default-keybindings)
