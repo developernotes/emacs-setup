@@ -5,10 +5,9 @@
 (global-set-key "\C-cs"     'ido-goto-symbol)
 (global-set-key "\C-cp"     'mine-goto-symbol-at-point)
 (global-set-key "\M-g"      'goto-line)
-(global-set-key "\C-cn"     'clean-up-buffer-or-region)
-(global-set-key "\C-c\C-p"  'sql-connection-profiles)
 (global-set-key "\C-c\o"    'clean-up-buffer-or-region)
-(global-set-key "\C-c\g"    'magit-status)
+(global-set-key "\C-c\C-p"  'sql-connection-profiles)
+(global-set-key "\C-x\g"    'magit-status)
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")
