@@ -11,7 +11,7 @@
 ;; type only y or n for confirmation
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq indent-tabs-mode nil) 
+(setq-default indent-tabs-mode nil) 
 (delete-selection-mode t)
 
 ;; disable user prompt
