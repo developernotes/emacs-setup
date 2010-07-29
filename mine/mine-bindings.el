@@ -1,6 +1,7 @@
 
 ;; misc
 (global-set-key "\r"        'newline-and-indent)
+(global-set-key "\C-a"      'beginning-of-line-or-back-to-indention)
 (global-set-key "\C-cv"     'mine-toggle-transparency)
 (global-set-key "\C-cw"     'toggle-truncate-lines)
 (global-set-key "\C-cs"     'ido-goto-symbol)
