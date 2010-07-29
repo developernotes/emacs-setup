@@ -75,7 +75,7 @@
         (git-status 8 8 :left)
         " " filename-and-process)))
 
-(global-set-key (kbd "C-c m")      'bm-toggle)
+(global-set-key (kbd "C-c h")      'bm-toggle)
 (global-set-key (kbd "C-c k")      'bm-remove-all-current-buffer)
 (global-set-key (kbd "C-<right>")  'bm-next)
 (global-set-key (kbd "C-<left>")   'bm-previous)
