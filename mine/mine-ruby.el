@@ -17,6 +17,8 @@
 
 (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
 
+(define-key ruby-mode-map "\r" 'reindent-then-newline-and-indent)
+
 ;; autotest setup
 (autoload 'autotest "autotest" "Run autotest" t)
 (setq autotest-use-ui t)
