@@ -23,6 +23,7 @@
 
 ;; disable audible bell
 (setq visible-bell t)
+(blink-cursor-mode t)
 
 ;; remove menubar/toolbar
 (menu-bar-mode -1)
