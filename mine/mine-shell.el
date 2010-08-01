@@ -1,6 +1,6 @@
 (require 'multi-shell)
 
-(setq multi-shell-command "bash")
+(setq multi-shell-command "zsh")
 
 (global-set-key (kbd "C-c t") 'multi-shell-next)
 (global-set-key (kbd "C-c T") 'multi-shell-new)  ;; create a new one
