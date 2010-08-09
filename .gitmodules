@@ -13,3 +13,6 @@
 [submodule "site-lisp/google-maps"]
 	path = site-lisp/google-maps
 	url = git://git.naquadah.org/~jd/jd-el.git
+[submodule "site-lisp/showoff-mode"]
+	path = site-lisp/showoff-mode
+	url = git://github.com/developernotes/showoff-mode.git
