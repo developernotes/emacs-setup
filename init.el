@@ -32,6 +32,7 @@
 (require 'mine-ruby)
 (require 'mine-javascript)
 (require 'mine-haskell)
+(require 'mine-showoff)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
