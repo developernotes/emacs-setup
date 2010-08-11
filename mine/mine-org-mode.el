@@ -1,11 +1,8 @@
 (add-path "site-lisp/org-mode/lisp")
 (add-path "site-lisp/org-mode/contrib/lisp")
-(add-path "site-lisp/google-maps")
 
 ;; enable org-mode
 (require 'org)
-(require 'google-maps)
-(require 'org-location-google-maps)
 
 ;; configuration
 (setq org-directory "~/org/")
@@ -18,7 +15,6 @@
 (define-key global-map "\C-cr" 'org-remember)
 (global-set-key (kbd "C-c g g") 'gtd)
 (global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
-(define-key org-agenda-mode-map "\C-c\L" 'org-agenda-location-google-maps)
 
 (run-at-time t 3600 'org-save-all-org-buffers)
 
