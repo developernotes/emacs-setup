@@ -5,7 +5,7 @@
 (require 'bm)
 (require 'browse-kill-ring)
 (require 'recentf)
-(require 'dim-switch-window)
+(require 'switch-window)
 
 ;; enable winmove
 (when (fboundp 'windmove-default-keybindings)
