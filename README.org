@@ -1,0 +1,12 @@
+** Installation
+
+Initial installation:
+
+:  $ cd ~
+:  $ git clone git://github.com/developernotes/emacs-setup.git .emacs.d
+:  $ rake submodules:update
+
+Updating submodules:
+
+:  $ cd ~/.emacs.d
+:  $ rake submodules:pull
