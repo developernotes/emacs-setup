@@ -8,7 +8,6 @@
 (global-set-key "\C-cp"     'mine-goto-symbol-at-point)
 (global-set-key "\M-g"      'goto-line)
 (global-set-key "\C-c\o"    'clean-up-buffer-or-region)
-(global-set-key "\C-c\C-p"  'sql-connection-profiles)
 (global-set-key "\C-c\m"    'magit-status)
 (global-set-key "\C-x\C-p"  'find-file-at-point)
 (global-set-key "\C-x\C-d"  'dired)

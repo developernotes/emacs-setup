@@ -1,7 +1,6 @@
 (add-path "site-lisp/org-mode/lisp")
 (add-path "site-lisp/org-mode/contrib/lisp")
 
-;; enable org-mode
 (require 'org)
 
 ;; configuration
@@ -10,21 +9,26 @@
 (setq org-log-done t)
 
 ;; keybindings
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(define-key global-map "\C-cr" 'org-remember)
+(global-set-key (kbd "C-c l")   'org-store-link)
+(global-set-key (kbd "C-c a")   'org-agenda)
+(global-set-key (kbd "C-c c")   'org-capture)
 (global-set-key (kbd "C-c g g") 'gtd)
 (global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
+(global-set-key (kbd "C-c g w") '(lambda () (interactive)(find-file (concat org-directory "work.org"))))
 
 (run-at-time t 3600 'org-save-all-org-buffers)
 
 (defun my-org-file (file)
   (concat org-directory "/" file))
 
+;; org capture setup
+(setq org-default-notes-file (concat org-directory "/gtd-items.org"))
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "gtd-items.org" "Todo") "* TODO %?")
+        ("i" "In Progress" entry (file+headline "gtd-items.org" "In Progress") "* IN-PROGRESS %?")
+        ("w" "Work" entry (file+headline "work.org" "Work Tasks") "* TODO %?")))
+
 (setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m)))
-(setq remember-annotation-functions '(org-remember-annotation))
-(setq remember-handler-functions '(org-remember-handler))
-(add-hook 'remember-mode-hook 'org-remember-apply-template)
 
 ;; agenda configuraion
 (setq org-agenda-search-headline-for-time nil
@@ -72,10 +76,6 @@
       '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)"))
       org-use-fast-todo-selection t)
 
-(setq org-remember-templates
-      '(("Todo" ?t "* TODO %?\n %i\n %a" "gtd-items.org" "Todo")
-        ("In Progress" ?i "* IN-PROGRESS %?" "gtd-items.org" "Todo")))
-
 (defun gtd-switch-to-agenda ()
   (interactive)
   (if (get-buffer "*Org Agenda*")
@@ -85,29 +85,6 @@
         (switch-to-buffer "*Org Agenda*")
         (org-fit-agenda-window))
       (org-agenda nil "A")))
-
-;; for a popup window for remember mode
-(defadvice remember-finalize (after delete-remember-frame activate)
-  "Advise remember-finalize to close the frame if it is the remember frame"
-  (if (equal "remember" (frame-parameter nil 'name))
-      (delete-frame)))
-
-(defadvice remember-destroy (after delete-remember-frame activate)
-  "Advise remember-destroy to close the frame if it is the rememeber frame"
-  (if (equal "remember" (frame-parameter nil 'name))
-      (delete-frame)))
-
-;; make the frame contain a single window. by default org-remember
-;; splits the window.
-(add-hook 'remember-mode-hook
-          'delete-other-windows)
-
-(defun make-remember-frame ()
-  "Create a new frame and run org-remember."
-  (interactive)
-  (make-frame '((name . "remember") (width . 80) (height . 10)))
-  (select-frame-by-name "remember")
-  (org-remember))
 
 ;; org-mobile setup
 (setq org-mobile-inbox-for-pull (my-org-file "mobile-updates.org"))
