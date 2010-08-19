@@ -1,0 +1,5 @@
+#name : interface
+# --
+@interface ${name}()
+  $0
+@end

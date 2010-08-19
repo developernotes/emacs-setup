@@ -1,0 +1,5 @@
+#name : define a method
+# --
+-(${id}) ${name} {
+  ${0}
+}

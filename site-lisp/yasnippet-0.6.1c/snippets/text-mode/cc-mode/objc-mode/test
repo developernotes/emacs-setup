@@ -1,0 +1,5 @@
+#name : define a test method
+# --
+-(void) test_${1:name} {
+  ${2:body}
+}
