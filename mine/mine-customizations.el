@@ -1,6 +1,8 @@
 
 (require 'uniquify) 
 
+(autoload 'scratch "scratch" nil t)
+
 (setq custom-file (concat emacs-root "/mine/mine-customizations.el"))
 
 (display-battery-mode)
