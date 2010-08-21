@@ -1,5 +1,8 @@
 
 (require 'uniquify) 
+(require 'undo-tree)
+
+(global-undo-tree-mode)
 
 (autoload 'scratch "scratch" nil t)
 
