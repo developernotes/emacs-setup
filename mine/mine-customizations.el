@@ -1,5 +1,5 @@
 
-(require 'uniquify) 
+(require 'uniquify)
 (require 'undo-tree)
 
 (global-undo-tree-mode)
@@ -16,12 +16,13 @@
 ;; type only y or n for confirmation
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq-default indent-tabs-mode nil) 
+(setq-default indent-tabs-mode nil)
 (delete-selection-mode t)
 
 ;; disable user prompt
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+(put 'upcase-region    'disabled nil)
+(put 'downcase-region  'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; enable line numbers
 (global-linum-mode 1)
@@ -33,14 +34,14 @@
 ;; remove menubar/toolbar
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
-	(tool-bar-mode -1))
+  (tool-bar-mode -1))
 
 (setq-default tab-width 2)
 
 ;; identify buffers with same name, postfix folder name
-(setq 
-  uniquify-buffer-name-style 'post-forward
-  uniquify-separator ":")
+(setq
+ uniquify-buffer-name-style 'post-forward
+ uniquify-separator ":")
 
 ;; all backup files in one place
 (setq backup-directory-alist
