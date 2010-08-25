@@ -19,9 +19,8 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
-(add-hook 'recentf-mode-hook '(lambda ()
-                                (define-key recentf-dialog-mode-map "n" 'next-line)
-                                (define-key recentf-dialog-mode-map "p" 'previous-line)))
+(define-key recentf-dialog-mode-map "n" 'next-line)
+(define-key recentf-dialog-mode-map "p" 'previous-line)
 
 ;; region/line movement
 (defun move-text-internal (arg)
