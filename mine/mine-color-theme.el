@@ -13,7 +13,7 @@
   (interactive)
   (color-theme-standard)
   (set-face-background 'region "#999966")
-  (set-face-background 'hl-line "#DBDBDB"))
+  (set-face-background 'hl-line "#b4eeb4"))
 
 (defun mine-dark-color-theme ()
   (interactive)
