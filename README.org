@@ -5,8 +5,7 @@ Initial installation:
 :  $ cd ~
 :  $ git clone git://github.com/developernotes/emacs-setup.git .emacs.d
 :  $ cd .emacs.d
-:  $ mkdir server; touch server/server;
-:  $ rake submodules:update
+:  $ rake install
 
 Updating submodules:
 

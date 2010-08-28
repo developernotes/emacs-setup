@@ -1,4 +1,10 @@
 
+desc "performs base configuration and installtion of git submodules"
+task :install do
+  `mkdir server; touch server/server;`
+  Rake::Task['submodules:update'].execute
+end
+
 desc "compiles el files"
 task :compile_el do
   FileList["**/*.el"].each do |f|
@@ -16,6 +22,11 @@ task :clean_elc do
 end
 
 namespace :submodules do
+
+  task :foo do
+    puts "in foo"
+  end
+  
   desc "Pull/merge git submodules"
   task :pull do
     submodules = `git submodule`.split("\n").map { |l| l.split[1] }
