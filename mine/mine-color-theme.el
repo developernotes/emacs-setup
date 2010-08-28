@@ -6,17 +6,22 @@
 (require 'color-theme-zen-and-art)
 
 (color-theme-initialize)
-(color-theme-zen-and-art)
 
-;; highlight current line
 (global-hl-line-mode t)
 
-;; adjust coloring for dark theme
-(set-face-background 'hl-line "#333638")
-(set-face-background 'region "#999966")
-(set-face-foreground 'font-lock-comment-face "#d8e5c5")
+(defun mine-light-color-theme ()
+  (interactive)
+  (color-theme-standard)
+  (set-face-background 'region "#999966")
+  (set-face-background 'hl-line "#b4eeb4"))
 
-;; light color current line
-;;(set-face-background 'hl-line "#DBDBDB")
+(defun mine-dark-color-theme ()
+  (interactive)
+  (color-theme-zen-and-art)
+  (set-face-background 'hl-line "#333638")
+  (set-face-background 'region "#999966")
+  (set-face-foreground 'font-lock-comment-face "#d8e5c5"))
+
+(mine-dark-color-theme)
 
 (provide 'mine-color-theme)
