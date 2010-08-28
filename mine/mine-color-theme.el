@@ -12,7 +12,7 @@
 (defun mine-light-color-theme ()
   (interactive)
   (color-theme-standard)
-  (set-face-background 'region "#999966")
+  (set-face-background 'region "#ffec8b")
   (set-face-background 'hl-line "#b4eeb4"))
 
 (defun mine-dark-color-theme ()
