@@ -13,7 +13,8 @@
   (interactive)
   (color-theme-standard)
   (set-face-background 'region "#ffec8b")
-  (set-face-background 'hl-line "#b4eeb4"))
+  (set-face-background 'hl-line "#b4eeb4")
+  (set-face-foreground 'font-lock-doc-face "#d2691e"))
 
 (defun mine-dark-color-theme ()
   (interactive)
