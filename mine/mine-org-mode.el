@@ -3,58 +3,22 @@
 
 (require 'org)
 
-;; configuration
-(setq org-directory "~/org/")
-(setq org-agenda-files '("~/org/gtd-items.org"))
-(setq org-log-done t)
-
-;; keybindings
-(global-set-key (kbd "C-c l")   'org-store-link)
-(global-set-key (kbd "C-c a")   'org-agenda)
-(global-set-key (kbd "C-c c")   'org-capture)
-(global-set-key (kbd "C-c g g") 'gtd)
-(global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
-(global-set-key (kbd "C-c g w") '(lambda () (interactive)(find-file (concat org-directory "work.org"))))
+(setq org-directory "~/org/"
+      org-agenda-files '("~/org/gtd-items.org")
+      org-log-done t
+      org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
+      org-enforce-todo-dependencies t
+      org-use-fast-todo-selection t
+      org-agenda-prefix-format "           %t %s"
+      org-refile-targets (quote ((org-agenda-files :maxlevel . 10) (nil :maxlevel . 10)))
+      org-todo-keywords
+      '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
 
 (run-at-time t 3600 'org-save-all-org-buffers)
+(run-at-time t 7200 'mine-org-mobile-sync)
 
 (defun my-org-file (file)
   (concat org-directory "/" file))
-
-;; org capture setup
-(setq org-default-notes-file (concat org-directory "/gtd-items.org"))
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "gtd-items.org" "Todo") "* TODO %?")
-        ("i" "In Progress" entry (file+headline "gtd-items.org" "In Progress") "* IN-PROGRESS %?")
-        ("w" "Work" entry (file+headline "work.org" "Work Tasks") "* TODO %?")))
-
-(setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m)))
-
-;; agenda configuraion
-(setq org-agenda-search-headline-for-time nil
-      org-agenda-dim-blocked-tasks 'invisible
-      org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-deadline-if-done t
-			org-agenda-start-on-weekday nil
-      org-deadline-warning-days 2
-      org-agenda-ndays 7
-      org-agenda-compact-blocks t
-      org-agenda-tags-column -92
-      org-habit-preceding-days 20
-      org-habit-following-days 3
-      org-habit-graph-column 55)
-
-(setq org-agenda-custom-commands
-      '(("A" "Action List"
-         ((agenda "")
-          (alltodo))
-         ((org-agenda-todo-ignore-deadlines nil)
-          (org-agenda-todo-ignore-scheduled nil)
-          (org-agenda-todo-ignore-with-date nil)
-					(org-agenda-files '("~/org/gtd-items.org"))
-          (org-agenda-sorting-strategy '(priority-down time-up tag-up))))))
-
-(setq org-agenda-prefix-format "           %t %s")
 
 (defun gtd()
   (interactive)
@@ -71,11 +35,6 @@
         (org-agenda nil "A")
         (delete-other-windows)))))
 
-(setq org-enforce-todo-dependencies t
-      org-todo-keywords
-      '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)"))
-      org-use-fast-todo-selection t)
-
 (defun gtd-switch-to-agenda ()
   (interactive)
   (if (get-buffer "*Org Agenda*")
@@ -84,11 +43,7 @@
         (other-window 1)
         (switch-to-buffer "*Org Agenda*")
         (org-fit-agenda-window))
-      (org-agenda nil "A")))
-
-;; org-mobile setup
-(setq org-mobile-inbox-for-pull (my-org-file "mobile-updates.org"))
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
+    (org-agenda nil "A")))
 
 (defun mine-org-mobile-sync ()
   (interactive)
@@ -96,9 +51,53 @@
   (org-mobile-pull)
   (org-mobile-push))
 
-(run-at-time t 7200 'mine-org-mobile-sync)
+(global-set-key (kbd "C-c l")   'org-store-link)
+(global-set-key (kbd "C-c a")   'org-agenda)
+(global-set-key (kbd "C-c c")   'org-capture)
+(global-set-key (kbd "C-c g g") 'gtd)
+(global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
+(global-set-key (kbd "C-c g w") '(lambda () (interactive)(find-file (concat org-directory "work.org"))))
 
-(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 10) (nil :maxlevel . 10))))
+;; org-babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (gnuplot . t)))
+
+;; org capture setup
+(setq org-default-notes-file (concat org-directory "/gtd-items.org"))
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "gtd-items.org" "Todo") "* TODO %?")
+        ("i" "In Progress" entry (file+headline "gtd-items.org" "In Progress") "* IN-PROGRESS %?")
+        ("w" "Work" entry (file+headline "work.org" "Work Tasks") "* TODO %?")))
+
+;; agenda configuraion
+(setq org-agenda-search-headline-for-time nil
+      org-agenda-dim-blocked-tasks 'invisible
+      org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-deadline-if-done t
+      org-agenda-start-on-weekday nil
+      org-deadline-warning-days 2
+      org-agenda-ndays 7
+      org-agenda-compact-blocks t
+      org-agenda-tags-column -92
+      org-habit-preceding-days 20
+      org-habit-following-days 3
+      org-habit-graph-column 55)
+
+(setq org-agenda-custom-commands
+      '(("A" "Action List"
+         ((agenda "")
+          (alltodo))
+         ((org-agenda-todo-ignore-deadlines nil)
+          (org-agenda-todo-ignore-scheduled nil)
+          (org-agenda-todo-ignore-with-date nil)
+          (org-agenda-files '("~/org/gtd-items.org"))
+          (org-agenda-sorting-strategy '(priority-down time-up tag-up))))))
+
+;; org-mobile setup
+(setq org-mobile-inbox-for-pull (my-org-file "mobile-updates.org"))
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
 
 (custom-set-faces
  '(outline-1 ((t (:foreground "#D6B163" :bold t))))
