@@ -6,10 +6,10 @@
 (setq org-directory "~/org/"
       org-agenda-files '("~/org/gtd-items.org")
       org-log-done t
-      org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
-      org-enforce-todo-dependencies t
       org-use-fast-todo-selection t
+      org-enforce-todo-dependencies t
       org-agenda-prefix-format "           %t %s"
+      org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
       org-refile-targets (quote ((org-agenda-files :maxlevel . 10) (nil :maxlevel . 10)))
       org-todo-keywords
       '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
@@ -71,6 +71,10 @@
         ("i" "In Progress" entry (file+headline "gtd-items.org" "In Progress") "* IN-PROGRESS %?")
         ("w" "Work" entry (file+headline "work.org" "Work Tasks") "* TODO %?")))
 
+;; org-mobile setup
+(setq org-mobile-directory "~/Dropbox/MobileOrg"
+      org-mobile-inbox-for-pull (my-org-file "mobile-updates.org"))
+
 ;; agenda configuraion
 (setq org-agenda-search-headline-for-time nil
       org-agenda-dim-blocked-tasks 'invisible
@@ -94,10 +98,6 @@
           (org-agenda-todo-ignore-with-date nil)
           (org-agenda-files '("~/org/gtd-items.org"))
           (org-agenda-sorting-strategy '(priority-down time-up tag-up))))))
-
-;; org-mobile setup
-(setq org-mobile-inbox-for-pull (my-org-file "mobile-updates.org"))
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
 
 (custom-set-faces
  '(outline-1 ((t (:foreground "#D6B163" :bold t))))
