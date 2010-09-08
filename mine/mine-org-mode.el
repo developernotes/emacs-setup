@@ -1,7 +1,10 @@
 (add-path "site-lisp/org-mode/lisp")
 (add-path "site-lisp/org-mode/contrib/lisp")
+(add-path "site-lisp/gnuplot-mode.0.6.0")
 
 (require 'org)
+(autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
+(autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot mode" t)
 
 (setq org-directory "~/org/"
       org-agenda-files '("~/org/gtd-items.org")
@@ -10,6 +13,7 @@
       org-enforce-todo-dependencies t
       org-agenda-prefix-format "           %t %s"
       org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
+      auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist)
       org-refile-targets (quote ((org-agenda-files :maxlevel . 10) (nil :maxlevel . 10)))
       org-todo-keywords
       '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
@@ -62,7 +66,8 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
-   (gnuplot . t)))
+   (gnuplot . t)
+   (ruby . t)))
 
 ;; org capture setup
 (setq org-default-notes-file (concat org-directory "/gtd-items.org"))
