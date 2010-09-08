@@ -9,6 +9,7 @@
 
 (add-to-list 'exec-path "/usr/local/git/bin")
 (add-to-list 'exec-path "/usr/local/mysql/bin")
+(add-to-list 'exec-path "/usr/local/bin")
 
 (setq doc-view-ghostscript-program "/usr/local/bin/gs")
 
