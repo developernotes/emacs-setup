@@ -11,6 +11,7 @@
       org-log-done t
       org-use-fast-todo-selection t
       org-enforce-todo-dependencies t
+      org-src-fontify-natively nil
       org-agenda-prefix-format "           %t %s"
       org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
       auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist)
