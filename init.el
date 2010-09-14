@@ -29,6 +29,7 @@
 (require 'mine-shell)
 (require 'mine-html)
 (require 'mine-csharp)
+(require 'mine-scala)
 (require 'mine-ruby)
 (require 'mine-javascript)
 (require 'mine-haskell)
