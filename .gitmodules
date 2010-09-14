@@ -16,3 +16,6 @@
 [submodule "site-lisp/showoff-mode"]
 	path = site-lisp/showoff-mode
 	url = git://github.com/developernotes/showoff-mode.git
+[submodule "site-lisp/ensime"]
+	path = site-lisp/ensime
+	url = git://github.com/aemoncannon/ensime.git
