@@ -13,6 +13,7 @@
       org-enforce-todo-dependencies t
       org-src-fontify-natively nil
       org-agenda-prefix-format "           %t %s"
+      safe-local-variable-values (quote ((eval org-display-inline-images)))
       org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
       auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist)
       org-refile-targets (quote ((org-agenda-files :maxlevel . 10) (nil :maxlevel . 10)))
