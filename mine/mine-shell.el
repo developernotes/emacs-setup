@@ -4,7 +4,7 @@
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 
 (global-set-key (kbd "C-c t") 'multi-shell-next)
-(global-set-key (kbd "C-c T") 'multi-shell-new)  ;; create a new one
+(global-set-key (kbd "C-c T") 'multi-shell-new)
 
 (add-hook 'shell-mode-hook 'n-shell-mode-hook)
 
@@ -14,7 +14,6 @@
   (local-set-key '[down] 'comint-next-input)
   (local-set-key '[(shift tab)] 'comint-next-matching-input-from-input)
   (setq comint-input-sender 'n-shell-simple-send))
-
 
 (defun n-shell-simple-send (proc command)
   "Various commands pre-processing before sending to shell."

@@ -6,48 +6,34 @@
 
 (autoload 'scratch "scratch" nil t)
 
-(setq custom-file (concat emacs-root "/mine/mine-customizations.el"))
+(setq visible-bell t
+      inhibit-startup-screen t
+      uniquify-buffer-name-style 'post-forward
+      uniquify-separator ":"
+      custom-file (concat emacs-root "/mine/mine-customizations.el")
+      backup-directory-alist         `((".*" . ,temporary-file-directory))
+      auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
+(global-linum-mode 1)
+(blink-cursor-mode t)
 (display-battery-mode)
+(delete-selection-mode t)
 
-;; disable the startup screen
-(setq inhibit-startup-screen t)
+(setq-default tab-width 2
+              indent-tabs-mode nil)
 
 ;; type only y or n for confirmation
 (fset 'yes-or-no-p 'y-or-n-p)
-
-(setq-default indent-tabs-mode nil)
-(delete-selection-mode t)
 
 ;; disable user prompt
 (put 'upcase-region    'disabled nil)
 (put 'downcase-region  'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
-;; enable line numbers
-(global-linum-mode 1)
-
-;; disable audible bell
-(setq visible-bell t)
-(blink-cursor-mode t)
-
 ;; remove menubar/toolbar
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-
-(setq-default tab-width 2)
-
-;; identify buffers with same name, postfix folder name
-(setq
- uniquify-buffer-name-style 'post-forward
- uniquify-separator ":")
-
-;; all backup files in one place
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
 
 ;; ELPA
 (when

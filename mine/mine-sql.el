@@ -1,9 +1,4 @@
 
-(defun sql-connection-profiles ()
-	"Display sql connection profiles"
-	(interactive)
-	(find-file (concat (getenv "HOME") "/org/sql.org")))
-
 (defun mine-mysql (user password host database)
   (let ((sql-user user)
         (sql-password password)

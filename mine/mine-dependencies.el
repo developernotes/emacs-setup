@@ -19,7 +19,6 @@
                              yas/ido-prompt
                              yas/no-prompt))
 
-
 (defun yas/advise-indent-function (function-symbol)
   (eval `(defadvice ,function-symbol (around yas/try-expand-first activate)
            ,(format

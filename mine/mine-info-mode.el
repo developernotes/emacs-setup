@@ -1,5 +1,4 @@
 
-;; additional keyboard navigation
 (add-hook 'Info-mode-hook
 					'(lambda ()
 						 (define-key Info-mode-map [?j] 
