@@ -3,7 +3,7 @@
 (add-path "site-lisp/color-theme-6.6.0")
 
 (require 'color-theme)
-(require 'color-theme-merbivore)
+(require 'color-theme-zen-and-art)
 
 (color-theme-initialize)
 
@@ -22,6 +22,12 @@
                      (set-face-foreground 'font-lock-comment-face "#d8e5c5")
                      (custom-set-faces    '(outline-2 ((t (:foreground "#a5f26e" :bold t))))))
                    theme-settings)
+          (puthash 'color-theme-zen-and-art
+                   '((set-face-background 'hl-line "#3b3b3b")
+                     (set-face-background 'region "#999966")
+                     (set-face-foreground 'font-lock-comment-face "#d8e5c5")
+                     (custom-set-faces    '(outline-2 ((t (:foreground "#a5f26e" :bold t))))))
+                   theme-settings)
           theme-settings)))
 
 (defun apply-custom-theme-with-settings (theme)
@@ -34,8 +40,8 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (apply-custom-theme-with-settings 'color-theme-merbivore))
+  (apply-custom-theme-with-settings 'color-theme-zen-and-art))
 
-(apply-custom-theme-with-settings 'color-theme-merbivore)
+(apply-custom-theme-with-settings 'color-theme-zen-and-art)
 
 (provide 'mine-color-theme)
