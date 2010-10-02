@@ -1,4 +1,6 @@
 
+(add-path "site-lisp/switch-window")
+
 (require 'ido)
 (require 'thingatpt)
 (require 'ibuffer-git)

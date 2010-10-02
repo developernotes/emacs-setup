@@ -19,3 +19,6 @@
 [submodule "site-lisp/ensime"]
 	path = site-lisp/ensime
 	url = git://github.com/aemoncannon/ensime.git
+[submodule "site-lisp/switch-window"]
+	path = site-lisp/switch-window
+	url = git://github.com/dimitri/switch-window.git
