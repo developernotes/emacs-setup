@@ -11,6 +11,9 @@
 (global-set-key "\C-c\m"    'magit-status)
 (global-set-key "\C-x\C-p"  'find-file-at-point)
 (global-set-key "\C-x\C-d"  'dired)
+(global-set-key "\C-c2"     'swap-windows)
+(global-set-key "\C-c3"     'rotate-window-split)
+
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")
