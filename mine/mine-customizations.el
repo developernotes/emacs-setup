@@ -17,6 +17,7 @@
 (global-linum-mode 1)
 (blink-cursor-mode t)
 (display-battery-mode)
+(global-hl-line-mode t)
 (delete-selection-mode t)
 
 (setq-default tab-width 2

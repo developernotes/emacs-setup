@@ -7,8 +7,6 @@
 
 (color-theme-initialize)
 
-(global-hl-line-mode t)
-
 (setq custom-theme-settings
       (progn
         (let ((theme-settings (make-hash-table :test 'equal)))
