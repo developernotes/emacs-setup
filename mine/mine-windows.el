@@ -18,7 +18,7 @@
 (setq explicit-shell-file-name "zsh.exe"
       shell-file-name explicit-shell-file-name
       doc-view-ghostscript-program "C:/Program Files/gs/gs8.70/bin/gswin32c.exe"
-      haskell-program-name "C:/Program Files/Haskell Platform/2009.2.0.2/bin/ghci.exe")
+      haskell-program-name "C:/Program Files/Haskell Platform/2010.2.0.0/bin/ghci.exe")
 
 (global-set-key (kbd "M-RET") 'w32-fullscreen)
 
