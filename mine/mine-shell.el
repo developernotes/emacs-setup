@@ -1,7 +1,9 @@
 (require 'multi-shell)
 
-(setq multi-shell-command "zsh")
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
+
+(setq multi-shell-command "zsh"
+      multi-shell-revert-window-after-complete nil)
 
 (global-set-key (kbd "C-c t") 'multi-shell-next)
 (global-set-key (kbd "C-c T") 'multi-shell-new)
@@ -10,10 +12,10 @@
 
 (defun n-shell-mode-hook ()
   "shell mode customizations."
-  (local-set-key '[up] 'comint-previous-input)
-  (local-set-key '[down] 'comint-next-input)
+  (local-set-key '[up]          'comint-previous-input)
+  (local-set-key '[down]        'comint-next-input)
   (local-set-key '[(shift tab)] 'comint-next-matching-input-from-input)
-  (setq comint-input-sender 'n-shell-simple-send))
+  (setq comint-input-sender     'n-shell-simple-send))
 
 (defun n-shell-simple-send (proc command)
   "Various commands pre-processing before sending to shell."
