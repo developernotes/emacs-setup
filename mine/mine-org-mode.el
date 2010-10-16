@@ -26,6 +26,10 @@
 (defun my-org-file (file)
   (concat org-directory "/" file))
 
+(defun my-org-mobile-file ()
+  (interactive)
+  (find-file "~/Dropbox/MobileOrg/mobileorg.org"))
+
 (defun gtd()
   (interactive)
   (find-file "~/org/gtd-items.org"))
@@ -62,6 +66,7 @@
 (global-set-key (kbd "C-c c")   'org-capture)
 (global-set-key (kbd "C-c g g") 'gtd)
 (global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
+(global-set-key (kbd "C-c g m") 'my-org-mobile-file)
 (global-set-key (kbd "C-c g w") '(lambda () (interactive)(find-file (concat org-directory "work.org"))))
 
 ;; org-babel
