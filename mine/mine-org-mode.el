@@ -11,6 +11,8 @@
       org-log-done t
       org-use-fast-todo-selection t
       org-enforce-todo-dependencies t
+      org-hide-leading-stars t
+      org-odd-levels-only t
       org-src-fontify-natively nil
       org-agenda-prefix-format "           %t %s"
       safe-local-variable-values (quote ((eval org-display-inline-images)))
