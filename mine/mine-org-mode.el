@@ -7,7 +7,7 @@
 (autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot mode" t)
 
 (setq org-directory "~/org/"
-      org-agenda-files '("~/org/gtd-items.org")
+      org-agenda-files '("~/org/gtd-items.org" "~/org/someday-maybe.org")
       org-log-done t
       org-use-fast-todo-selection t
       org-enforce-todo-dependencies t
