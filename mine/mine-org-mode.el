@@ -1,8 +1,10 @@
 (add-path "site-lisp/org-mode/lisp")
 (add-path "site-lisp/org-mode/contrib/lisp")
 (add-path "site-lisp/gnuplot-mode.0.6.0")
+(add-path "site-lisp/epresent")
 
 (require 'org)
+(require 'epresent)
 (autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
 (autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot mode" t)
 

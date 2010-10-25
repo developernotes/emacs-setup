@@ -22,3 +22,6 @@
 [submodule "site-lisp/switch-window"]
 	path = site-lisp/switch-window
 	url = git://github.com/dimitri/switch-window.git
+[submodule "site-lisp/epresent"]
+	path = site-lisp/epresent
+	url = git://github.com/technomancy/epresent.git
