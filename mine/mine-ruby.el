@@ -6,9 +6,9 @@
 
 (case system-type
   ('darwin (require 'rvm)
-					 (rvm-use-default)))
+           (rvm-use-default)))
 
-;;File type associations 
+;;File type associations
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("rakefile$" . ruby-mode))
@@ -36,6 +36,15 @@
   (setq autotest-command "AUTOFEATURE=true RSPEC=true autotest")
   (autotest)
   (setq autotest-command "autotest"))
+
+(defun rinari-web-server-restart ()
+  "If rinari-web-server is running, kill it and start a new server, otherwise just launch the server"
+  (interactive)
+  (if (get-buffer "*server*")
+      (progn
+        (kill-buffer "*server*")
+        (rinari-web-server))
+    (rinari-web-server)))
 
 (autoload 'feature-mode "feature-mode" "Major mode for editing plain text stories" t)
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
