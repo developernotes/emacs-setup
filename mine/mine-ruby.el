@@ -44,10 +44,9 @@
   (if (get-buffer rinari-web-server-buffer)
       (progn
         (set-process-query-on-exit-flag (get-buffer-process rinari-web-server-buffer) nil)
-        (kill-buffer rinari-web-server-buffer)
-        (rinari-web-server))
-    nil
-    (rinari-web-server))))
+        (kill-buffer rinari-web-server-buffer))
+    nil)
+    (rinari-web-server)))
 
 
 
