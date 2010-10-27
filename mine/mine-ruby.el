@@ -40,11 +40,16 @@
 (defun rinari-web-server-restart ()
   "If rinari-web-server is running, kill it and start a new server, otherwise just launch the server"
   (interactive)
-  (if (get-buffer "*server*")
+  (let ((rinari-web-server-buffer "*server*"))
+  (if (get-buffer rinari-web-server-buffer)
       (progn
-        (kill-buffer "*server*")
+        (set-process-query-on-exit-flag (get-buffer-process rinari-web-server-buffer) nil)
+        (kill-buffer rinari-web-server-buffer)
         (rinari-web-server))
-    (rinari-web-server)))
+    nil
+    (rinari-web-server))))
+
+
 
 (autoload 'feature-mode "feature-mode" "Major mode for editing plain text stories" t)
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
