@@ -37,19 +37,6 @@
   (autotest)
   (setq autotest-command "autotest"))
 
-(defun rinari-web-server-restart ()
-  "If rinari-web-server is running, kill it and start a new server, otherwise just launch the server"
-  (interactive)
-  (let ((rinari-web-server-buffer "*server*"))
-  (if (get-buffer rinari-web-server-buffer)
-      (progn
-        (set-process-query-on-exit-flag (get-buffer-process rinari-web-server-buffer) nil)
-        (kill-buffer rinari-web-server-buffer))
-    nil)
-    (rinari-web-server)))
-
-
-
 (autoload 'feature-mode "feature-mode" "Major mode for editing plain text stories" t)
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
 (define-key ruby-mode-map (kbd "C-c C-a") 'autotest-switch)
