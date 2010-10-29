@@ -19,6 +19,7 @@
 (require 'mine-pretty)
 (require 'mine-erc)
 (require 'mine-org-mode)
+(require 'mine-epresent)
 (require 'mine-info-mode)
 (require 'mine-tex)
 (require 'mine-bookmark)
