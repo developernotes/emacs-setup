@@ -1,18 +1,4 @@
 
-(defun toggle-line-numbers ()
-  "Enable or disable line numbers globally"
-  (interactive)
-  (if global-linum-mode
-      (global-linum-mode -1)
-    (global-linum-mode 1)))
-
-(defun toggle-highlight-line ()
-  "Enable or disable highlighting of current line"
-  (interactive)
-  (if global-hl-line-mode
-      (global-hl-line-mode -1)
-    (global-hl-line-mode 1)))
-
 (defun beginning-of-line-or-back-to-indention ()
   (interactive)
   "This goes to back to indention or if already there beginning of line"
