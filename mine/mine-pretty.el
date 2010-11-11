@@ -5,8 +5,8 @@
 (show-paren-mode t)
 
 (case system-type
-  ('windows-nt (setq mine-font-name-normal "Consolas bold-13"
-										 mine-font-name-large "Consolas bold-18"))
+  ('windows-nt (setq mine-font-name-normal "Consolas-13:bold"
+										 mine-font-name-large "Consolas-18:bold"))
 	('gnu/linux  (setq mine-font-name-normal "Anonymous Pro-14:bold"
 										 mine-font-name-large "Anonymous Pro-18:bold"))
   ('darwin     (setq mine-font-name-normal "Anonymous Pro-16:bold"
