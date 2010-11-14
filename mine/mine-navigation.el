@@ -28,7 +28,8 @@
 (ido-mode t)
 (ido-everywhere 1)
 (setq ido-enable-flex-matching t
-      confirm-nonexistent-file-or-buffer -1)
+      confirm-nonexistent-file-or-buffer nil
+      ido-create-new-buffer 'always)
 
 ;; bookmarks
 (global-set-key (kbd "C-c h")      'bm-toggle)
