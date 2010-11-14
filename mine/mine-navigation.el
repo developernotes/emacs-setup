@@ -41,7 +41,9 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
 
-(setq ibuffer-formats
+(setq ibuffer-expert t
+      ibuffer-auto-mode 1
+      ibuffer-formats
       '((mark modified read-only git-status-mini
               " "
               (name 18 18 :left :elide)
