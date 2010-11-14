@@ -43,6 +43,7 @@
 
 (setq ibuffer-expert t
       ibuffer-auto-mode 1
+      ibuffer-default-sorting-mode 'major-mode
       ibuffer-formats
       '((mark modified read-only git-status-mini
               " "
