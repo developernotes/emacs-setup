@@ -13,7 +13,9 @@
       uniquify-separator ":"
       custom-file (concat emacs-root "/mine/mine-customizations.el")
       backup-directory-alist         `((".*" . ,temporary-file-directory))
-      auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+      auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
+      kill-buffer-query-functions    (remq 'process-kill-buffer-query-function
+                                           kill-buffer-query-functions))
 
 (global-linum-mode 1)
 (blink-cursor-mode t)
