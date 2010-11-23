@@ -9,7 +9,7 @@
 										 mine-font-name-large "Consolas-18:bold"))
 	('gnu/linux  (setq mine-font-name-normal "Anonymous Pro-14:bold"
 										 mine-font-name-large "Anonymous Pro-18:bold"))
-  ('darwin     (setq mine-font-name-normal "Anonymous Pro-16:bold"
+  ('darwin     (setq mine-font-name-normal "Anonymous Pro-17:bold"
 										 mine-font-name-large "Anonymous Pro-18:bold")))
 
 (defun mine-use-normal-font()
