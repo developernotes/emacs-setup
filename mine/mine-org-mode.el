@@ -108,7 +108,7 @@
          ((agenda "")
           (alltodo))
          ((org-agenda-todo-ignore-deadlines nil)
-          (org-agenda-todo-ignore-scheduled nil)
+          (org-agenda-todo-ignore-scheduled t)
           (org-agenda-todo-ignore-with-date nil)
           (org-agenda-files '("~/org/gtd-items.org"))
           (org-agenda-sorting-strategy '(priority-down time-up tag-up))))))
