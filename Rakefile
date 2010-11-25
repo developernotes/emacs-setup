@@ -2,6 +2,11 @@
 desc "performs base configuration and installtion of git submodules"
 task :install do
   `mkdir server; touch server/server;`
+  if RUBY_PLATFORM.include?("cygwin") || RUBY_PLATFORM.include?("mingw")
+    `junction -s %HOME%\org %HOME%\Dropbox\org`
+  else
+    `ln -s ~/Dropbox/org ~/org`
+  end
   Rake::Task['submodules:update'].execute
 end
 
