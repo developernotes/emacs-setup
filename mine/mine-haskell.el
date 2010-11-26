@@ -6,6 +6,7 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'font-lock-mode)
 (add-hook 'haskell-mode-hook '(lambda ()
+                                (setq haskell-font-lock-symbols 'unicode)
                                 (define-key haskell-mode-map (kbd "C-c r") 'haskell-run-buffer-in-runghc)))
 
 (defun haskell-run-buffer-in-runghc()
