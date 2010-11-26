@@ -1,5 +1,5 @@
 
-desc "performs base configuration and installtion of git submodules"
+desc "performs base configuration and installation of git submodules"
 task :install do
   `mkdir server; touch server/server;`
   if RUBY_PLATFORM.include?("cygwin") || RUBY_PLATFORM.include?("mingw")
@@ -28,10 +28,6 @@ end
 
 namespace :submodules do
 
-  task :foo do
-    puts "in foo"
-  end
-  
   desc "Pull/merge git submodules"
   task :pull do
     submodules = `git submodule`.split("\n").map { |l| l.split[1] }
