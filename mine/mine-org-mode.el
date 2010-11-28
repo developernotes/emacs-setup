@@ -78,6 +78,8 @@
    (gnuplot . t)
    (ruby . t)))
 
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
+
 ;; org capture setup
 (setq org-default-notes-file (concat org-directory "/gtd-items.org"))
 (setq org-capture-templates
