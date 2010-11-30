@@ -3,6 +3,7 @@
 (add-path "site-lisp/gnuplot-mode.0.6.0")
 
 (require 'org)
+(require 'org-protocol)
 (autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
 (autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot mode" t)
 
@@ -85,7 +86,8 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "gtd-items.org" "Todo") "* TODO %?")
         ("i" "In Progress" entry (file+headline "gtd-items.org" "In Progress") "* IN-PROGRESS %?")
-        ("w" "Work" entry (file+headline "work.org" "Work Tasks") "* TODO %?")))
+        ("w" "Work" entry (file+headline "work.org" "Work Tasks") "* TODO %?")
+        ("l" "Links to Read" entry (file+headline "gtd-items.org" "Links to Read") "* %a\n %?\n %i" :immediate-finish t)))
 
 ;; org-mobile setup
 (setq org-mobile-directory "~/Dropbox/MobileOrg"
