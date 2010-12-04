@@ -4,7 +4,8 @@
 
 (setq js-indent-level 2
       js2-basic-offset 2
-      js2-clean-up-whitespace t)
+      js2-clean-up-whitespace t
+      js2-strict-missing-semi-warning nil)
 
 (defun mine-js2-indent-function ()
   (save-restriction
