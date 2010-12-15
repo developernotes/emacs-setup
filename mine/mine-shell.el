@@ -3,7 +3,8 @@
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 
 (setq multi-shell-command "zsh"
-      multi-shell-revert-window-after-complete nil)
+      multi-shell-revert-window-after-complete nil
+      eshell-aliases-file (concat emacs-root "mine/mine-eshell-alias"))
 
 (global-set-key (kbd "C-c t") 'multi-shell-next)
 (global-set-key (kbd "C-c T") 'multi-shell-new)
