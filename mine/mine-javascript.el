@@ -1,6 +1,12 @@
 
+(add-path "site-lisp/coffee-mode")
+
 (autoload 'js2-mode "js2-mode" nil t)
+(autoload 'coffee-mode "coffee-mode" "Coffee mode" t)
+
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
 (setq js-indent-level 2
       js2-basic-offset 2
