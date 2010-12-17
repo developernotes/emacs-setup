@@ -8,6 +8,11 @@
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
+(add-hook 'coffee-mode-hook (lambda ()
+                              (define-key coffee-mode-map (kbd "C-c b") 'coffee-compile-buffer)
+                              (define-key coffee-mode-map (kbd "C-c r") 'coffee-compile-region)
+                              (define-key coffee-mode-map (kbd "C-c C-r") 'coffee-repl)))
+
 (setq js-indent-level 2
       js2-basic-offset 2
       js2-clean-up-whitespace t
