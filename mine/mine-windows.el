@@ -4,8 +4,10 @@
 (require 'w32-fullscreen)
 
 (setenv "PATH" (concat "c:/cygwin/bin;" (getenv "PATH")))
-(setq exec-path (cons "c:/tools/bin" exec-path))
-(setq exec-path (cons "c:/cygwin/bin/" exec-path))
+
+(setq exec-path (cons "c:/tools/bin" exec-path)
+      exec-path (cons "c:/cygwin/bin" exec-path)
+      exec-path (cons "c:/tools/scala/bin" exec-path))
 
 (cygwin-mount-activate)
 
