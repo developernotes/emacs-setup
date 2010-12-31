@@ -7,7 +7,8 @@
 (add-hook 'haskell-mode-hook 'font-lock-mode)
 (add-hook 'haskell-mode-hook '(lambda ()
                                 (setq haskell-font-lock-symbols 'unicode)
-                                (define-key haskell-mode-map (kbd "C-c r") 'haskell-run-buffer-in-runghc)))
+                                (define-key haskell-mode-map (kbd "C-c i") 'switch-to-haskell)
+                                (define-key haskell-mode-map (kbd "C-c b") 'haskell-run-buffer-in-runghc)))
 
 (defun haskell-run-buffer-in-runghc()
   (interactive)
