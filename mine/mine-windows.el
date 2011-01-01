@@ -7,7 +7,8 @@
 
 (setq exec-path (cons "c:/tools/bin" exec-path)
       exec-path (cons "c:/cygwin/bin" exec-path)
-      exec-path (cons "c:/tools/scala/bin" exec-path))
+      exec-path (cons "c:/tools/scala/bin" exec-path)
+      exec-path (cons "c:/tools/clojure-clr/bin" exec-path))
 
 (cygwin-mount-activate)
 

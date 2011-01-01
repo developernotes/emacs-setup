@@ -35,6 +35,7 @@
 (require 'mine-javascript)
 (require 'mine-haskell)
 (require 'mine-lisp)
+(require 'mine-clojure-clr)
 (require 'mine-showoff)
 (require 'mine-xcode)
 
