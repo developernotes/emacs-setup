@@ -5,7 +5,7 @@
 (show-paren-mode t)
 
 (case system-type
-  ('windows-nt (setq mine-font-name-normal "Anonymous Pro-14:bold"
+  ('windows-nt (setq mine-font-name-normal "Anonymous Pro-13:bold"
 										 mine-font-name-large "Anonymous Pro-18:bold"))
 	('gnu/linux  (setq mine-font-name-normal "Anonymous Pro-14:bold"
 										 mine-font-name-large "Anonymous Pro-18:bold"))
