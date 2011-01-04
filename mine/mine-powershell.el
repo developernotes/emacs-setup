@@ -7,7 +7,8 @@
 (defvar powershell-inferior-process-buffername "*PowerShell*")
 
 (add-hook 'powershell-mode-hook '(lambda ()
-                                   (setq powershell-indent 2)
+                                   (setq powershell-indent 2
+                                         powershell-continuation-indent 2)
                                    (local-set-key (kbd "C-c i") 'powershell)
                                    (local-set-key (kbd "C-c b") 'powershell-eval-buffer)
                                    (local-set-key (kbd "C-c r") 'powershell-eval-region)))
