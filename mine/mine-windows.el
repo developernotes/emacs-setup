@@ -1,10 +1,7 @@
-
 (require 'server)
 (require 'cygwin-mount)
 (require 'w32-fullscreen)
-(require 'powershell)
-
-(autoload 'powershell-mode "powershell-mode" "A editing mode for Microsoft PowerShell." t)
+(require 'mine-powershell)
 
 (setenv "PATH" (concat "c:/cygwin/bin;" (getenv "PATH")))
 
@@ -12,8 +9,6 @@
 (add-to-list 'exec-path "c:/cygwin/bin")
 (add-to-list 'exec-path "c:/tools/scala/bin")
 (add-to-list 'exec-path "c:/tools/clojure-clr/bin")
-
-(add-to-list 'auto-mode-alist '("\\.ps1$" . powershell-mode))
 
 (cygwin-mount-activate)
 
