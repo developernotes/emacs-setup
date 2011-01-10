@@ -6,7 +6,7 @@
 	url = git://github.com/eschulte/rinari.git
 [submodule "site-lisp/org-mode"]
 	path = site-lisp/org-mode
-	url = git://repo.or.cz/org-mode.git
+	url = git://orgmode.org/org-mode.git
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = git://github.com/philjackson/magit.git
