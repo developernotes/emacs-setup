@@ -16,6 +16,7 @@
 (require 'mine-defuns)
 (require 'mine-advice)
 (require 'mine-bindings)
+(require 'mine-package)
 (require 'mine-pretty)
 (require 'mine-erc)
 (require 'mine-org-mode)
