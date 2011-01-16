@@ -11,6 +11,7 @@
       inhibit-startup-screen t
       uniquify-buffer-name-style 'post-forward
       uniquify-separator ":"
+      next-line-add-newlines t
       custom-file (concat emacs-root "/mine/mine-customizations.el")
       backup-directory-alist         `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
