@@ -4,7 +4,6 @@
 (require 'ido)
 (require 'thingatpt)
 (require 'ibuffer-git)
-(require 'bm)
 (require 'browse-kill-ring)
 (require 'recentf)
 (require 'switch-window)
@@ -30,12 +29,6 @@
 (setq ido-enable-flex-matching t
       confirm-nonexistent-file-or-buffer nil
       ido-create-new-buffer 'always)
-
-;; bookmarks
-(global-set-key (kbd "C-c h")      'bm-toggle)
-(global-set-key (kbd "C-c k")      'bm-remove-all-current-buffer)
-(global-set-key (kbd "C-<right>")  'bm-next)
-(global-set-key (kbd "C-<left>")   'bm-previous)
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
