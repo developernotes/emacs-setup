@@ -23,7 +23,6 @@
 (require 'mine-epresent)
 (require 'mine-info-mode)
 (require 'mine-tex)
-(require 'mine-bookmark)
 (require 'mine-color-theme)
 (require 'mine-auto-complete)
 (require 'mine-dired)
