@@ -23,7 +23,6 @@
 (require 'mine-epresent)
 (require 'mine-info-mode)
 (require 'mine-tex)
-(require 'mine-color-theme)
 (require 'mine-auto-complete)
 (require 'mine-dired)
 (require 'mine-sql)
@@ -40,8 +39,10 @@
 (require 'mine-xcode)
 
 (case system-type
-  ('windows-nt (require 'mine-windows))
-  ('darwin (require 'mine-osx)))
+  ('windows-nt (require 'mine-windows)
+               (require 'mine-color-theme))
+  ('darwin (require 'mine-osx)
+           (require 'mine-color-theme)))
 
 (setq debug-on-error nil)
 
