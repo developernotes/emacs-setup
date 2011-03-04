@@ -70,7 +70,7 @@
 (global-set-key (kbd "C-c g g") 'gtd)
 (global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
 (global-set-key (kbd "C-c g m") 'my-org-mobile-file)
-(global-set-key (kbd "C-c g w") '(lambda () (interactive)(find-file (concat org-directory "work.org"))))
+(global-set-key (kbd "C-c g w") '(lambda () (interactive)(find-file (concat org-directory "work-notes.org"))))
 
 ;; org-babel
 (org-babel-do-load-languages
@@ -86,7 +86,7 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "gtd-items.org" "Todo") "* TODO %?")
         ("i" "In Progress" entry (file+headline "gtd-items.org" "In Progress") "* IN-PROGRESS %?")
-        ("w" "Work" entry (file+headline "work.org" "Work Tasks") "* TODO %?")
+        ("w" "Work" entry (file+headline "work.org" "Todo") "* TODO %?")
         ("l" "Links to Read" entry (file+headline "gtd-items.org" "Links to Read") "* %a\n %?\n %i" :immediate-finish t)))
 
 ;; org-mobile setup
@@ -114,7 +114,7 @@
          ((org-agenda-todo-ignore-deadlines nil)
           (org-agenda-todo-ignore-scheduled t)
           (org-agenda-todo-ignore-with-date nil)
-          (org-agenda-files '("~/org/gtd-items.org"))
+          (org-agenda-files '("~/org/gtd-items.org" "~/org/work.org"))
           (org-agenda-sorting-strategy '(priority-down time-up tag-up))))))
 
 (custom-set-faces
