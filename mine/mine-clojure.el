@@ -1,4 +1,7 @@
 
+(add-path "site-lisp/elein")
+(require 'elein)
+
 (defvar clojure-clr-repl-bin)
 (defvar clojure-clr-repl-args)
 (defconst clojure-clr-buffer-name "*Clojure-CLR*")
@@ -33,4 +36,4 @@
                                 (define-key clojure-mode-map (kbd "C-c b") 'clojure-clr-eval-buffer)
                                 (define-key clojure-mode-map (kbd "C-c r") 'clojure-clr-eval-region)))
 
-(provide 'mine-clojure-clr)
+(provide 'mine-clojure)
