@@ -3,7 +3,7 @@
 (add-path "site-lisp/color-theme-6.6.0")
 
 (require 'color-theme)
-(require 'color-theme-zen-and-art)
+(require 'color-theme-tango-2)
 
 (color-theme-initialize)
 
@@ -46,7 +46,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (apply-custom-theme-with-settings 'color-theme-zen-and-art))
+  (apply-custom-theme-with-settings 'color-theme-tango-2))
 
 (mine-dark-color-theme)
 
