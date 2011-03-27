@@ -12,6 +12,7 @@
       inhibit-startup-screen t
       uniquify-buffer-name-style 'post-forward
       uniquify-separator ":"
+      ispell-program-name "aspell"
       custom-file (concat emacs-root "/mine/mine-customizations.el")
       backup-directory-alist         `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
