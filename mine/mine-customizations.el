@@ -1,6 +1,7 @@
 
 (require 'uniquify)
 (require 'undo-tree)
+(require 'backup-dir)
 
 (global-undo-tree-mode)
 
@@ -13,9 +14,8 @@
       uniquify-buffer-name-style 'post-forward
       uniquify-separator ":"
       ispell-program-name "aspell"
+      bkup-backup-directory-info '((t "~/.backups" ok-create full-path))
       custom-file (concat emacs-root "/mine/mine-customizations.el")
-      backup-directory-alist         `((".*" . ,temporary-file-directory))
-      auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
       kill-buffer-query-functions    (remq 'process-kill-buffer-query-function
                                            kill-buffer-query-functions))
 
