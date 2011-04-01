@@ -17,8 +17,6 @@
 
 (ansi-color-for-comint-mode-on)
 
-(menu-bar-mode t)
-
 (global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
 
 (provide 'mine-osx)
