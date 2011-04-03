@@ -42,8 +42,8 @@
   ('windows-nt (require 'mine-windows)
                (require 'mine-color-theme))
   ('darwin (require 'mine-osx)
-           (require 'mine-color-theme)))
-
+           (if (not (eq window-system nil))
+                 (require 'mine-color-theme))))
 (setq debug-on-error nil)
 
 (message "My .emacs loaded in %ds." (destructuring-bind (hi lo ms) (current-time) (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
