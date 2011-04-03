@@ -39,11 +39,9 @@
 (require 'mine-xcode)
 
 (case system-type
-  ('windows-nt (require 'mine-windows)
-               (require 'mine-color-theme))
-  ('darwin (require 'mine-osx)
-           (if (not (eq window-system nil))
-                 (require 'mine-color-theme))))
+  ('windows-nt (require 'mine-windows))
+  ('darwin (require 'mine-osx)))
+
 (setq debug-on-error nil)
 
 (message "My .emacs loaded in %ds." (destructuring-bind (hi lo ms) (current-time) (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))

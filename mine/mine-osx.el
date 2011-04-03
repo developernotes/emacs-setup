@@ -1,4 +1,7 @@
 
+(if (not (eq window-system nil))
+    (require 'mine-color-theme))
+
 ;; adjust pathing
 (when (equal system-type 'darwin)
   (append-to-environment-variable "PATH" "/opt/local/bin")
