@@ -39,10 +39,8 @@
 (require 'mine-xcode)
 
 (case system-type
-  ('windows-nt (require 'mine-windows)
-               (require 'mine-color-theme))
-  ('darwin (require 'mine-osx)
-           (require 'mine-color-theme)))
+  ('windows-nt (require 'mine-windows))
+  ('darwin (require 'mine-osx)))
 
 (setq debug-on-error nil)
 
