@@ -2,7 +2,6 @@
 (require 'cygwin-mount)
 (require 'w32-fullscreen)
 (require 'mine-powershell)
-(require 'mine-color-theme)
 
 (setenv "PATH" (concat "c:/cygwin/bin;" (getenv "PATH")))
 

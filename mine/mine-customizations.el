@@ -23,8 +23,12 @@
 (blink-cursor-mode t)
 (display-battery-mode)
 (display-time-mode t)
-(global-hl-line-mode t)
 (delete-selection-mode t)
+
+(if (not (eq window-system nil))
+    (progn
+      (require 'mine-color-theme)
+      (global-hl-line-mode t)))
 
 (setq-default tab-width 2
               indent-tabs-mode nil)

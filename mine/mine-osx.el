@@ -1,15 +1,4 @@
 
-(if (not (eq window-system nil))
-    (require 'mine-color-theme))
-
-;; adjust pathing
-(when (equal system-type 'darwin)
-  (append-to-environment-variable "PATH" "/opt/local/bin")
-  (append-to-environment-variable "PATH" "/usr/local/bin")
-  (append-to-environment-variable "PATH" "/usr/local/git/bin")
-  (append-to-environment-variable "PATH" "/opt/local/bin")
-  (append-to-environment-variable "PATH" "/usr/texbin"))
-
 (add-to-list 'exec-path "/usr/local/git/bin")
 (add-to-list 'exec-path "/usr/local/mysql/bin")
 (add-to-list 'exec-path "/usr/local/bin")
