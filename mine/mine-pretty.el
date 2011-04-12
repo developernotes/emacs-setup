@@ -9,7 +9,7 @@
 										 mine-font-name-large "Meslo LG L DZ-18:bold"))
 	('gnu/linux  (setq mine-font-name-normal "Meslo LG L DZ-14:bold"
 										 mine-font-name-large "Meslo LG L DZ-18:bold"))
-  ('darwin     (setq mine-font-name-normal "Meslo LG L DZ-17:bold"
+  ('darwin     (setq mine-font-name-normal "Meslo LG L DZ-16:bold"
 										 mine-font-name-large "Meslo LG L DZ-18:bold"))
   ('cygwin     (setq mine-font-name-normal ""
                      mine-font-name-large "")))
