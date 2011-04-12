@@ -5,12 +5,12 @@
 (show-paren-mode t)
 
 (case system-type
-  ('windows-nt (setq mine-font-name-normal "Anonymous Pro-13:bold"
-										 mine-font-name-large "Anonymous Pro-18:bold"))
-	('gnu/linux  (setq mine-font-name-normal "Anonymous Pro-14:bold"
-										 mine-font-name-large "Anonymous Pro-18:bold"))
-  ('darwin     (setq mine-font-name-normal "Anonymous Pro-17:bold"
-										 mine-font-name-large "Anonymous Pro-18:bold"))
+  ('windows-nt (setq mine-font-name-normal "Meslo LG L DZ-12:bold"
+										 mine-font-name-large "Meslo LG L DZ-18:bold"))
+	('gnu/linux  (setq mine-font-name-normal "Meslo LG L DZ-14:bold"
+										 mine-font-name-large "Meslo LG L DZ-18:bold"))
+  ('darwin     (setq mine-font-name-normal "Meslo LG L DZ-17:bold"
+										 mine-font-name-large "Meslo LG L DZ-18:bold"))
   ('cygwin     (setq mine-font-name-normal ""
                      mine-font-name-large "")))
 

@@ -4,3 +4,4 @@ server/server
 ac-comphist.dat
 elpa/archive-contents
 tramp
+eshell/
