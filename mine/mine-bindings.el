@@ -14,7 +14,11 @@
 (global-set-key "\C-c2"     'swap-windows)
 (global-set-key "\C-c3"     'rotate-window-split)
 
-
+;; quick switch buffers
+(global-set-key [(control tab)] 'bury-buffer)
+(global-set-key [(control shift tab)] '(lambda ()
+                                         (interactive)
+                                         (switch-to-buffer (car (last (buffer-list))))))
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")
   (lambda ()
