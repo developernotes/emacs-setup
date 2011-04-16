@@ -26,9 +26,7 @@
 (delete-selection-mode t)
 
 (if (not (eq window-system nil))
-    (progn
-      (require 'mine-color-theme)
-      (global-hl-line-mode t)))
+    (require 'mine-color-theme))
 
 (setq-default tab-width 2
               indent-tabs-mode nil)

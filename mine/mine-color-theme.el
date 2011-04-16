@@ -17,8 +17,7 @@
                      (custom-set-faces    '(outline-2 ((t (:foreground "#006400" :bold t))))))
                    theme-settings)
           (puthash 'color-theme-tango-2
-                   '((set-face-background 'hl-line "#3b3b3b")
-                     (set-face-background 'region "#999966"))
+                   '((set-face-background 'region "#999966"))
                    theme-settings)
           (puthash 'color-theme-merbivore
                    '((set-face-background 'hl-line "#3b3b3b")
