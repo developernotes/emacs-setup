@@ -2,6 +2,9 @@
 (add-path "site-lisp/magit/")
 (autoload 'magit-status "magit" "use magit git magic" t)
 
+(when (eq window-system nil)
+  (make-empty-face 'magit-item-highlight))
+
 (defun mine-toggle-vc ()
   (interactive)
   "Enable or disable emacs version control interface"
