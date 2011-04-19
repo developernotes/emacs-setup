@@ -3,7 +3,8 @@
 (autoload 'magit-status "magit" "use magit git magic" t)
 
 (when (eq window-system nil)
-  (make-empty-face 'magit-item-highlight))
+  (make-empty-face 'magit-item-highlight)
+  (set-face-background 'magit-item-highlight nil))
 
 (defun mine-toggle-vc ()
   (interactive)
