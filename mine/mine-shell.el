@@ -1,6 +1,21 @@
 (require 'multi-shell)
 
+(defvar mine-x-cut-program)
+(defvar mine-x-paste-program)
+
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
+
+(when (eq window-system nil)
+  (case system-type
+    ('cygwin
+     (setq mine-x-cut-program "putclip"
+           mine-x-paste-program "getclip"))
+    ('darwin
+     (setq mine-x-cut-program "pbcopy"
+           mine-x-paste-program "pbpaste")))
+  (setq x-select-enable-clipboard t
+        interprogram-cut-function 'xsel-cut-function
+        interprogram-paste-function 'xsel-paste-function))
 
 (setq multi-shell-command "zsh"
       multi-shell-revert-window-after-complete nil
@@ -10,6 +25,16 @@
 (global-set-key (kbd "C-c T") 'multi-shell-new)
 
 (add-hook 'shell-mode-hook 'n-shell-mode-hook)
+
+(defun xsel-cut-function (text &optional push)
+  (with-temp-buffer
+    (insert text)
+    (call-process-region (point-min) (point-max) mine-x-cut-program nil 0 nil "" "")))
+
+(defun xsel-paste-function ()
+  (let ((output (shell-command-to-string mine-x-paste-program)))
+    (unless (string= (car kill-ring) output)
+      output)))
 
 (defun n-shell-mode-hook ()
   "shell mode customizations."
