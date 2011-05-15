@@ -3,7 +3,7 @@
 (add-path "site-lisp/color-theme-6.6.0")
 
 (require 'color-theme)
-(require 'color-theme-tango-2)
+(require 'color-theme-zen-and-art)
 
 (color-theme-initialize)
 
@@ -12,7 +12,6 @@
         (let ((theme-settings (make-hash-table :test 'equal)))
           (puthash 'color-theme-standard
                    '((set-face-background 'region "#ffec8b")
-                     (set-face-background 'hl-line "#b4eeb4")
                      (set-face-foreground 'font-lock-doc-face "#d2691e")
                      (custom-set-faces    '(outline-2 ((t (:foreground "#006400" :bold t))))))
                    theme-settings)
@@ -20,8 +19,7 @@
                    '((set-face-background 'region "#999966"))
                    theme-settings)
           (puthash 'color-theme-merbivore
-                   '((set-face-background 'hl-line "#3b3b3b")
-                     (set-face-background 'region "#999966")
+                   '((set-face-background 'region "#999966")
                      (set-face-foreground 'font-lock-comment-face "#d8e5c5")
                      (custom-set-faces    '(outline-2 ((t (:foreground "#a5f26e" :bold t)))))
                      (custom-set-faces    '(modeline ((t (:background "#3F3B3B" :foreground "white")))))
@@ -32,8 +30,7 @@
                      (custom-set-faces    '(minibuffer-prompt ((t (:bold t :foreground "#ff6600"))))))
                    theme-settings)
           (puthash 'color-theme-zen-and-art
-                   '((set-face-background 'hl-line "#3b3b3b")
-                     (set-face-background 'region "#999966")
+                   '((set-face-background 'region "#999966")
                      (set-face-foreground 'font-lock-comment-face "#d8e5c5")
                      (custom-set-faces    '(outline-2 ((t (:foreground "#a5f26e" :bold t))))))
                    theme-settings)
@@ -49,8 +46,8 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (apply-custom-theme-with-settings 'color-theme-tango-2))
+  (apply-custom-theme-with-settings 'color-theme-zen-and-art))
 
-(mine-dark-color-theme)
+(mine-light-color-theme)
 
 (provide 'mine-color-theme)
