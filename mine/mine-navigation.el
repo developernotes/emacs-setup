@@ -8,6 +8,9 @@
 (require 'recentf)
 (require 'switch-window)
 
+;; switch-window addition
+(global-set-key (kbd "C-x 0") 'delete-other-window)
+
 ;; enable winmove
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
