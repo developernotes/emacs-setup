@@ -1,5 +1,6 @@
 
 (add-path "site-lisp/switch-window")
+(add-path "site-lisp/emacs-nav")
 
 (require 'ido)
 (require 'thingatpt)
@@ -7,6 +8,18 @@
 (require 'browse-kill-ring)
 (require 'recentf)
 (require 'switch-window)
+(require 'nav)
+
+(defun toggle-nav-bar ()
+  "Enable or disable nav bar"
+  (interactive)
+  (if (get-buffer nav-buffer-name)
+      (progn
+        (switch-to-buffer (get-buffer nav-buffer-name))
+        (kill-buffer-and-window))
+    (nav)))
+
+(global-set-key (kbd "C-c n") 'toggle-nav-bar)
 
 ;; switch-window addition
 (global-set-key (kbd "C-x 0") 'delete-other-window)
