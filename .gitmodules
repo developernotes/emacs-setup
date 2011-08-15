@@ -10,24 +10,12 @@
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = git://github.com/philjackson/magit.git
-[submodule "site-lisp/google-maps"]
-	path = site-lisp/google-maps
-	url = git://git.naquadah.org/~jd/jd-el.git
 [submodule "site-lisp/showoff-mode"]
 	path = site-lisp/showoff-mode
 	url = git://github.com/developernotes/showoff-mode.git
-[submodule "site-lisp/ensime"]
-	path = site-lisp/ensime
-	url = git://github.com/aemoncannon/ensime.git
 [submodule "site-lisp/switch-window"]
 	path = site-lisp/switch-window
 	url = git://github.com/dimitri/switch-window.git
-[submodule "site-lisp/epresent"]
-	path = site-lisp/epresent
-	url = git://github.com/technomancy/epresent.git
 [submodule "site-lisp/coffee-mode"]
 	path = site-lisp/coffee-mode
 	url = git://github.com/defunkt/coffee-mode.git
-[submodule "site-lisp/elein"]
-	path = site-lisp/elein
-	url = git://github.com/remvee/elein.git
