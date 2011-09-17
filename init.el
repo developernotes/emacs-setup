@@ -31,7 +31,6 @@
 (require 'mine-haskell)
 (require 'mine-lisp)
 (require 'mine-showoff)
-(require 'mine-xcode)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
