@@ -20,7 +20,6 @@
 (require 'mine-pretty)
 (require 'mine-erc)
 (require 'mine-org-mode)
-(require 'mine-info-mode)
 (require 'mine-tex)
 (require 'mine-auto-complete)
 (require 'mine-dired)
