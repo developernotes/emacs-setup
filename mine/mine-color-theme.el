@@ -48,6 +48,6 @@
   (interactive)
   (apply-custom-theme-with-settings 'color-theme-zen-and-art))
 
-(mine-light-color-theme)
+(mine-dark-color-theme)
 
 (provide 'mine-color-theme)
