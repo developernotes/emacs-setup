@@ -1,4 +1,4 @@
 alias ll ls -l $*
-alias l ll
+alias l ls -la $*
 alias emacs find-file $1
 alias e find-file $1
