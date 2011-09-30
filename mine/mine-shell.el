@@ -25,6 +25,10 @@
 
 (add-hook 'shell-mode-hook 'n-shell-mode-hook)
 
+(defun add-path-to-eshell-environment (path)
+  (setq eshell-path-env
+        (concat eshell-path-env (format ":%s" (expand-file-name path)))))
+
 (defun xsel-cut-function (text &optional push)
   (with-temp-buffer
     (insert text)
@@ -65,6 +69,16 @@
   "Clears the shell buffer"
   (interactive)
   (let ((inhibit-read-only t))
-	(delete-region (point-min) (point-max))))
+    (delete-region (point-min) (point-max))))
+
+(defun eshell/load-environment-path ()
+  "Sets `eshell-path-env' to the value of the PATH environment variable"
+  (interactive)
+  (let ((path (string-replace "\n" "" (shell-command-to-string "$SHELL -i -c 'echo $PATH'"))))
+    (setq eshell-path-env path)))
+
+(eshell/load-environment-path)
+
+(eval-after-load "eshell" '(eshell/load-environment-path))
 
 (provide 'mine-shell)
