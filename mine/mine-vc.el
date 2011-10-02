@@ -11,7 +11,7 @@
   "Enable or disable emacs version control interface"
   (let ((enabled (not (eq vc-handled-backends nil))))
     (setf vc-handled-backends (if enabled nil '(CVS SVN Bzr Git Hg)))
-    (message "vc interface %s" (if enabled "disabled" "enabled"))))
+    (message "version control interface %s" (if enabled "disabled" "enabled"))))
 
 (mine-toggle-vc)
 
