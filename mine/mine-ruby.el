@@ -1,12 +1,13 @@
 
 (add-path "site-lisp/rinari")
 
-(require 'rinari)
 (require 'ruby-electric)
 
 (case system-type
   ('darwin (require 'rvm)
            (rvm-use-default)))
+
+(autoload 'rinari-launch "rinari" "Mode for rails projects" t)
 
 ;;File type associations
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
