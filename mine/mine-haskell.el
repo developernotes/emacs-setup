@@ -1,6 +1,13 @@
 
 (add-path "site-lisp/haskell-mode-2.8.0")
-(load "haskell-site-file")
+;;(load "haskell-site-file")
+
+(autoload 'haskell-mode "haskell-mode" "Mode for editing haskell files" t)
+(setq auto-mode-alist
+      (append '(("\\.hs" . haskell-mode)
+                ("\\.lhs" . haskell-mode))
+                auto-mode-alist))
+
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
