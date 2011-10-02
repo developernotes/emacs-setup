@@ -1,6 +1,5 @@
 
 (add-path "site-lisp/switch-window")
-(add-path "site-lisp/emacs-nav")
 
 (require 'ido)
 (require 'thingatpt)
