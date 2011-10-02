@@ -6,20 +6,8 @@
 (require 'thingatpt)
 (require 'ibuffer-git)
 (require 'browse-kill-ring)
-(require 'recentf)
 (require 'switch-window)
-(require 'nav)
-
-(defun toggle-nav-bar ()
-  "Enable or disable nav bar"
-  (interactive)
-  (if (get-buffer nav-buffer-name)
-      (progn
-        (switch-to-buffer (get-buffer nav-buffer-name))
-        (kill-buffer-and-window))
-    (nav)))
-
-(global-set-key (kbd "C-c n") 'toggle-nav-bar)
+(require 'recentf)
 
 ;; switch-window addition
 (global-set-key (kbd "C-x 0") 'delete-other-window)
@@ -33,7 +21,7 @@
 (browse-kill-ring-default-keybindings)
 
 ;; recent files
-(recentf-mode 1)
+(recentf-mode t)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 (define-key recentf-dialog-mode-map "n" 'next-line)
