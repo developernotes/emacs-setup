@@ -7,6 +7,7 @@
 (require 'browse-kill-ring)
 (require 'switch-window)
 (require 'recentf)
+(require 'imenu)
 
 ;; switch-window addition
 (global-set-key (kbd "C-x 0") 'delete-other-window)
