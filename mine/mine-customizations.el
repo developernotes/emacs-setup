@@ -8,6 +8,7 @@
 (autoload 'scratch "scratch" nil t)
 
 (setq visible-bell t
+      redisplay-dont-pause t
       ring-bell-function 'ignore
       display-time-24hr-format t
       inhibit-startup-screen t
