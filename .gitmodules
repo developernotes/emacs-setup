@@ -9,7 +9,7 @@
 	url = git://orgmode.org/org-mode.git
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
-	url = git://github.com/philjackson/magit.git
+	url = git://github.com/magit/magit.git
 [submodule "site-lisp/showoff-mode"]
 	path = site-lisp/showoff-mode
 	url = git://github.com/developernotes/showoff-mode.git
