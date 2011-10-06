@@ -1,4 +1,6 @@
 
+(require 'multi-shell)
+
 (defvar mine-x-cut-program)
 (defvar mine-x-paste-program)
 
@@ -20,8 +22,8 @@
       multi-shell-revert-window-after-complete nil
       eshell-aliases-file (concat emacs-root "mine/mine-eshell-alias"))
 
-(global-set-key (kbd "C-c t") '(lambda () (interactive) (eshell)))
-(global-set-key (kbd "C-c T") '(lambda () (interactive) (eshell "a")))
+(global-set-key (kbd "C-c t") 'multi-shell-next)
+(global-set-key (kbd "C-c T") 'multi-shell-new)
 
 (add-hook 'shell-mode-hook 'n-shell-mode-hook)
 
