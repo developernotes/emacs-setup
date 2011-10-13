@@ -24,6 +24,13 @@
 (autoload 'autotest "autotest" "Run autotest" t)
 (setq autotest-use-ui t)
 
+(defun ruby-insert-end () 
+  "Insert \"end\" at point and reindent current line." 
+  (interactive) 
+  (insert "end") 
+  (ruby-indent-line t) 
+  (end-of-line))
+
 (defun autotest-rspec ()
   "Runs autotest as rspec enabled"
   (interactive)
