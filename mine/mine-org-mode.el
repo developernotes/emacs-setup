@@ -3,8 +3,6 @@
 (add-path "site-lisp/gnuplot-mode.0.6.0")
 
 (autoload 'org-mode "org" "Org mode" t)
-(autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
-(autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot mode" t)
 
 (setq org-directory "~/org/"
       org-agenda-files '("~/org/gtd-items.org" "~/org/someday-maybe.org")
@@ -70,15 +68,6 @@
 (global-set-key (kbd "C-c g a") 'gtd-switch-to-agenda)
 (global-set-key (kbd "C-c g m") 'my-org-mobile-file)
 (global-set-key (kbd "C-c g w") '(lambda () (interactive)(find-file (concat org-directory "work-notes.org"))))
-
-;; org-babel
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (gnuplot . t)
-   (ruby . t)))
-
-(add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 
 ;; org capture setup
 (setq org-default-notes-file (concat org-directory "/gtd-items.org"))
