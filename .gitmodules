@@ -19,3 +19,7 @@
 [submodule "site-lisp/coffee-mode"]
 	path = site-lisp/coffee-mode
 	url = git://github.com/defunkt/coffee-mode.git
+[submodule "site-lisp/geiser"]
+	path = site-lisp/geiser
+	url = git://git.sv.gnu.org/geiser.git
+  ignore = untracked

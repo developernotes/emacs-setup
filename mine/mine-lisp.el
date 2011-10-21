@@ -3,6 +3,7 @@
   "Minor mode for pseudo-structurally editing Lisp code." t)
 
 (setq scheme-program-name "guile")
+(load (concat emacs-root "site-lisp/geiser/elisp/geiser-load"))
 
 (add-hook 'emacs-lisp-mode-hook
           'mine-default-lisp-settings)
