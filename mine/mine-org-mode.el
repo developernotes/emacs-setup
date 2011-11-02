@@ -3,6 +3,7 @@
 (add-path "site-lisp/gnuplot-mode.0.6.0")
 
 (autoload 'org-mode "org" "Org mode" t)
+(autoload 'org-capture "org-capture" nil t)
 
 (setq org-directory "~/org/"
       org-agenda-files '("~/org/gtd-items.org" "~/org/someday-maybe.org")
@@ -74,7 +75,6 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "gtd-items.org" "Todo") "* TODO %?")
         ("i" "In Progress" entry (file+headline "gtd-items.org" "In Progress") "* IN-PROGRESS %?")
-        ("w" "Work" entry (file+headline "work.org" "Todo") "* TODO %?")
         ("l" "Links to Read" entry (file+headline "gtd-items.org" "Links to Read") "* %a\n %?\n %i" :immediate-finish t)))
 
 ;; org-mobile setup
