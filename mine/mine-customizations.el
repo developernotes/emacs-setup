@@ -22,7 +22,8 @@
 
 (global-linum-mode 1)
 (blink-cursor-mode t)
-(display-battery-mode)
+(when (string-match-p "^Battery" (battery))
+  (display-battery-mode))
 (display-time-mode t)
 (delete-selection-mode t)
 
