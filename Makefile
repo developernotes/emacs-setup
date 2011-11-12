@@ -1,7 +1,7 @@
 
 platform:=$(shell uname)
 
-install: submodule-update
+install: submodules-update
 ifeq ($(findstring CYGWIN,$(platform)),CYGWIN)
 	@cmd /q /c tools\\junction -s -q "%HOME%\org" "%HOME%\Dropbox\org"
 endif
