@@ -2,14 +2,19 @@
 
 Initial installation:
 
-Prerequisites: =Ruby=, =rake= and [[http://technet.microsoft.com/en-us/sysinternals/bb896768.aspx][junction]] (for symbolic links on Windows).
+Prerequisites: =Make=, =awk=, =cut= and =xargs= all of which are available via [[http://www.cygwin.com][Cygwin]] for Windows, other platforms often have these.
 
 :  $ cd ~
 :  $ git clone git://github.com/developernotes/emacs-setup.git .emacs.d
 :  $ cd .emacs.d
-:  $ rake install
+:  $ make install
 
 Updating submodules:
 
 :  $ cd ~/.emacs.d
-:  $ rake submodules:pull
+:  $ make submodules-pull
+
+Syncing submodules to current ref.
+
+:  $ cd ~/.emacs.d
+:  $ make submodules-update
