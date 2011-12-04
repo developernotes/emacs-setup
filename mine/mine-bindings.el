@@ -13,6 +13,7 @@
 (global-set-key "\C-x\C-d"  'dired)
 (global-set-key "\C-c2"     'swap-windows)
 (global-set-key "\C-c3"     'rotate-window-split)
+(global-set-key (kbd "C-c r") 'replace-string)
 
 ;; quick switch buffers
 (global-set-key [(control tab)] 'bury-buffer)
@@ -44,4 +45,3 @@
                 (lambda () (interactive) (diff-buffer-with-file (current-buffer))))
 
 (provide 'mine-bindings)
-
