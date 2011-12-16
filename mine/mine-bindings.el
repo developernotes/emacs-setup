@@ -14,6 +14,7 @@
 (global-set-key "\C-c2"     'swap-windows)
 (global-set-key "\C-c3"     'rotate-window-split)
 (global-set-key (kbd "C-c r") 'replace-string)
+(global-set-key (kbd "C-x m") 'smex)
 
 ;; quick switch buffers
 (global-set-key [(control tab)] 'bury-buffer)
