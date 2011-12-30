@@ -1,3 +1,14 @@
+(setq linum-mode-inhibit-modes-list '(eshell-mode
+                                      shell-mode
+                                      dired-mode
+                                      erc-mode))
+
+(defadvice linum-on (around linum-on-inhibit-for-modes)
+  "Inhibit load of linum-mode for specified major modes."
+    (unless (member major-mode linum-mode-inhibit-modes-list)
+      ad-do-it))
+
+(ad-activate 'linum-on)
 
 ;; copy or kill entire line if mark not set
 (defadvice kill-ring-save (before slick-copy activate compile) "When called
