@@ -54,6 +54,4 @@
 (when (string-match "^24\." emacs-version)
   (add-to-list 'custom-theme-load-path (concat emacs-root "site-lisp/themes")))
 
-(mine-dark-color-theme)
-
 (provide 'mine-color-theme)
