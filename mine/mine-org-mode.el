@@ -17,7 +17,7 @@
       safe-local-variable-values (quote ((eval org-display-inline-images)))
       org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
       auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist)
-      org-refile-targets (quote ((org-agenda-files :maxlevel . 10) (nil :maxlevel . 10)))
+      org-refile-targets (quote (("~/org/someday-maybe.org" :maxlevel . 10) (nil :maxlevel . 10)))
       org-todo-keywords
       '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
 
@@ -102,7 +102,7 @@
          ((org-agenda-todo-ignore-deadlines nil)
           (org-agenda-todo-ignore-scheduled t)
           (org-agenda-todo-ignore-with-date nil)
-          (org-agenda-files '("~/org/gtd-items.org" "~/org/work.org"))
+          (org-agenda-files '("~/org/gtd-items.org" "~/org/work-notes.org"))
           (org-agenda-sorting-strategy '(priority-down time-up tag-up))))))
 
 (custom-set-faces
