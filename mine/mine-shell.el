@@ -5,6 +5,14 @@
 (defvar mine-x-paste-program)
 
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
+(when (eq system-type 'windows-nt)
+  (require 'bat-mode)
+  (setq auto-mode-alist
+        (append
+         (list (cons "\\.[bB][aA][tT]$" 'bat-mode))
+         (list (cons "CONFIG\\."   'bat-mode))
+         (list (cons "AUTOEXEC\\." 'bat-mode))
+         auto-mode-alist)))
 
 (when (eq window-system nil)
   (case system-type
