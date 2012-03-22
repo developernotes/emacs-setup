@@ -32,7 +32,7 @@
 
    ;; Built-in stuff (Emacs 23)
    `(default ((t (:background ,background :foreground ,foreground))))
-   `(fringe ((t (:background ,current-line))))
+   `(fringe ((t (:background ,background))))
    `(minibuffer-prompt ((t (:foreground ,blue))))
    `(mode-line ((t (:background ,current-line :foreground ,foreground))))
    `(region ((t (:background ,selection))))
