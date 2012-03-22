@@ -42,13 +42,13 @@
 (defun mine-light-color-theme ()
   (interactive)
   (when (string-match "^24\." emacs-version)
-    (load-theme 'standard t))
+    (load-theme 'tomorrow t))
   (when (string-match "^23\." emacs-version)
     (apply-custom-theme-with-settings 'color-theme-standard)))
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (load-theme 'tango-2 t))
+  (load-theme 'tomorrow-night t))
 
 (when (string-match "^24\." emacs-version)
   (add-to-list 'custom-theme-load-path (concat emacs-root "site-lisp/themes")))
