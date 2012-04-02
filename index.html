@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Emacs-setup : My emacs setup" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Emacs-setup</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/developernotes/emacs-setup">Fork Me on GitHub</a>
+
+          <h1 id="project_title">Emacs-setup</h1>
+          <h2 id="project_tagline">My emacs setup</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/developernotes/emacs-setup/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/developernotes/emacs-setup/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>Installation</h2>
+
+<p>Initial installation:</p>
+
+<p>Prerequisites: <code>Make</code>, <code>awk</code>, <code>cut</code> and <code>xargs</code> all of which are available via <a href="Cygwin">http://www.cygwin.com</a> for Windows, other platforms often have these.</p>
+
+<pre lang="shell"><code>:  $ cd ~
+:  $ git clone git://github.com/developernotes/emacs-setup.git .emacs.d
+:  $ cd .emacs.d
+:  $ make install
+</code></pre>
+
+<p>Updating submodules:</p>
+
+<pre lang="shell"><code>:  $ cd ~/.emacs.d
+:  $ make submodules-pull
+</code></pre>
+
+<p>Syncing submodules to current ref.</p>
+
+<pre lang="shell"><code>:  $ cd ~/.emacs.d
+:  $ make submodules-update
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Emacs-setup maintained by <a href="https://github.com/developernotes">developernotes</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
