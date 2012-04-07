@@ -8,6 +8,9 @@
             (define-key dired-mode-map (kbd "<return>") 'dired-find-alternate-file)
             (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))))
 
+(autoload (quote dired-jump) "dired" "" t nil)
+(define-key global-map "\C-x\C-j" 'dired-jump)
+
 (setq dired-auto-revert-buffer t)
 
 (defun dired-open-marked-files ()
