@@ -2,10 +2,6 @@
 (add-path "site-lisp/themes")
 (add-path "site-lisp/color-theme-6.6.0")
 
-(require 'color-theme)
-
-(color-theme-initialize)
-
 (setq custom-theme-settings
       (progn
         (let ((theme-settings (make-hash-table :test 'equal)))
@@ -48,7 +44,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (load-theme 'tomorrow-night t))
+  (load-theme 'twilight t))
 
 (when (string-match "^24\." emacs-version)
   (add-to-list 'custom-theme-load-path (concat emacs-root "site-lisp/themes")))
