@@ -15,6 +15,7 @@
       uniquify-buffer-name-style 'post-forward
       uniquify-separator ":"
       ispell-program-name "aspell"
+      ediff-window-setup-function 'ediff-setup-windows-plain
       bkup-backup-directory-info '((t "~/.backups" ok-create full-path))
       custom-file (concat emacs-root "/mine/mine-customizations.el")
       kill-buffer-query-functions    (remq 'process-kill-buffer-query-function
