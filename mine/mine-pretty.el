@@ -5,7 +5,7 @@
 (show-paren-mode t)
 
 (case system-type
-  ('windows-nt (setq mine-font-name-normal "Meslo LG M DZ-13:bold"
+  ('windows-nt (setq mine-font-name-normal "Ubuntu Mono-12"
 										 mine-font-name-large "DejaVu Sans Mono-18:bold"))
 	('gnu/linux  (setq mine-font-name-normal "DejaVu Sans Mono-12:bold"
 										 mine-font-name-large "DejaVu Sans Mono-18:bold"))
