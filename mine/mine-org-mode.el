@@ -21,9 +21,6 @@
       org-todo-keywords
       '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
 
-(run-at-time t 3600 'org-save-all-org-buffers)
-(run-at-time t 7200 'mine-org-mobile-sync)
-
 (defun my-org-file (file)
   (concat org-directory "/" file))
 
