@@ -9,7 +9,7 @@
 										 mine-font-name-large "DejaVu Sans Mono-18:bold"))
 	('gnu/linux  (setq mine-font-name-normal "DejaVu Sans Mono-12:bold"
 										 mine-font-name-large "DejaVu Sans Mono-18:bold"))
-  ('darwin     (setq mine-font-name-normal "Ubuntu Mono-16"
+  ('darwin     (setq mine-font-name-normal "Ubuntu Mono-18"
 										 mine-font-name-large "DejaVu Sans Mono-18:bold"))
   ('cygwin     (setq mine-font-name-normal ""
                      mine-font-name-large "")))
