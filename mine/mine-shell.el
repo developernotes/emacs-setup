@@ -71,6 +71,12 @@
    ;; send other commands to the default handler.
    (t (comint-simple-send proc command))))
 
+(defun eshell/branch ()
+  "Return the current git branch, if applicable."
+  (let ((branch (shell-command-to-string "git branch")))
+    (string-match "^\\* \\(.*\\)" branch)
+    (match-string 1 branch)))
+
 (defun eshell/clear ()
   "Clears the shell buffer"
   (interactive)
@@ -84,5 +90,16 @@
     (setq eshell-path-env path)))
 
 (eval-after-load "eshell" '(eshell/load-environment-path))
+
+(setq eshell-prompt-function
+      (lambda ()
+        (concat (or (eshell/pwd) "") " "
+                (let ((branch (eshell/branch)))
+                  (if (or (equal branch nil)
+                          (equal branch "):")
+                          (equal "fatal: " (substring branch 0 5)))
+                      ""
+                    (format "(%s)" branch)))
+                (if (= (user-uid) 0) " # " " $ "))))
 
 (provide 'mine-shell)
