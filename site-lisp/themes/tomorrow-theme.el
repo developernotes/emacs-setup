@@ -52,7 +52,7 @@
    `(hl-line ((t (:background ,current-line))))
 
    ;; linum-mode
-   `(linum ((t (:background ,current-line :foreground ,foreground))))
+   `(linum ((t (:foreground ,foreground))))
 
    ;; org-mode
    `(org-date ((t (:foreground ,purple))))
