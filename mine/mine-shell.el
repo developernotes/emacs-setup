@@ -71,17 +71,12 @@
    ;; send other commands to the default handler.
    (t (comint-simple-send proc command))))
 
-(defun eshell/branch ()
-  "Return the current git branch, if applicable."
-  (let ((branch (shell-command-to-string "git branch")))
-    (string-match "^\\* \\(.*\\)" branch)
-    (match-string 1 branch)))
-
 (defun eshell/clear ()
   "Clears the shell buffer"
   (interactive)
   (let ((inhibit-read-only t))
-    (delete-region (point-min) (point-max))))
+    ;; (delete-region (point-min) (point-max))
+    (erase-buffer)))
 
 (defun eshell/load-environment-path ()
   "Sets `eshell-path-env' to the value of the PATH environment variable"
@@ -91,15 +86,25 @@
 
 (eval-after-load "eshell" '(eshell/load-environment-path))
 
+(defun eshell/branch ()
+  "Return the current git branch, if applicable."
+  (let ((branch (shell-command-to-string "git branch 2> /dev/null")))
+    (string-match "^\\* \\(.*\\)" branch)
+    (if (equal branch "")
+        ""
+      (match-string 1 branch))))
+
 (setq eshell-prompt-function
       (lambda ()
-        (concat (or (eshell/pwd) "") " "
-                (let ((branch (eshell/branch)))
+        (let ((prompt (eshell/pwd))
+              (home-dir (expand-file-name "~"))
+              (branch (eshell/branch)))
+          (setq prompt (string-replace (expand-file-name "~") "~" prompt))
+          (concat prompt
                   (if (or (equal branch nil)
-                          (equal branch "):")
-                          (equal "fatal: " (substring branch 0 5)))
+                          (equal branch ""))
                       ""
-                    (format "(%s)" branch)))
-                (if (= (user-uid) 0) " # " " $ "))))
+                    (format " (%s)" branch))
+                  (if (= (user-uid) 0) " # " " $ ")))))
 
 (provide 'mine-shell)
