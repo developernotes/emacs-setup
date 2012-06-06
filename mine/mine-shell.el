@@ -65,7 +65,6 @@
     (comint-send-string proc "\n")
     (setq command (replace-regexp-in-string "^[ \t]*man[ \t]*" "" command))
     (setq command (replace-regexp-in-string "[ \t]+$" "" command))
-    ;;(message (format "command %s command" command))
     (funcall 'man command))
 
    ;; send other commands to the default handler.
@@ -75,7 +74,6 @@
   "Clears the shell buffer"
   (interactive)
   (let ((inhibit-read-only t))
-    ;; (delete-region (point-min) (point-max))
     (erase-buffer)))
 
 (defun eshell/load-environment-path ()
