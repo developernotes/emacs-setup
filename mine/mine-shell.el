@@ -92,7 +92,10 @@
         ""
       (match-string 1 branch))))
 
-(setq eshell-prompt-function
+(setq
+ eshell-hist-ignoredups t
+ eshell-history-size 10
+ eshell-prompt-function
       (lambda ()
         (let ((prompt (eshell/pwd))
               (home-dir (expand-file-name "~"))
