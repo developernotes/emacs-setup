@@ -1,5 +1,5 @@
 
-(require 'multi-shell)
+(require 'multi-eshell)
 
 (defvar mine-x-cut-program)
 (defvar mine-x-paste-program)
@@ -26,12 +26,11 @@
         interprogram-cut-function 'xsel-cut-function
         interprogram-paste-function 'xsel-paste-function))
 
-(setq multi-shell-command "zsh"
-      multi-shell-revert-window-after-complete nil
+(setq multi-eshell-shell-function '(eshell)
       eshell-aliases-file (concat emacs-root "mine/mine-eshell-alias"))
 
-(global-set-key (kbd "C-c t") 'multi-shell-next)
-(global-set-key (kbd "C-c T") 'multi-shell-new)
+(global-set-key (kbd "C-c t") 'multi-eshell-switch)
+(global-set-key (kbd "C-c b") 'multi-eshell-go-back)
 
 (add-hook 'shell-mode-hook 'n-shell-mode-hook)
 
@@ -96,16 +95,16 @@
  eshell-hist-ignoredups t
  eshell-history-size 10
  eshell-prompt-function
-      (lambda ()
-        (let ((prompt (eshell/pwd))
-              (home-dir (expand-file-name "~"))
-              (branch (eshell/branch)))
-          (setq prompt (string-replace (expand-file-name "~") "~" prompt))
-          (concat prompt
-                  (if (or (equal branch nil)
-                          (equal branch ""))
-                      ""
-                    (format " (%s)" branch))
-                  (if (= (user-uid) 0) " # " " $ ")))))
+ (lambda ()
+   (let ((prompt (eshell/pwd))
+         (home-dir (expand-file-name "~"))
+         (branch (eshell/branch)))
+     (setq prompt (string-replace (expand-file-name "~") "~" prompt))
+     (concat prompt
+             (if (or (equal branch nil)
+                     (equal branch ""))
+                 ""
+               (format " (%s)" branch))
+             (if (= (user-uid) 0) " # " " $ ")))))
 
 (provide 'mine-shell)
