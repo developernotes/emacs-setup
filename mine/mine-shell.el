@@ -91,6 +91,23 @@
         ""
       (match-string 1 branch))))
 
+(defun eshell/extract (file)
+  (let ((command (some (lambda (x)
+                         (if (string-match-p (car x) file)
+                             (cadr x)))
+                       '((".*\.tar.bz2" "tar xjf")
+                         (".*\.tar.gz" "tar xzf")
+                         (".*\.bz2" "bunzip2")
+                         (".*\.rar" "unrar x")
+                         (".*\.gz" "gunzip")
+                         (".*\.tar" "tar xf")
+                         (".*\.tbz2" "tar xjf")
+                         (".*\.tgz" "tar xzf")
+                         (".*\.zip" "unzip")
+                         (".*\.Z" "uncompress")
+                         (".*" "echo 'Could not extract the file:'")))))
+    (eshell-command-result (concat command " " file))))
+
 (setq
  eshell-hist-ignoredups t
  eshell-history-size 10
