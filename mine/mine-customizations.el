@@ -2,6 +2,7 @@
 (require 'uniquify)
 (require 'undo-tree)
 (require 'backup-dir)
+(require 'whitespace)
 
 (global-undo-tree-mode)
 
@@ -46,7 +47,6 @@
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-
 
 (set-face-attribute 'whitespace-line nil
                     :background "red1"
