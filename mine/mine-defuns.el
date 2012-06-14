@@ -8,7 +8,8 @@
         (beginning-of-line))))
 
 (defun mine-server-start ()
-  "Starts the emacs server, navigating to either a directory or file if set via environment variables"
+  "Starts the emacs server, navigating to either a directory or file
+   if set via environment variables"
   (server-start)
   (let ((dir  (getenv "EOPEN_DIR"))
         (file (getenv "EOPEN_FILE")))

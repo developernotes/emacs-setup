@@ -5,8 +5,6 @@
 (require 'smex)
 (require 'yasnippet)
 
-;;(eval-after-load "init.el" '(smex-initialize))
-;;(smex-auto-update)
 (smex-initialize)
 
 ;; yasnippet

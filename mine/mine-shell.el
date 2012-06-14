@@ -37,7 +37,8 @@
 (defun xsel-cut-function (text &optional push)
   (with-temp-buffer
     (insert text)
-    (call-process-region (point-min) (point-max) mine-x-cut-program nil 0 nil "" "")))
+    (call-process-region (point-min) (point-max)
+                         mine-x-cut-program nil 0 nil "" "")))
 
 (defun xsel-paste-function ()
   (let ((output (shell-command-to-string mine-x-paste-program)))
@@ -50,7 +51,6 @@
   (local-set-key '[down]        'comint-next-input)
   (local-set-key '[(shift tab)] 'comint-next-matching-input-from-input)
   (setq comint-input-sender     'n-shell-simple-send))
-
 (defun n-shell-simple-send (proc command)
   "Various commands pre-processing before sending to shell."
   (cond
@@ -78,7 +78,8 @@
 (defun eshell/load-environment-path ()
   "Sets `eshell-path-env' to the value of the PATH environment variable"
   (interactive)
-  (let ((path (string-replace "\n" "" (shell-command-to-string "$SHELL -i -c 'echo $PATH'"))))
+  (let ((shell-command "$SHELL -i -c 'echo $PATH'")
+        (path (string-replace "\n" ""(shell-command-to-string shell-command))))
     (setq eshell-path-env path)))
 
 (eval-after-load "eshell" '(eshell/load-environment-path))
