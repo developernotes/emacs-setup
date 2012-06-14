@@ -47,4 +47,21 @@
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 
+
+(set-face-attribute 'whitespace-line nil
+                    :background "red1"
+                    :foreground "yellow"
+                    :weight 'bold)
+
+;; face for Tabs
+(set-face-attribute 'whitespace-tab nil
+                    :background "red1"
+                    :foreground "yellow"
+                    :weight 'bold)
+
+(setq whitespace-line-column 80
+      whitespace-style '(face tabs trailing lines-tail))
+
+(global-whitespace-mode 1)
+
 (provide 'mine-customizations)
