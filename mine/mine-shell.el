@@ -78,7 +78,7 @@
 (defun eshell/load-environment-path ()
   "Sets `eshell-path-env' to the value of the PATH environment variable"
   (interactive)
-  (let ((shell-command "$SHELL -i -c 'echo $PATH'")
+  (let* ((shell-command "$SHELL -i -c 'echo $PATH'")
         (path (string-replace "\n" ""(shell-command-to-string shell-command))))
     (setq eshell-path-env path)))
 
