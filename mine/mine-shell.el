@@ -111,7 +111,8 @@
 
 (setq
  eshell-hist-ignoredups t
- eshell-history-size 10
+ eshell-last-dir-ring-size 10
+ eshell-last-dir-unique t
  eshell-prompt-function
  (lambda ()
    (let ((prompt (eshell/pwd))
