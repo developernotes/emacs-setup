@@ -79,7 +79,7 @@
   "Sets `eshell-path-env' to the value of the PATH environment variable"
   (interactive)
   (let* ((shell-command "$SHELL -i -c 'echo $PATH'")
-        (path (string-replace "\n" ""(shell-command-to-string shell-command))))
+         (path (string-replace "\n" ""(shell-command-to-string shell-command))))
     (setq eshell-path-env path)))
 
 (eval-after-load "eshell" '(eshell/load-environment-path))
@@ -108,6 +108,12 @@
                          (".*\.Z" "uncompress")
                          (".*" "echo 'Could not extract the file:'")))))
     (eshell-command-result (concat command " " file))))
+
+(add-hook 'eshell-mode-hook
+          '(lambda ()
+             (setenv "TERM" "emacs")
+             (eshell/export "GIT_EDITOR=emacsclient")
+             (eshell/export "PAGER=cat")))
 
 (setq
  eshell-hist-ignoredups t
