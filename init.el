@@ -30,3 +30,4 @@
                                             (second *emacs-load-start*)))))
 
 (cd "~/")
+(mine-server-start)
