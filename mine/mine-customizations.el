@@ -49,13 +49,13 @@
   (tool-bar-mode -1))
 
 (set-face-attribute 'whitespace-line nil
-                    :background "red1"
+                    :background "#888a85"
                     :foreground "yellow"
                     :weight 'bold)
 
 ;; face for Tabs
 (set-face-attribute 'whitespace-tab nil
-                    :background "red1"
+                    :background "#888a85"
                     :foreground "yellow"
                     :weight 'bold)
 
