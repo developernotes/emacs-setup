@@ -10,6 +10,15 @@
 
 (ad-activate 'linum-on)
 
+
+(defadvice find-tag (around tags-file-name-auto-assignment)
+  "Set `tags-file-name` automatically before calling `find-tag`."
+  (setq tags-file-name (concat (locate-dominating-file
+                                default-directory "TAGS") "TAGS"))
+  ad-do-it)
+
+(ad-activate 'find-tag)
+
 ;; copy or kill entire line if mark not set
 (defadvice kill-ring-save (before slick-copy activate compile) "When called
   interactively with no active region, copy a single line instead."

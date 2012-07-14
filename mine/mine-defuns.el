@@ -10,6 +10,7 @@
 (defun mine-server-start ()
   "Starts the emacs server, navigating to either a directory or file
    if set via environment variables"
+  (server-force-delete)
   (server-start)
   (let ((dir  (getenv "EOPEN_DIR"))
         (file (getenv "EOPEN_FILE")))
@@ -18,6 +19,12 @@
     (if file
         (find-file file))))
 
+(defun create-tags (directory)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (async-shell-command
+   (format "%s -f %sTAGS -e -R %s" "ctags" directory
+           (directory-file-name directory))))
 
 (defun untabify-buffer ()
   (interactive)
