@@ -1,7 +1,7 @@
 ;;; tango-2-theme.el --- Tango 2 color theme for GNU Emacs 24
 ;; Author: Nick Parker
 ;; Version: 1.0.0
-;; 
+;;
 ;; Ported theme to Emacs 24 color theme Nick Parker <nickp@developernotes.com>
 ;; original from Will Farrington <wcfarrington@gmail.com>
 ;;
@@ -46,10 +46,8 @@
  '(lazy-highlight ((t (:background "#e9b96e" :foreground "#2e3436"))))
  '(link ((t (:foreground "#729fcf"))))
  '(link-visited ((t (:foreground "#ad7fa8"))))
-
  '(flyspell-duplicate ((t (:foreground "#fcaf3e"))))
  '(flyspell-incorrect ((t (:foreground "#cc0000"))))
-
  '(org-date ((t (:foreground "LightSteelBlue" :underline t))))
  '(org-hide ((t (:foreground "#2e3436"))))
  '(org-todo ((t (:inherit font-lock-keyword-face :bold t))))
@@ -58,7 +56,7 @@
  '(org-level-3 ((t (:inherit font-lock-keyword-face))))
  '(org-level-4 ((t (:inherit font-lock-string-face))))
  '(org-level-5 ((t (:inherit font-lock-constant-face))))
-
+ '(eshell-prompt ((t (:foreground "#729fcf" :bold t))))
  '(comint-highlight-input ((t (:italic t :bold t))))
  '(comint-highlight-prompt ((t (:foreground "#8ae234"))))
  '(isearch ((t (:background "#f57900" :foreground "#2e3436"))))
@@ -69,6 +67,7 @@
  '(persp-selected-face ((t (:foreground "#729fcf"))))
  '(show-paren-match-face ((t (:background "#729fcf" :foreground "#eeeeec"))))
  '(show-paren-mismatch-face ((t (:background "#ad7fa8" :foreground "#2e3436")))))
+
 
 ;;;###autoload
 (when load-file-name
