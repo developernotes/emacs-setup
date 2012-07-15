@@ -6,7 +6,7 @@
 (autoload 'org-capture "org-capture" nil t)
 
 (setq org-directory "~/org/"
-      org-agenda-files '("~/org/gtd-items.org" "~/org/someday-maybe.org")
+      org-agenda-files (directory-files "~/org" t "\\.org$")
       org-log-done t
       org-use-fast-todo-selection t
       org-enforce-todo-dependencies t
