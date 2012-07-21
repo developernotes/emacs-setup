@@ -16,7 +16,7 @@
                  mine-defuns mine-advice mine-bindings mine-package mine-pretty
                  mine-erc mine-org-mode mine-tex mine-auto-complete mine-dired
                  mine-shell mine-html mine-csharp mine-ruby mine-javascript
-                 mine-haskell mine-lisp mine-showoff))
+                 mine-haskell mine-lisp mine-showoff mine-c))
 
 (case system-type
   ('windows-nt (require 'mine-windows))
