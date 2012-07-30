@@ -1,0 +1,4 @@
+#name : link
+#group : general
+# --
+[[$1][$2]] $0
