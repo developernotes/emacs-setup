@@ -3,20 +3,36 @@
 (defun add-path (path)
   (add-to-list 'load-path (concat emacs-root path)))
 
-(defun multi-require (packages)
-  (mapcar (lambda (package)
-            (require package)) packages))
-
 (defvar *emacs-load-start* (current-time))
 
 (add-path "mine")
 (add-path "site-lisp")
 
-(multi-require '(cl mine-vc mine-navigation mine-dependencies mine-customizations
-                 mine-defuns mine-advice mine-bindings mine-package mine-pretty
-                 mine-erc mine-org-mode mine-tex mine-auto-complete mine-dired
-                 mine-shell mine-html mine-csharp mine-ruby mine-javascript
-                 mine-haskell mine-lisp mine-showoff mine-c mine-bookmark))
+(require 'cl)
+(require 'mine-vc)
+(require 'mine-navigation)
+(require 'mine-dependencies)
+(require 'mine-customizations)
+(require 'mine-defuns)
+(require 'mine-advice)
+(require 'mine-bindings)
+(require 'mine-package)
+(require 'mine-pretty)
+(require 'mine-erc)
+(require 'mine-org-mode)
+(require 'mine-tex)
+(require 'mine-auto-complete)
+(require 'mine-dired)
+(require 'mine-shell)
+(require 'mine-html)
+(require 'mine-csharp)
+(require 'mine-ruby)
+(require 'mine-javascript)
+(require 'mine-haskell)
+(require 'mine-lisp)
+(require 'mine-showoff)
+(require 'mine-c)
+(require 'mine-bookmark)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
