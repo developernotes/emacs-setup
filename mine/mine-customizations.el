@@ -62,6 +62,40 @@
 (setq whitespace-line-column 80
       whitespace-style '(face tabs trailing lines-tail))
 
+(setq whitespace-mode-inhibit-modes-list '(fundamental-mode
+                                           eshell-mode
+                                           shell-mode
+                                           dired-mode
+                                           erc-mode))
+
+(defadvice linum-on (around linum-on-inhibit-for-modes)
+  "Inhibit load of linum-mode for specified major modes."
+  (unless (member major-mode whitespace-mode-inhibit-modes-list)
+    ad-do-it))
+
+(defun whitespace-turn-on-if-enabled ()
+  (when (cond
+         ((eq whitespace-global-modes t))
+         ((listp whitespace-global-modes)
+          (if (eq (car-safe whitespace-global-modes) 'not)
+              (not (memq major-mode (cdr whitespace-global-modes)))
+            (memq major-mode whitespace-global-modes)))
+         (t nil))
+    (let (inhibit-quit)
+      ;; Don't turn on whitespace mode if...
+      (or
+       ;; ...we don't have a display (we're running a batch job)
+       noninteractive
+       ;; ...or if the buffer is invisible (name starts with a space)
+       (eq (aref (buffer-name) 0) ?\ )
+       ;; ...or if the buffer is temporary (name starts with *)
+       (and (eq (aref (buffer-name) 0) ?*)
+            ;; except the scratch buffer.
+            (not (string= (buffer-name) "*scratch*")))
+       (member major-mode whitespace-mode-inhibit-modes-list)
+       ;; Otherwise, turn on whitespace mode.
+       (whitespace-turn-on)))))
+
 (global-whitespace-mode 1)
 
 (provide 'mine-customizations)
