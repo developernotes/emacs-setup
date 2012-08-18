@@ -14,7 +14,6 @@
 (global-set-key "\C-c2"     'swap-windows)
 (global-set-key "\C-c3"     'rotate-window-split)
 (global-set-key (kbd "C-c r") 'replace-string)
-(global-set-key (kbd "C-x m") 'smex)
 
 ;; quick switch buffers
 (global-set-key [(control tab)] 'bury-buffer)
@@ -29,11 +28,6 @@
       (occur (if isearch-regexp isearch-string
                (regexp-quote isearch-string))))))
 
-;; smex
-(global-set-key (kbd "M-x")         'smex)
-(global-set-key (kbd "M-X")         'smex-major-mode-commands)
-(global-set-key (kbd "C-c M-x")     'smex-update-and-run)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; window resizing
 (global-set-key (kbd "S-C-<left>")  'shrink-window-horizontally)

@@ -2,17 +2,20 @@
 (add-path "site-lisp/smex")
 (add-path "site-lisp/yasnippet-0.6.1c")
 
-(require 'smex)
 (require 'yasnippet)
 
-(smex-initialize)
+(autoload 'smex "smex.el" "smex" t)
+(autoload 'smex-initialize "smex.el" "smex" t)
 
-;; yasnippet
-(yas/initialize)
-(setq yas/root-directories
-      (list (concat emacs-root "site-lisp/yasnippet-0.6.1c/snippets/")
-            (concat emacs-root "mysnippets/")))
-(mapc 'yas/load-directory yas/root-directories)
+(defun load-smex-jit ()
+  "Rebind M-x after loading smex"
+  (interactive)
+  (or (boundp 'smex-cache)
+      (smex-initialize))
+  (global-set-key (kbd "M-x") 'smex)
+  (smex))
+
+(global-set-key (kbd "M-x") 'load-smex-jit)
 
 (setq yas/prompt-functions '(yas/dropdown-prompt
                              yas/ido-prompt
@@ -29,5 +32,17 @@
                ad-do-it)))))
 
 (yas/advise-indent-function 'ruby-indent-line)
-				
+
+(yas/load-directory (concat emacs-root "mysnippets/"))
+
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (yas/reload-all)
+             (yas/minor-mode)))
+
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (yas/reload-all)
+             (yas/minor-mode)))
+
 (provide 'mine-dependencies)
