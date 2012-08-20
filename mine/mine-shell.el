@@ -75,14 +75,9 @@
   (let ((inhibit-read-only t))
     (erase-buffer)))
 
-(defun eshell/load-environment-path ()
-  "Sets `eshell-path-env' to the value of the PATH environment variable"
-  (interactive)
-  (let* ((shell-command "$SHELL -i -c 'echo $PATH'")
-         (path (string-replace "\n" ""(shell-command-to-string shell-command))))
-    (setq eshell-path-env path)))
-
-(eval-after-load "eshell" '(eshell/load-environment-path))
+(defun eshell/expand-paths (paths)
+  (mapconcat (lambda (path)
+             (expand-file-name path)) paths ":"))
 
 (defun eshell/branch ()
   "Return the current git branch, if applicable."
@@ -119,6 +114,7 @@
  eshell-hist-ignoredups t
  eshell-last-dir-ring-size 10
  eshell-last-dir-unique t
+ eshell-rc-script (concat emacs-root "mine/mine-eshell-profile")
  eshell-prompt-function
  (lambda ()
    (let ((prompt (eshell/pwd))
