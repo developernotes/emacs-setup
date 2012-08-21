@@ -108,7 +108,8 @@
           '(lambda ()
              (setenv "TERM" "emacs")
              (eshell/export "GIT_EDITOR=emacsclient")
-             (eshell/export "PAGER=cat")))
+             (eshell/export "PAGER=cat")
+             (eshell/clear)))
 
 (setq
  eshell-hist-ignoredups t
