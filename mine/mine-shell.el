@@ -77,11 +77,11 @@
 
 (defun eshell/expand-paths (paths)
   (mapconcat (lambda (path)
-             (expand-file-name path)) paths ":"))
+               (expand-file-name path)) paths ":"))
 
 (defun eshell/branch ()
   "Return the current git branch, if applicable."
-  (let ((branch (shell-command-to-string "git branch 2> /dev/null")))
+  (let ((branch (shell-command-to-string "git branch --no-color 2> /dev/null")))
     (string-match "^\\* \\(.*\\)" branch)
     (if (equal branch "")
         ""
@@ -103,13 +103,6 @@
                          (".*\.Z" "uncompress")
                          (".*" "echo 'Could not extract the file:'")))))
     (eshell-command-result (concat command " " file))))
-
-(add-hook 'eshell-mode-hook
-          '(lambda ()
-             (setenv "TERM" "emacs")
-             (eshell/export "GIT_EDITOR=emacsclient")
-             (eshell/export "PAGER=cat")
-             (eshell/clear)))
 
 (setq
  eshell-hist-ignoredups t
