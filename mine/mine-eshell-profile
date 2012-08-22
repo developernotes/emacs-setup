@@ -6,6 +6,8 @@ export JAVA_HOME=$(shell-command-to-string "/usr/libexec/java_home")
 export ANDROID_HOME=$(expand-file-name "~/bin/android-sdk")
 export ANDROID_NDK_ROOT=$(expand-file-name "~/bin/android-ndk")
 (case system-type
+  ('windows-nt
+        (ignore (setq shell-file-name "C:\\tools\\git\\bin\\bash")))
   ('darwin
         (eshell/export "GIT_EDITOR=/usr/local/Cellar/emacs/24.1/bin/emacsclient")))
 
