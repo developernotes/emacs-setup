@@ -63,6 +63,9 @@
       whitespace-style '(face tabs trailing lines-tail))
 
 (setq whitespace-mode-inhibit-modes-list '(fundamental-mode
+                                           org-mode
+                                           html-mode
+                                           text-mode
                                            eshell-mode
                                            shell-mode
                                            dired-mode
