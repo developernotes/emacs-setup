@@ -17,6 +17,7 @@ export ANDROID_NDK_ROOT=$(expand-file-name "~/bin/android-ndk")
                  ,(concat (getenv "JAVA_HOME") "/bin")
                  ,(concat (getenv "ANDROID_HOME") "/tools")
                  ,(concat (getenv "ANDROID_HOME") "/platform-tools")
+                 ,(concat (getenv "ANDROID_HOME") "/tools/proguard/bin")
                  ,(getenv "ANDROID_NDK_ROOT")
                  ,(getenv "PATH")
                  "/usr/local/bin"
