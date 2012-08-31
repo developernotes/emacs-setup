@@ -1,10 +1,8 @@
 
 (require 'multi-eshell)
 
-(defvar mine-x-cut-program)
-(defvar mine-x-paste-program)
-
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
+
 (when (eq system-type 'windows-nt)
   (require 'bat-mode)
   (setq auto-mode-alist
@@ -14,60 +12,41 @@
          (list (cons "AUTOEXEC\\." 'bat-mode))
          auto-mode-alist)))
 
-(when (eq window-system nil)
-  (case system-type
-    ('cygwin
-     (setq mine-x-cut-program "putclip"
-           mine-x-paste-program "getclip"))
-    ('darwin
-     (setq mine-x-cut-program "pbcopy"
-           mine-x-paste-program "pbpaste")))
-  (setq x-select-enable-clipboard t
-        interprogram-cut-function 'xsel-cut-function
-        interprogram-paste-function 'xsel-paste-function))
-
-(setq multi-eshell-shell-function '(eshell)
-      eshell-aliases-file (concat emacs-root "mine/mine-eshell-alias"))
-
 (global-set-key (kbd "C-c t") 'multi-eshell-switch)
 (global-set-key (kbd "C-c b") 'multi-eshell-go-back)
 
-(add-hook 'shell-mode-hook 'n-shell-mode-hook)
+(defconst pcmpl-git-commands
+  '( "ad" "add" "bisect" "branch" "checkout" "clone"
+     "co" "commit" "diff" "fetch" "grep"
+     "init" "log" "merge" "mv" "pull" "push" "rebase"
+     "reset" "rm" "show" "status" "tag" "to-push")
+  "List of `git' commands")
 
-(defun xsel-cut-function (text &optional push)
+(defvar pcmpl-git-ref-list-cmd "git for-each-ref refs/ --format='%(refname)'"
+  "The `git' command to run to get a list of refs")
+
+(defun pcmpl-git-get-refs (type)
+  "Return a list of `git' refs filtered by TYPE"
   (with-temp-buffer
-    (insert text)
-    (call-process-region (point-min) (point-max)
-                         mine-x-cut-program nil 0 nil "" "")))
+    (insert (shell-command-to-string pcmpl-git-ref-list-cmd))
+    (goto-char (point-min))
+    (let ((ref-list))
+      (while (re-search-forward (concat "^refs/" type "/\\(.+\\)$") nil t)
+        (add-to-list 'ref-list (match-string 1)))
+      ref-list)))
 
-(defun xsel-paste-function ()
-  (let ((output (shell-command-to-string mine-x-paste-program)))
-    (unless (string= (car kill-ring) output)
-      output)))
-
-(defun n-shell-mode-hook ()
-  "shell mode customizations."
-  (local-set-key '[up]          'comint-previous-input)
-  (local-set-key '[down]        'comint-next-input)
-  (local-set-key '[(shift tab)] 'comint-next-matching-input-from-input)
-  (setq comint-input-sender     'n-shell-simple-send))
-(defun n-shell-simple-send (proc command)
-  "Various commands pre-processing before sending to shell."
+(defun pcomplete/git ()
+  "Completion for `git'"
+  (pcomplete-here* pcmpl-git-commands)
   (cond
-   ;; checking for clear command and execute it.
-   ((string-match "^[ \t]*clear[ \t]*$" command)
-    (comint-send-string proc "\n")
-    (erase-buffer))
+   ((pcomplete-match (regexp-opt '("add" "rm")) 1)
+    (while (pcomplete-here (pcomplete-entries))))
+   ((pcomplete-match (regexp-opt '("checkout" "co"))  1)
+    (pcomplete-here* (pcmpl-git-get-refs "heads")))))
 
-   ;; checking for man command and execute it.
-   ((string-match "^[ \t]*man[ \t]*" command)
-    (comint-send-string proc "\n")
-    (setq command (replace-regexp-in-string "^[ \t]*man[ \t]*" "" command))
-    (setq command (replace-regexp-in-string "[ \t]+$" "" command))
-    (funcall 'man command))
-
-   ;; send other commands to the default handler.
-   (t (comint-simple-send proc command))))
+(add-hook 'eshell-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-r") 'eshell-previous-matching-input)))
 
 (defun eshell/clear ()
   "Clears the shell buffer"
@@ -108,6 +87,8 @@
  eshell-hist-ignoredups t
  eshell-last-dir-ring-size 10
  eshell-last-dir-unique t
+ multi-eshell-shell-function '(eshell)
+ eshell-aliases-file (concat emacs-root "mine/mine-eshell-alias")
  eshell-rc-script (concat emacs-root "mine/mine-eshell-profile")
  eshell-prompt-function
  (lambda ()
