@@ -49,6 +49,7 @@
  '(paren-face-match-light ((t (:background "#252323"))))
  '(highlight ((t (:background "darkolivegreen"))))
  '(italic ((t (:italic t))))
+ '(eshell-prompt ((t (:foreground "#98AFC7" :bold t))))
  '(modeline ((t (:background "#3F3B3B" :foreground "white"))))
  '(modeline-buffer-id ((t (:background "#3F3B3B" :foreground "white"))))
  '(modeline-mousable ((t (:background "#a5baf1" :foreground "black"))))
