@@ -41,7 +41,7 @@
   (cond
    ((pcomplete-match (regexp-opt '("add" "rm")) 1)
     (while (pcomplete-here (pcomplete-entries))))
-   ((pcomplete-match (regexp-opt '("checkout" "co"))  1)
+   ((pcomplete-match (regexp-opt '("checkout" "co" "merge"))  1)
     (pcomplete-here* (pcmpl-git-get-refs "heads")))))
 
 (add-hook 'eshell-mode-hook
