@@ -3,10 +3,6 @@
 
 (require 'ruby-electric)
 
-(case system-type
-  ('darwin (require 'rvm)
-           (rvm-use-default)))
-
 (autoload 'rinari-launch "rinari" "Mode for rails projects" t)
 
 ;;File type associations
@@ -24,11 +20,11 @@
 (autoload 'autotest "autotest" "Run autotest" t)
 (setq autotest-use-ui t)
 
-(defun ruby-insert-end () 
-  "Insert \"end\" at point and reindent current line." 
-  (interactive) 
-  (insert "end") 
-  (ruby-indent-line t) 
+(defun ruby-insert-end ()
+  "Insert \"end\" at point and reindent current line."
+  (interactive)
+  (insert "end")
+  (ruby-indent-line t)
   (end-of-line))
 
 (defun autotest-rspec ()
