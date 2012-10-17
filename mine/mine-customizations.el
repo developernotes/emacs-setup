@@ -9,6 +9,7 @@
 (autoload 'scratch "scratch" nil t)
 
 (setq visible-bell t
+      linum-format " %d "
       redisplay-dont-pause t
       ring-bell-function 'ignore
       display-time-24hr-format t
