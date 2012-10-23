@@ -17,9 +17,9 @@
 (require 'mine-advice)
 (require 'mine-bindings)
 (require 'mine-package)
+(require 'mine-el-get)
 (require 'mine-pretty)
 (require 'mine-erc)
-(require 'mine-org-mode)
 (require 'mine-tex)
 (require 'mine-auto-complete)
 (require 'mine-dired)
@@ -30,7 +30,6 @@
 (require 'mine-javascript)
 (require 'mine-haskell)
 (require 'mine-lisp)
-(require 'mine-showoff)
 (require 'mine-c)
 (require 'mine-bookmark)
 

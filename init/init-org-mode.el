@@ -1,5 +1,4 @@
-(autoload 'org-mode "org" "Org mode" t)
-(autoload 'org-capture "org-capture" nil t)
+;;(require 'org)
 
 (setq org-directory "~/org/"
       org-agenda-files (directory-files "~/org" t "\\.org$")
@@ -27,6 +26,16 @@
             (setq yas/trigger-key [tab])
             (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
             (define-key yas/keymap [tab] 'yas/next-field)))
+
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (yas/reload-all)
+             (yas/minor-mode)))
+
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (yas/reload-all)
+             (yas/minor-mode)))
 
 (defun my-org-file (file)
   (concat org-directory "/" file))
@@ -136,5 +145,3 @@
 (setq org-todo-keyword-faces
       '(("IN-PROGRESS" . (:foreground "white" :background "#E9AB17"))
         ("TODO" . (:foreground "white" :background "#E41B17" :box (:line-width 1 :style released-button)))))
-
-(provide 'mine-org-mode)

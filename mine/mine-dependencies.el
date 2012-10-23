@@ -4,19 +4,6 @@
 
 (require 'yasnippet)
 
-(autoload 'smex "smex.el" "smex" t)
-(autoload 'smex-initialize "smex.el" "smex" t)
-
-(defun load-smex-jit ()
-  "Rebind M-x after loading smex"
-  (interactive)
-  (or (boundp 'smex-cache)
-      (smex-initialize))
-  (global-set-key (kbd "M-x") 'smex)
-  (smex))
-
-(global-set-key (kbd "M-x") 'load-smex-jit)
-
 (setq yas/prompt-functions '(yas/dropdown-prompt
                              yas/ido-prompt
                              yas/no-prompt))
@@ -34,15 +21,5 @@
 (yas/advise-indent-function 'ruby-indent-line)
 
 (yas/load-directory (concat emacs-root "mysnippets/"))
-
-(add-hook 'org-mode-hook
-          '(lambda ()
-             (yas/reload-all)
-             (yas/minor-mode)))
-
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (yas/reload-all)
-             (yas/minor-mode)))
 
 (provide 'mine-dependencies)

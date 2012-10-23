@@ -6,3 +6,4 @@ elpa/archive-contents
 elpa/archives/*
 tramp
 eshell/
+el-get/
