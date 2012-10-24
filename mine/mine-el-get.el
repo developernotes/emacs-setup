@@ -11,7 +11,8 @@
 
 (setq mine-pkgs-to-install
       (append
-       '(csharp-mode
+       '(auto-complete
+         csharp-mode
          fill-column-indicator
          magit
          markdown-mode

@@ -20,8 +20,6 @@
 (require 'mine-el-get)
 (require 'mine-pretty)
 (require 'mine-erc)
-(require 'mine-tex)
-(require 'mine-auto-complete)
 (require 'mine-dired)
 (require 'mine-shell)
 (require 'mine-html)
