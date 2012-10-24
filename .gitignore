@@ -7,3 +7,4 @@ elpa/archives/*
 tramp
 eshell/
 el-get/
+init/*.elc
