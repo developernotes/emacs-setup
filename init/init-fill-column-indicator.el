@@ -1,12 +1,16 @@
 (setq-default fci-rule-column 80)
 
-(setq fci-mode-inhibit-buffer-list '("*scratch*"))
+(setq fci-mode-inhibit-buffer-list '("*Org Agenda*"
+                                     "*Ibuffer*"
+                                     "*scratch*"))
 
-(setq fci-mode-inhibit-modes-list '(eshell-mode
-                                    fundamental-mode
-                                    shell-mode
+(setq fci-mode-inhibit-modes-list '(compilation-mode
                                     dired-mode
-                                    erc-mode))
+                                    erc-mode
+                                    eshell-mode
+                                    fundamental-mode
+                                    recentf-dialog-mode
+                                    shell-mode))
 
 (define-globalized-minor-mode global-fci-mode fci-mode
   (lambda ()
