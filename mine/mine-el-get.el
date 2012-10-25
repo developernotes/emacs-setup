@@ -12,6 +12,7 @@
 (setq mine-pkgs-to-install
       (append
        '(auto-complete
+         browse-kill-ring
          csharp-mode
          fill-column-indicator
          magit

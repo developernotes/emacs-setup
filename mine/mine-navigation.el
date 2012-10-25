@@ -4,7 +4,6 @@
 (require 'ido)
 (require 'thingatpt)
 (require 'ibuffer-git)
-(require 'browse-kill-ring)
 (require 'recentf)
 (require 'imenu)
 
@@ -12,9 +11,6 @@
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 (windmove-default-keybindings 'meta)
-
-;; killring
-(browse-kill-ring-default-keybindings)
 
 ;; recent files
 (recentf-mode t)
