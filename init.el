@@ -27,7 +27,6 @@
 (require 'mine-ruby)
 (require 'mine-javascript)
 (require 'mine-haskell)
-(require 'mine-lisp)
 (require 'mine-c)
 (require 'mine-bookmark)
 

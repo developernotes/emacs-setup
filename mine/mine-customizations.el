@@ -32,15 +32,12 @@
 (setq-default tab-width 2
               indent-tabs-mode nil)
 
-;; type only y or n for confirmation
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; disable user prompt
 (put 'upcase-region    'disabled nil)
 (put 'downcase-region  'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
-;; remove menubar/toolbar
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
