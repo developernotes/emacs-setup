@@ -1,6 +1,5 @@
 
-(add-path "site-lisp/magit/")
-(autoload 'magit-status "magit" "use magit git magic" t)
+(global-set-key "\C-c\m" 'magit-status)
 
 (when (eq window-system nil)
   (make-empty-face 'magit-item-highlight)
@@ -14,5 +13,3 @@
     (message "Version control interface %s" (if enabled "disabled" "enabled"))))
 
 (mine-toggle-vc)
-
-(provide 'mine-vc)
