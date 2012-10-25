@@ -59,8 +59,6 @@
  '(isearch ((t (:background "#555555"))))
  '(zmacs-region ((t (:background "#555577"))))
  '(secondary-selection ((t (:background "#545459"))))
- '(flymake-errline ((t (:background "LightSalmon" :foreground "#000000"))))
- '(flymake-warnline ((t (:background "LightSteelBlue" :foreground "#000000"))))
  '(underline ((t (:underline t))))
  '(minibuffer-prompt ((t (:bold t :foreground "#ff6600")))))
 
