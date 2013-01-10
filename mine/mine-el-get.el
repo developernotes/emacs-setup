@@ -14,7 +14,6 @@
        '(auto-complete
          browse-kill-ring
          csharp-mode
-         fill-column-indicator
          magit
          markdown-mode
          org-mode
