@@ -3,14 +3,11 @@
 (defun add-path (path)
   (add-to-list 'load-path (concat emacs-root path)))
 
-(defvar *emacs-load-start* (current-time))
-
 (add-path "mine")
 (add-path "site-lisp")
 
 (require 'cl)
 (require 'mine-navigation)
-(require 'mine-dependencies)
 (require 'mine-customizations)
 (require 'mine-defuns)
 (require 'mine-advice)
@@ -35,10 +32,9 @@
 
 (setq debug-on-error nil)
 
-(message "My .emacs loaded in %ds."
-         (destructuring-bind (hi lo ms)
-             (current-time) (- (+ hi lo) (+ (first *emacs-load-start*)
-                                            (second *emacs-load-start*)))))
-
 (cd "~/")
 (mine-server-start)
+
+(message (format "emacs loaded in %.1f seconds"
+                 (float-time
+                  (time-subtract (current-time) before-init-time))))
