@@ -9,6 +9,16 @@
 
 (ansi-color-for-comint-mode-on)
 
-(global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
+(defun toggle-fullscreen ()
+  "Toggle full screen"
+  (interactive)
+  (set-frame-parameter nil 'fullscreen
+                       (when (not (frame-parameter nil 'fullscreen)) 'fullscreen))
+  (if (frame-parameter nil 'fullscreen)
+      (display-time-mode 1))
+  (if (not (frame-parameter nil 'fullscreen))
+      (display-time-mode 0)))
+
+(global-set-key (kbd "M-RET") 'toggle-fullscreen)
 
 (provide 'mine-osx)
