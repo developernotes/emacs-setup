@@ -24,6 +24,7 @@ export PATH=/usr/local/bin:$PATH
                  ,(getenv "PATH")
                  "/usr/local/bin"
                  "/usr/bin"
+                 "~/src/rust/bin"
                  "~/bin"
                  "~/bin/scripts"
                  "~/bin/ant/bin"))))
