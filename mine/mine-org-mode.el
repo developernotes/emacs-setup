@@ -8,14 +8,18 @@
       org-enforce-todo-dependencies t
       org-hide-leading-stars t
       org-odd-levels-only t
+      org-use-speed-commands t
       org-src-fontify-natively nil
       org-agenda-prefix-format "           %t %s"
       safe-local-variable-values (quote ((eval org-display-inline-images)))
-      org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
+      org-tag-alist '(("work" . ?w) ("home" . ?h)
+                      ("read" . ?r) ("meeting" . ?m))
       auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist)
-      org-refile-targets (quote (("~/org/someday-maybe.org" :maxlevel . 10) (nil :maxlevel . 10)))
+      org-refile-targets (quote (("~/org/someday-maybe.org" :maxlevel . 10)
+                                 (nil :maxlevel . 10)))
       org-todo-keywords
-      '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+      '((sequence "TODO(t)" "IN-PROGRESS(i)"  "WAIT(w@/!)" "|" "DONE(d!)"
+                  "CANCELED(c@)")))
 
 (defun yas/org-very-safe-expand ()
   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
