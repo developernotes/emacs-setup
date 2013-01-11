@@ -1,4 +1,3 @@
-;;(require 'org)
 
 (setq org-directory "~/org/"
       org-agenda-files (directory-files "~/org" t "\\.org$")
@@ -7,6 +6,7 @@
       org-enforce-todo-dependencies t
       org-hide-leading-stars t
       org-odd-levels-only t
+      org-use-speed-commands t
       org-src-fontify-natively nil
       org-agenda-prefix-format "           %t %s"
       safe-local-variable-values (quote ((eval org-display-inline-images)))
@@ -18,14 +18,6 @@
 
 (defun yas/org-very-safe-expand ()
   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
-
-(add-hook 'org-mode-hook
-          (lambda ()
-            ;; yasnippet (using the new org-cycle hooks)
-            (make-variable-buffer-local 'yas/trigger-key)
-            (setq yas/trigger-key [tab])
-            (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-            (define-key yas/keymap [tab] 'yas/next-field)))
 
 (add-hook 'org-mode-hook
           '(lambda ()
@@ -138,10 +130,14 @@
  '(org-date ((t (:inherit font-lock-constant-face))))
  '(org-tag ((t (:inherit font-lock-comment-delimiter-face))))
  '(org-hide ((t (:foreground "#191919"))))
- '(org-done ((t (:background "DarkGreen" :foreground "white" :box (:line-width 1 :style released-button)))))
+ '(org-done ((t (:background "DarkGreen" :foreground "white"
+                             :box (:line-width 1 :style released-button)))))
  '(org-column ((t (:background "#222222"))))
- '(org-column-title ((t (:background "DarkGreen" :foreground "white" :bold t :box (:line-width 1 :style released-button))))))
+ '(org-column-title ((t (:background "DarkGreen"
+                                     :foreground "white" :bold t
+                                     :box (:line-width 1 :style released-button))))))
 
 (setq org-todo-keyword-faces
       '(("IN-PROGRESS" . (:foreground "white" :background "#E9AB17"))
-        ("TODO" . (:foreground "white" :background "#E41B17" :box (:line-width 1 :style released-button)))))
+        ("TODO" . (:foreground "white" :background "#E41B17"
+                               :box (:line-width 1 :style released-button)))))
