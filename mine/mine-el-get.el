@@ -14,6 +14,8 @@
        '(auto-complete
          browse-kill-ring
          csharp-mode
+         haskell-mode
+         haskell-mode-exts
          magit
          markdown-mode
          org-mode
