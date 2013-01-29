@@ -29,12 +29,12 @@
              (yas/reload-all)
              (yas/minor-mode)))
 
-(defun my-org-file (file)
-  (concat org-directory "/" file))
-
 (defun my-org-mobile-file ()
   (interactive)
   (find-file "~/Dropbox/MobileOrg/mobileorg.org"))
+
+(defun org-file (file)
+  (concat org-directory "/" file))
 
 (defun gtd()
   (interactive)
@@ -78,13 +78,30 @@
 ;; org capture setup
 (setq org-default-notes-file (concat org-directory "/gtd-items.org"))
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "gtd-items.org" "Todo") "* TODO %?")
-        ("i" "In Progress" entry (file+headline "gtd-items.org" "In Progress") "* IN-PROGRESS %?")
-        ("l" "Links to Read" entry (file+headline "gtd-items.org" "Links to Read") "* %a\n %?\n %i" :immediate-finish t)))
+      '(("t" "Todo" entry
+         (file+headline "gtd-items.org" "Todo")
+         "* TODO %?")
+        ("i" "In Progress" entry
+         (file+headline "gtd-items.org" "In Progress")
+         "* IN-PROGRESS %?")
+        ("l" "Links to Read" entry
+         (file+headline "gtd-items.org" "Links to Read")
+         "* %a\n %?\n %i" :immediate-finish t)
+        ("w" "Work (general)" entry
+         (file+headline (org-file "work-notes.org") "General Todo")
+         "* TODO %?")
+        ("c" "SQLCipher core" entry
+         (file+olp (org-file "work-notes.org") "SQLCipher" "Todo")
+         "* TODO %?")
+        ("s" "SQLCipher for Android" entry
+         (file+olp (org-file "work-notes.org") "SQLCipher for Android" "Todo"))
+        ("a" "STRIP for Android" entry
+         (file+olp (org-file "work-notes.org") "STRIP for Android" "Todo")
+         "* TODO %?")))
 
 ;; org-mobile setup
 (setq org-mobile-directory "~/Dropbox/MobileOrg"
-      org-mobile-inbox-for-pull (my-org-file "mobile-updates.org"))
+      org-mobile-inbox-for-pull (org-file "mobile-updates.org"))
 
 ;; agenda configuraion
 (setq org-agenda-search-headline-for-time nil
