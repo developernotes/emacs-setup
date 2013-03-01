@@ -25,7 +25,8 @@
       (green "#b5bd68")
       (aqua "#8abeb7")
       (blue "#81a2be")
-      (purple "#b294bb"))
+      (purple "#b294bb")
+      (linum-foreground "#969896"))
 
   (custom-theme-set-faces
    'tomorrow-night
@@ -52,7 +53,7 @@
    `(hl-line ((t (:background ,current-line))))
 
    ;; linum-mode
-   `(linum ((t (:background ,current-line :foreground ,foreground))))
+   `(linum ((t (:background ,current-line :foreground ,linum-foreground))))
 
    ;; org-mode
    `(org-date ((t (:foreground ,purple))))
