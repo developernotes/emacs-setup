@@ -95,7 +95,7 @@
    (let ((prompt (eshell/pwd))
          (home-dir (expand-file-name "~"))
          (branch (eshell/branch)))
-     (setq prompt (string-replace (expand-file-name "~") "~" prompt))
+     (setq prompt (string-replace home-dir "~" prompt))
      (concat prompt
              (if (or (equal branch nil)
                      (equal branch ""))
