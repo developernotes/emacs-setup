@@ -12,8 +12,19 @@
          (list (cons "AUTOEXEC\\." 'bat-mode))
          auto-mode-alist)))
 
-(global-set-key (kbd "C-c t") 'multi-eshell-switch)
+(global-set-key (kbd "C-c t") 'eshell)
+(global-set-key (kbd "C-c T") 'multi-eshell-switch)
 (global-set-key (kbd "C-c b") 'multi-eshell-go-back)
+(global-set-key (kbd "C-c q") 'eshell/hide-visor)
+
+(add-hook 'eshell-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-r") 'eshell-previous-matching-input)))
+
+(defadvice multi-eshell-switch (around eshell-fullscreen activate)
+  (window-configuration-to-register :eshell-fullscreen)
+  ad-do-it
+  (delete-other-windows))
 
 (defconst pcmpl-git-commands
   '( "ad" "add" "bisect" "branch" "checkout" "clone"
@@ -44,10 +55,6 @@
    ((pcomplete-match (regexp-opt '("checkout" "co" "merge"))  1)
     (pcomplete-here* (pcmpl-git-get-refs "heads")))))
 
-(add-hook 'eshell-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "C-r") 'eshell-previous-matching-input)))
-
 (defun eshell/clear ()
   "Clears the shell buffer"
   (interactive)
@@ -65,6 +72,12 @@
     (if (equal branch "")
         ""
       (match-string 1 branch))))
+
+(defun eshell/hide-visor ()
+  "Restores the previous window configuration and kills the eshell buffer"
+  (interactive)
+  (bury-buffer)
+  (jump-to-register :eshell-fullscreen))
 
 (defun eshell/extract (file)
   (let ((command (some (lambda (x)
