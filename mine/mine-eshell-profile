@@ -11,7 +11,7 @@ export PATH=/usr/local/bin:$PATH
   ('windows-nt
         (ignore (setq shell-file-name "C:\\tools\\git\\bin\\bash")))
   ('darwin
-        (eshell/export "GIT_EDITOR=/usr/local/Cellar/emacs/24.1/bin/emacsclient")))
+        (eshell/export "GIT_EDITOR=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")))
 
 (ignore (setq eshell-path-env
               (eshell/expand-paths
