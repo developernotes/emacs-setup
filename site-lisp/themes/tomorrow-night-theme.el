@@ -35,7 +35,8 @@
    `(default ((t (:background ,background :foreground ,foreground))))
    `(fringe ((t (:background ,background))))
    `(minibuffer-prompt ((t (:foreground ,blue))))
-   `(mode-line ((t (:background ,current-line :foreground ,foreground))))
+   `(mode-line ((t (:box (:line-width 1 :color "#717271") :background "#282a2e" :foreground ,foreground))))
+   `(mode-line-inactive ((t (:box (:line-width 1 :color ,current-line) :background ,current-line :foreground ,foreground))))
    `(region ((t (:background ,selection))))
 
    ;; Font-lock stuff
@@ -62,10 +63,18 @@
    `(org-link ((t (:foreground ,blue))))
    `(org-todo ((t (:foreground ,red))))
 
+   ;; eshell
+   `(eshell-prompt ((t (:foreground "#98AFC7" :bold t))))
+
+   ;; magit
+   `(magit-diff-add ((t (:foreground "green3"))))
+   `(magit-diff-del ((t (:foreground "red3"))))
+   `(magit-item-highlight ((t (:background "#373b41"))))
+   
    ;; show-paren-mode
    `(show-paren-match ((t (:background ,blue :foreground ,current-line))))
    `(show-paren-mismatch ((t (:background ,orange :foreground ,current-line)))))
-
+  
   (custom-theme-set-variables
    'tomorrow-night
 
