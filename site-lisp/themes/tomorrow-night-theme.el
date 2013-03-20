@@ -15,7 +15,7 @@
 
 (let ((background "#1d1f21")
       (current-line "#282a2e")
-      (selection "#373b41")
+      (selection "light slate gray")
       (foreground "#c5c8c6")
       (comment "#969896")
       (cursor "#aeafad")
