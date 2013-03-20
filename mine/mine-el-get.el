@@ -14,10 +14,9 @@
        '(auto-complete
          browse-kill-ring
          csharp-mode
-         haskell-mode
-         haskell-mode-exts
          magit
          markdown-mode
+         multiple-cursors
          org-mode
          paredit
          rinari
