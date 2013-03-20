@@ -97,6 +97,9 @@
          (file+olp (org-file "work-notes.org") "SQLCipher for Android" "Todo"))
         ("a" "STRIP for Android" entry
          (file+olp (org-file "work-notes.org") "STRIP for Android" "Todo")
+         "* TODO %?")
+        ("n" "STRIP for Windows" entry
+         (file+olp (org-file "work-notes.org") "STRIP for Windows" "Todo")
          "* TODO %?")))
 
 ;; org-mobile setup
