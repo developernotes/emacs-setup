@@ -1,9 +1,13 @@
 
 (require 'magit)
 
-(when (eq window-system nil)
-  (make-empty-face 'magit-item-highlight)
-  (set-face-background 'magit-item-highlight nil))
+(eval-after-load 'magit
+  '(progn
+     (set-face-background 'magit-item-highlight "#383830")
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")
+     (when (not window-system)
+       (set-face-background 'magit-item-highlight "black"))))
 
 (defun mine-toggle-vc ()
   (interactive)
