@@ -1,7 +1,7 @@
 
 (defun mine-light-color-theme ()
   (interactive)
-    (load-theme 'tomorrow t))
+    (load-theme 'solarized-light t))
 
 (defun mine-dark-color-theme ()
   (interactive)
