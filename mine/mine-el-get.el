@@ -19,7 +19,6 @@
          multiple-cursors
          org-mode
          paredit
-         rinari
          rust-mode
          smex
          switch-window
