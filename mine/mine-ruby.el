@@ -1,48 +1,9 @@
 
-(add-path "site-lisp/rinari")
-
-(require 'ruby-electric)
-
-(autoload 'rinari-launch "rinari" "Mode for rails projects" t)
-
 ;;File type associations
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\Gemfile\\'" . ruby-mode))
-
-(add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
-
-(define-key ruby-mode-map "\r" 'reindent-then-newline-and-indent)
-
-;; autotest setup
-(autoload 'autotest "autotest" "Run autotest" t)
-(setq autotest-use-ui t)
-
-(defun ruby-insert-end ()
-  "Insert \"end\" at point and reindent current line."
-  (interactive)
-  (insert "end")
-  (ruby-indent-line t)
-  (end-of-line))
-
-(defun autotest-rspec ()
-  "Runs autotest as rspec enabled"
-  (interactive)
-  (setq autotest-command "RSPEC=true autotest")
-  (autotest)
-  (setq autotest-command "autotest"))
-
-(defun autotest-rspec-with-features ()
-  "Runs autotest as rspec and cucumber features enabled"
-  (interactive)
-  (setq autotest-command "AUTOFEATURE=true RSPEC=true autotest")
-  (autotest)
-  (setq autotest-command "autotest"))
-
-(autoload 'feature-mode "feature-mode" "Major mode for editing plain text stories" t)
-(add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
-(define-key ruby-mode-map (kbd "C-c C-a") 'autotest-switch)
 
 (provide 'mine-ruby)
