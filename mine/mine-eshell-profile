@@ -22,6 +22,7 @@ export PATH=/usr/local/bin:$(expand-file-name "~/bin/scripts"):$PATH
                  ,(concat (getenv "ANDROID_HOME") "/tools/proguard/bin")
                  ,(getenv "ANDROID_NDK_ROOT")
                  ,(getenv "PATH")
+                 ,"/Applications/Julia.app/Contents/Resources/julia/bin"
                  "/usr/local/bin"
                  "/usr/bin"
                  "~/src/rust/bin"

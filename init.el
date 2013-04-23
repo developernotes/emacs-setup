@@ -18,11 +18,6 @@
 (require 'mine-erc)
 (require 'mine-dired)
 (require 'mine-shell)
-(require 'mine-html)
-(require 'mine-csharp)
-(require 'mine-ruby)
-(require 'mine-javascript)
-(require 'mine-haskell)
 (require 'mine-c)
 (require 'mine-bookmark)
 

@@ -11,7 +11,8 @@
 
 (setq mine-pkgs-to-install
       (append
-       '(auto-complete
+       '(ace-jump-mode
+         auto-complete
          browse-kill-ring
          csharp-mode
          magit
