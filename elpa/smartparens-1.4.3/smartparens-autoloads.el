@@ -7,7 +7,7 @@
 ;;;;;;  show-smartparens-global-mode show-smartparens-mode turn-off-smartparens-mode
 ;;;;;;  turn-on-smartparens-mode smartparens-global-mode smartparens-mode
 ;;;;;;  sp-use-smartparens-bindings sp-use-paredit-bindings) "smartparens"
-;;;;;;  "smartparens.el" (20834 65439 0 0))
+;;;;;;  "smartparens.el" (20854 55162 0 0))
 ;;; Generated autoloads from smartparens.el
 
 (defvar sp-keymap (make-sparse-keymap) "\
@@ -105,7 +105,7 @@ Turn off `show-smartparens-mode'.
 ;;;***
 
 ;;;### (autoloads nil nil ("smartparens-config.el" "smartparens-latex.el"
-;;;;;;  "smartparens-pkg.el") (20834 65439 882420 0))
+;;;;;;  "smartparens-pkg.el") (20854 55162 334185 0))
 
 ;;;***
 
