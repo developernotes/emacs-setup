@@ -8,3 +8,4 @@ tramp
 eshell/
 el-get/
 init/*.elc
+bookmarks
