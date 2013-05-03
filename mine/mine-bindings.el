@@ -18,6 +18,7 @@
 (global-set-key (kbd "C-c f l") 'find-library)
 (global-set-key (kbd "C-c f f") 'find-function)
 (global-set-key (kbd "M-j")     (lambda () (interactive) (join-line -1)))
+(global-set-key (kbd "C-c C-f") 'ag)
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")

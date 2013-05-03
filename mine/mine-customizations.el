@@ -12,6 +12,7 @@
       inhibit-startup-screen t
       uniquify-buffer-name-style 'post-forward
       uniquify-separator ":"
+      ag-highlight-search t
       initial-scratch-message nil
       ispell-program-name "aspell"
       ediff-window-setup-function 'ediff-setup-windows-plain
