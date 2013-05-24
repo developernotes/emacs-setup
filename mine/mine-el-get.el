@@ -15,6 +15,7 @@
          auto-complete
          browse-kill-ring
          csharp-mode
+         geiser
          magit
          markdown-mode
          multiple-cursors
