@@ -19,7 +19,8 @@
 
 (add-hook 'eshell-mode-hook
           '(lambda ()
-             (local-set-key (kbd "C-r") 'eshell-previous-matching-input)))
+             (local-set-key (kbd "C-r")     'eshell-previous-matching-input)
+             (local-set-key (kbd "C-c C-f") 'ag)))
 
 (defadvice multi-eshell-switch (around eshell-fullscreen activate)
   (window-configuration-to-register :eshell-fullscreen)
