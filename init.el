@@ -14,6 +14,7 @@
 (require 'mine-bindings)
 (require 'mine-package)
 (require 'mine-el-get)
+(require 'mine-android)
 (require 'mine-pretty)
 (require 'mine-erc)
 (require 'mine-dired)
