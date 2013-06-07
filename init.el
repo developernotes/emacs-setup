@@ -11,7 +11,6 @@
 (require 'mine-customizations)
 (require 'mine-defuns)
 (require 'mine-advice)
-(require 'mine-bindings)
 (require 'mine-package)
 (require 'mine-el-get)
 (require 'mine-android)
@@ -21,6 +20,8 @@
 (require 'mine-shell)
 (require 'mine-c)
 (require 'mine-bookmark)
+(require 'mine-spotify)
+(require 'mine-bindings)
 
 (case system-type
   ('windows-nt (require 'mine-windows))
