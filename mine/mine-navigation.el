@@ -156,7 +156,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (imenu--make-index-alist)
   (let ((name-and-pos '())
         (symbol-names '()))
-    (cl-flet ((addsymbols (symbol-list)
+    (flet ((addsymbols (symbol-list)
                        (when (listp symbol-list)
                          (dolist (symbol symbol-list)
                            (let ((name nil) (position nil))

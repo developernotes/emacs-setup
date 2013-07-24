@@ -1,4 +1,4 @@
-(setq geiser-active-implementations '(guile))
+(setq geiser-active-implementations '(racket))
 
 (autoload 'enable-paredit-mode "paredit"
   "Turn on pseudo-structural editing of Lisp code." t)

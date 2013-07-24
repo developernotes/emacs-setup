@@ -98,6 +98,7 @@
     (eshell-command-result (concat command " " file))))
 
 (setq
+ explicit-shell-file-name "bash"
  eshell-hist-ignoredups t
  eshell-last-dir-ring-size 10
  eshell-last-dir-unique t

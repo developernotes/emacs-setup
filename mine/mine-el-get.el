@@ -11,11 +11,12 @@
 
 (setq mine-pkgs-to-install
       (append
-       '(ace-jump-mode
-         auto-complete
+       '(
+         ;;auto-complete
          browse-kill-ring
          csharp-mode
          geiser
+         helm
          magit
          markdown-mode
          multiple-cursors
