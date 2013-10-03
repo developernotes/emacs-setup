@@ -113,7 +113,7 @@
 (setq org-agenda-custom-commands
       '(("c" . "Custom queries")
         ("cw" "Weekly work search"
-         ((agenda "") (todo "IN-PROGRESS"))
+         ((agenda "") (todo "IN-PROGRESS") (todo "TODO"))
          ((org-agenda-show-log t)
           (org-agenda-log-mode-items '(state))
           (org-agenda-start-on-weekday 1)
