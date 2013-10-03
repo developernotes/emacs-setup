@@ -19,6 +19,14 @@
 
 (ad-activate 'find-tag)
 
+(defadvice ag/search (around switch-to-ag-results)
+  ""
+  (let ((result-buffer ad-do-it))
+    (switch-to-buffer-other-window result-buffer)))
+
+(ad-activate 'ag/search)
+
+
 ;; copy or kill entire line if mark not set
 (defadvice kill-ring-save (before slick-copy activate compile) "When called
   interactively with no active region, copy a single line instead."

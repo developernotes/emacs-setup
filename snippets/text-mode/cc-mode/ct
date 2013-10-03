@@ -1,0 +1,4 @@
+#name : CODEC_TRACE ... { ... }
+#group : general
+# --
+CODEC_TRACE(("$1\n"$2));$0

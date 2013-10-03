@@ -1,5 +1,6 @@
 (defvar spotify-volume nil)
-
+(defvar spotify-timer nil)
+(defvar spotify-artist-song-title nil)
 (defvar spotify-volume-differential 10)
 
 (defun spotify-start ()
@@ -34,9 +35,21 @@
   (interactive)
   (spotify-change-volume '+))
 
-(defun spotify-display-track-info ()
+(defun spotify-display-track-info (&optional cache)
   (interactive)
-  (message (spotify-get-artist-song-title)))
+  (if (eq cache t)
+      (let ((artist-song-title (spotify-get-artist-song-title)))
+        (if (not (string= artist-song-title spotify-artist-song-title))
+            (progn
+              (setq spotify-artist-song-title artist-song-title)
+              (message spotify-artist-song-title))))
+    (message (spotify-get-artist-song-title))))
+
+(defun spotify-cancel-display-artist-song-title-on-interval ()
+  (interactive)
+  (cancel-timer spotify-timer)
+  (setq spotify-timer nil
+        spotify-artist-song-title nil))
 
 (defun spotify-change-volume (operation)
   (when (eq nil spotify-volume)
@@ -54,9 +67,15 @@
     (format "%s - %s" artist album)))
 
 (defun spotify (command)
+  (spotify-display-artist-song-title-on-iterval)
   (string-replace "\n" ""
                   (shell-command-to-string
                    (format "osascript -e 'tell application \"Spotify\" to %s'" command))))
+
+(defun spotify-display-artist-song-title-on-iterval ()
+  (when (eq nil spotify-timer)
+    (setq spotify-timer
+            (run-at-time nil 5 'spotify-display-track-info t))))
 
 (global-set-key (kbd "<M-f7>")  'spotify-previous-track)
 (global-set-key (kbd "<M-f8>")  'spotify-play-pause)

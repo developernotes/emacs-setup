@@ -16,7 +16,6 @@
          browse-kill-ring
          csharp-mode
          geiser
-         helm
          magit
          markdown-mode
          multiple-cursors

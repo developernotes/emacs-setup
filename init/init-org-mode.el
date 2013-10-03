@@ -8,6 +8,7 @@
       org-odd-levels-only t
       org-use-speed-commands t
       org-src-fontify-natively nil
+      org-agenda-restore-windows-after-quit t
       org-agenda-prefix-format "           %t %s"
       safe-local-variable-values (quote ((eval org-display-inline-images)))
       org-tag-alist '(("work" . ?w) ("home" . ?h) ("read" . ?r) ("meeting" . ?m))
@@ -80,27 +81,16 @@
 (setq org-capture-templates
       '(("t" "Todo" entry
          (file+headline "gtd-items.org" "Todo")
-         "* TODO %?")
+         "* TODO %? :home:")
         ("i" "In Progress" entry
          (file+headline "gtd-items.org" "In Progress")
          "* IN-PROGRESS %?")
         ("l" "Links to Read" entry
          (file+headline "gtd-items.org" "Links to Read")
          "* %a\n %?\n %i" :immediate-finish t)
-        ("w" "Work (general)" entry
+        ("w" "Work" entry
          (file+headline (org-file "work-notes.org") "General Todo")
-         "* TODO %?")
-        ("c" "SQLCipher core" entry
-         (file+olp (org-file "work-notes.org") "SQLCipher" "Todo")
-         "* TODO %?")
-        ("s" "SQLCipher for Android" entry
-         (file+olp (org-file "work-notes.org") "SQLCipher for Android" "Todo"))
-        ("a" "STRIP for Android" entry
-         (file+olp (org-file "work-notes.org") "STRIP for Android" "Todo")
-         "* TODO %?")
-        ("n" "STRIP for Windows" entry
-         (file+olp (org-file "work-notes.org") "STRIP for Windows" "Todo")
-         "* TODO %?")))
+         "* TODO %? :work:")))
 
 ;; org-mobile setup
 (setq org-mobile-directory "~/Dropbox/MobileOrg"
@@ -121,21 +111,28 @@
       org-habit-graph-column 55)
 
 (setq org-agenda-custom-commands
-      '(("A" "Action List"
+      '(("c" . "Custom queries")
+        ("cw" "Weekly work search"
+         ((agenda "") (todo "IN-PROGRESS"))
+         ((org-agenda-show-log t)
+          (org-agenda-log-mode-items '(state))
+          (org-agenda-start-on-weekday 1)
+          (org-agenda-files '("~/org/work-notes.org"))))
+        ("ca" "All items"
          ((agenda "")
           (alltodo))
          ((org-agenda-todo-ignore-deadlines nil)
-          (org-agenda-todo-ignore-scheduled t)
+          (org-agenda-todo-ignore-scheduled nil)
           (org-agenda-todo-ignore-with-date nil)
           (org-agenda-files '("~/org/gtd-items.org" "~/org/work-notes.org"))
           (org-agenda-sorting-strategy '(priority-down time-up tag-up))))))
 
- (custom-set-faces
-  '(outline-2 ((t (:foreground "#cc7832"))))
-  '(org-level-2 ((t (:inherit outline-2))))
-  '(org-scheduled-today ((t (:foreground "#ff6ab9" :italic t))))
-  '(org-done ((t (:background "DarkGreen" :foreground "white"
-                              :box (:line-width 1 :style released-button))))))
+(custom-set-faces
+ '(outline-2 ((t (:foreground "#cc7832"))))
+ '(org-level-2 ((t (:inherit outline-2))))
+ '(org-scheduled-today ((t (:foreground "#ff6ab9" :italic t))))
+ '(org-done ((t (:background "DarkGreen" :foreground "white"
+                             :box (:line-width 1 :style released-button))))))
 
 (setq org-todo-keyword-faces
       '(("IN-PROGRESS" . (:foreground "white" :background "#E9AB17"))
