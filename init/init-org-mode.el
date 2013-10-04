@@ -112,11 +112,11 @@
 
 (setq org-agenda-custom-commands
       '(("c" . "Custom queries")
-        ("cw" "Weekly work search"
+        ("cw" "Work week"
          ((agenda "") (todo "IN-PROGRESS") (todo "TODO"))
          ((org-agenda-show-log t)
           (org-agenda-log-mode-items '(state))
-          (org-agenda-start-on-weekday 1)
+          (org-agenda-start-day "-7d")
           (org-agenda-files '("~/org/work-notes.org"))))
         ("ca" "All items"
          ((agenda "")
