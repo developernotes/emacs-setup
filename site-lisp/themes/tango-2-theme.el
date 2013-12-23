@@ -26,7 +26,7 @@
 (custom-theme-set-faces
  'tango-2
  '(default ((t (:background "#121212" :foreground "#eeeeec"))))
- '(cursor ((t (:foreground "#888888"))))
+ '(cursor ((t (:background "#121212"  :foreground "#888888"))))
  '(region ((t (:background "#555753"))))
  '(highlight ((t (:background "#444444"))))
    `(mode-line ((t (:box (:line-width 1 :color "#717271")
