@@ -8,4 +8,6 @@ tramp
 eshell/
 el-get/
 init/*.elc
+bookmarksurl/
+url/
 bookmarks
