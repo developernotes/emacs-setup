@@ -7,6 +7,7 @@
 (add-path "site-lisp")
 
 (require 'cl)
+(require 'cl-lib)
 (require 'mine-navigation)
 (require 'mine-customizations)
 (require 'mine-defuns)
