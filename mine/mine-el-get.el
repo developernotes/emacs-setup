@@ -12,16 +12,12 @@
 (setq mine-pkgs-to-install
       (append
        '(
-         ;;auto-complete
          browse-kill-ring
          csharp-mode
          geiser
-         magit
          markdown-mode
-         multiple-cursors
          org-mode
          paredit
-         rust-mode
          smex
          switch-window
          undo-tree
