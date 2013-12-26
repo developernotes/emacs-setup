@@ -19,6 +19,7 @@
 (require 'mine-pretty)
 (require 'mine-erc)
 (require 'mine-dired)
+(require 'mine-magit)
 (require 'mine-shell)
 (require 'mine-c)
 (require 'mine-bookmark)
