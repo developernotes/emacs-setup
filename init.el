@@ -3,39 +3,28 @@
 (defun add-path (path)
   (add-to-list 'load-path (concat emacs-root path)))
 
-(add-path "mine")
+(add-path "init")
 (add-path "site-lisp")
 
 (require 'cl)
 (require 'cl-lib)
-(require 'mine-navigation)
-(require 'mine-customizations)
-(require 'mine-defuns)
-(require 'mine-advice)
-(require 'mine-package)
-(require 'mine-el-get)
-(require 'mine-android)
-(require 'mine-javascript)
-(require 'mine-pretty)
-(require 'mine-erc)
-(require 'mine-dired)
-(require 'mine-magit)
-(require 'mine-shell)
-(require 'mine-c)
-(require 'mine-bookmark)
-(require 'mine-ag)
-(require 'mine-spotify)
-(require 'mine-bindings)
-
-(case system-type
-  ('windows-nt (require 'mine-windows))
-  ('darwin (require 'mine-osx)))
-
-(setq debug-on-error nil)
+(require 'init-package)
+(mapc (lambda (init-file)
+        (setq init-file-before-load-time (current-time))
+        (load init-file nil t)
+        (message (format "Load time %.3f seconds for %s"
+                         (float-time
+                          (time-subtract (current-time) init-file-before-load-time))
+                         (file-name-nondirectory init-file))))
+      (file-expand-wildcards (concat emacs-root "init/custom/*.el")))
+(require 'init-navigation)
+(require 'init-defuns)
+(require 'init-advice)
+(require 'init-customizations)
+(require 'init-bindings)
 
 (cd "~/")
 (mine-server-start)
-
-(message (format "emacs loaded in %.1f seconds"
+(message (format "Emacs loaded in %.2f seconds"
                  (float-time
                   (time-subtract (current-time) before-init-time))))
