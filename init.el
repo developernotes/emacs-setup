@@ -4,6 +4,7 @@
   (add-to-list 'load-path (concat emacs-root path)))
 
 (add-path "init")
+(add-path "init/custom")
 (add-path "site-lisp")
 
 (require 'cl)

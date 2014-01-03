@@ -11,8 +11,9 @@
         geiser 
         git-commit-mode 
         git-rebase-mode
-        js2-mode 
-        log4j-mode 
+        helm
+        js2-mode
+        log4j-mode
         magit 
         markdown-mode
         org 

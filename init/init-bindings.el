@@ -4,7 +4,7 @@
 (global-set-key "\C-a"          'beginning-of-line-or-back-to-indention)
 (global-set-key "\C-cv"         'mine-toggle-transparency)
 (global-set-key "\C-cw"         'toggle-truncate-lines)
-(global-set-key "\C-cs"         'ido-goto-symbol)
+(global-set-key "\C-cs"         'helm-imenu)
 (global-set-key "\C-cp"         'mine-goto-symbol-at-point)
 (global-set-key "\M-g"          'goto-line)
 (global-set-key "\C-c\o"        'cleanup-buffer-or-region)
