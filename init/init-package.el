@@ -26,6 +26,7 @@
 (defun install-required-packages ()
   "Install packages defined within `required-packages'."
   (interactive)
+  (package-refresh-contents)
   (mapc (lambda (package)
           (unless (package-installed-p package)
             (message (format "Installing %s" package))
