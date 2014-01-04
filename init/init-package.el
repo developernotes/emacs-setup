@@ -12,6 +12,7 @@
         git-commit-mode 
         git-rebase-mode
         helm
+        ibuffer-git
         js2-mode
         log4j-mode
         magit 
