@@ -13,8 +13,7 @@
    (list
     (intern (completing-read "Load custom theme: "
 			     (mapcar 'symbol-name
-				     (custom-available-themes))))
-    nil nil))
+				     (custom-available-themes))))))
   (if current-theme
       (disable-theme current-theme))
   (load-theme theme t)
