@@ -20,6 +20,7 @@
 (global-set-key (kbd "M-j")     (lambda () (interactive) (join-line -1)))
 (global-set-key (kbd "C-c C-f") 'ag)
 (global-set-key (kbd "C-x 0") 'delete-other-window)
+(global-set-key (kbd "C-x m")  (lambda () (interactive) (push-mark)))
 
 
 

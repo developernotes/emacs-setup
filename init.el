@@ -6,6 +6,7 @@
 (add-path "init")
 (add-path "init/custom")
 (add-path "site-lisp")
+(add-path "site-lisp/themes")
 
 (require 'cl)
 (require 'cl-lib)

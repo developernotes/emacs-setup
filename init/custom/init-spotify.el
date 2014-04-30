@@ -70,7 +70,7 @@
   (spotify-display-artist-song-title-on-iterval)
   (string-replace "\n" ""
                   (shell-command-to-string
-                   (format "osascript -e 'tell application \"Spotify\" to %s'" command))))
+                   (format "osascript -e 'tell application \"Spotify\" to %s' 2> /dev/null" command))))
 
 (defun spotify-display-artist-song-title-on-iterval ()
   (when (eq nil spotify-timer)

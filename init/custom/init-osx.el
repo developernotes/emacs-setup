@@ -9,6 +9,14 @@
 
 (ansi-color-for-comint-mode-on)
 
+(add-to-list 'auto-mode-alist
+             '("\\.ios\\'" . (lambda ()
+                               (makefile-bsdmake-mode))))
+
+(add-to-list 'auto-mode-alist
+             '("\\.osx\\'" . (lambda ()
+                               (makefile-bsdmake-mode))))
+
 (defun toggle-fullscreen ()
   "Toggle full screen"
   (interactive)

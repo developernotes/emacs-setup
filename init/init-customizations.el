@@ -5,6 +5,7 @@
 (autoload 'scratch "scratch" nil t)
 
 (setq visible-bell t
+      c-basic-offset 2
       debug-on-error nil
       linum-format " %d "
       redisplay-dont-pause t

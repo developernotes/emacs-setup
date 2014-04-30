@@ -3,26 +3,31 @@
     (require 'package)
     (package-initialize)
     (add-to-list 'package-archives
-                 '("melpa" . "http://melpa.milkbox.net/packages/") t)))
+                 '("melpa" . "http://melpa.milkbox.net/packages/") t))
+
+
+  )
 
 (setq required-packages
-      '(ag 
-        browse-kill-ring 
-        geiser 
-        git-commit-mode 
+      '(ag
+        browse-kill-ring
+        geiser
+        git-commit-mode
         git-rebase-mode
         helm
         ibuffer-git
         js2-mode
         log4j-mode
-        magit 
+        magit
         markdown-mode
-        org 
-        paredit 
-        scratch 
-        smex 
+        monokai-theme
+        org
+        paredit
+        scratch
+        solarized-theme
+        smex
         switch-window
-        undo-tree 
+        undo-tree
         yasnippet))
 
 (defun install-required-packages ()
