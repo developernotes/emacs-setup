@@ -50,18 +50,6 @@
 (global-set-key [M-S-up] 'move-text-up)
 (global-set-key [M-S-down] 'move-text-down)
 
-(defun move-text-down (arg)
-  "Move region (transient-mark-mode active) or current line
-  arg lines down."
-  (interactive "*p")
-  (move-text-internal arg))
-
-(defun move-text-up (arg)
-  "Move region (transient-mark-mode active) or current line
-  arg lines up."
-  (interactive "*p")
-  (move-text-internal (- arg)))
-
 (defun move-text-internal (arg)
   (cond
    ((and mark-active transient-mark-mode)
@@ -81,9 +69,28 @@
       (when (or (> arg 0) (not (bobp)))
         (forward-line)
         (when (or (< arg 0) (not (eobp)))
-          (transpose-lines arg))
+          (transpose-lines arg)
+          ;; Account for changes to transpose-lines in Emacs 24.3
+          (when (and (eval-when-compile
+                       (not (version-list-<
+                             (version-to-list emacs-version)
+                             '(24 3 50 0))))
+                     (< arg 0))
+            (forward-line -1)))
         (forward-line -1))
       (move-to-column column t)))))
+
+(defun move-text-down (arg)
+  "Move region (transient-mark-mode active) or current line
+  arg lines down."
+  (interactive "*p")
+  (move-text-internal arg))
+
+(defun move-text-up (arg)
+  "Move region (transient-mark-mode active) or current line
+  arg lines up."
+  (interactive "*p")
+  (move-text-internal (- arg)))
 
 (defun rotate-window-split ()
   "Rotates two windows from vertical to horizontal or horizontal to vertical orientation"
