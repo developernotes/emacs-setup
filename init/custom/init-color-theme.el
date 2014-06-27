@@ -2,12 +2,26 @@
 (defvar next-theme nil)
 
 (setq dark-themes
-      '(ir-black
+      '(brin
+        dorsey
+        fogus
+        graham
+        granger
+        hickey
+        ir-black
+        junio
         monokai
+        odersky
         solarized-dark
+        spolsky
         tango-2
         tomorrow-night
-        underwater))
+        underwater
+        wilson))
+
+(setq light-themes
+      '(mccarthy
+        standard-light))
 
 (defun mine-light-color-theme ()
   (interactive)
@@ -26,6 +40,10 @@
 (defun set-random-dark-theme ()
   (interactive)
   (set-random-theme dark-themes))
+
+(defun set-random-light-theme ()
+  (interactive)
+  (set-random-theme light-themes))
 
 (defun set-theme (theme)
   (interactive
