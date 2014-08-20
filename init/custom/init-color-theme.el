@@ -29,7 +29,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (set-theme 'monokai))
+  (set-theme 'tango-2))
 
 (defun set-random-theme (themes)
    (setq next-theme current-theme)
@@ -59,5 +59,7 @@
 
 (when (string-match "^24\." emacs-version)
   (add-to-list 'custom-theme-load-path (concat emacs-root "site-lisp/themes")))
+
+(mine-light-color-theme)
 
 (provide 'init-color-theme)

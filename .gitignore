@@ -11,3 +11,5 @@ init/*.elc
 bookmarksurl/
 url/
 bookmarks
+recentf
+ido.last
