@@ -2,6 +2,7 @@
 ;;(add-path "site-lisp/switch-window")
 
 (require 'ido)
+(require 'flx-ido)
 (require 'thingatpt)
 (require 'ibuffer-git)
 (require 'recentf)
@@ -22,6 +23,8 @@
 ;; ido
 (ido-mode t)
 (ido-everywhere 1)
+;;(ido-vertical-mode 1)
+(flx-ido-mode 1)
 (setq ido-enable-flex-matching t
       ido-use-virtual-buffers t
       confirm-nonexistent-file-or-buffer nil

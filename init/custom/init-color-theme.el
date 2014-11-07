@@ -12,15 +12,18 @@
         junio
         monokai
         odersky
+        smyx
         solarized-dark
         spolsky
         tango-2
         tomorrow-night
         underwater
-        wilson))
+        wilson
+        zenburn))
 
 (setq light-themes
       '(mccarthy
+        solarized-light
         standard-light))
 
 (defun mine-light-color-theme ()
@@ -29,7 +32,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (set-theme 'tango-2))
+  (set-theme 'smyx))
 
 (defun set-random-theme (themes)
    (setq next-theme current-theme)

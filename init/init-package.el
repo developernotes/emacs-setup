@@ -3,20 +3,21 @@
     (require 'package)
     (package-initialize)
     (add-to-list 'package-archives
-                 '("melpa" . "http://melpa.milkbox.net/packages/") t))
-
-
-  )
+                 '("melpa" . "http://melpa.milkbox.net/packages/") t)))
 
 (setq required-packages
       '(ag
         browse-kill-ring
+        flx
+        flx-ido
         geiser
         git-commit-mode
         git-rebase-mode
+        grizzl
         helm
         haskell-mode
         ibuffer-git
+	ido-vertical-mode
         js2-mode
         log4j-mode
         magit
@@ -25,18 +26,19 @@
         monokai-theme
         org
         paredit
+        projectile
+        racket-mode
         scratch
+        smyx
         solarized-theme
         smex
         sublime-themes
         switch-window
-        tuareg
         undo-tree
-        utop
         yasnippet))
 
 (defun install-required-packages ()
-  "Install packages defined within `required-packages'."
+  "Install packages defined within the variable `required-packages'."
   (interactive)
   (package-refresh-contents)
   (mapc (lambda (package)
