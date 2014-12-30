@@ -4,6 +4,7 @@
 (setq dark-themes
       '(brin
         dorsey
+        flatland
         fogus
         graham
         granger
@@ -23,6 +24,7 @@
 
 (setq light-themes
       '(mccarthy
+        soft-stone
         solarized-light
         standard-light))
 
@@ -32,7 +34,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (set-theme 'smyx))
+  (set-theme 'flatland))
 
 (defun set-random-theme (themes)
    (setq next-theme current-theme)

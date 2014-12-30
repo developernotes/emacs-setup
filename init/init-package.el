@@ -17,12 +17,11 @@
         helm
         haskell-mode
         ibuffer-git
-	ido-vertical-mode
+        ido-vertical-mode
         js2-mode
         log4j-mode
         magit
         markdown-mode
-        merlin
         monokai-theme
         org
         paredit
