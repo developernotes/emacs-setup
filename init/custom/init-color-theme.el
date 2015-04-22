@@ -2,7 +2,8 @@
 (defvar next-theme nil)
 
 (setq dark-themes
-      '(brin
+      '(atom-dark
+        brin
         dorsey
         flatland
         fogus
@@ -15,6 +16,7 @@
         odersky
         smyx
         solarized-dark
+        spacegray
         spolsky
         tango-2
         tomorrow-night
@@ -26,7 +28,8 @@
       '(mccarthy
         soft-stone
         solarized-light
-        standard-light))
+        standard-light
+        standard-stone))
 
 (defun mine-light-color-theme ()
   (interactive)
@@ -34,9 +37,13 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (set-theme 'flatland))
+  (set-theme 'spacegray))
 
-(defun set-random-theme (themes)
+(defun set-random-theme ()
+  (interactive)
+  (set-random-theme-from (append dark-themes light-themes)))
+
+(defun set-random-theme-from (themes)
    (setq next-theme current-theme)
    (while (string= current-theme next-theme)
      (setq next-theme (nth (random (length themes)) themes)))
@@ -44,11 +51,11 @@
 
 (defun set-random-dark-theme ()
   (interactive)
-  (set-random-theme dark-themes))
+  (set-random-theme-from dark-themes))
 
 (defun set-random-light-theme ()
   (interactive)
-  (set-random-theme light-themes))
+  (set-random-theme-from light-themes))
 
 (defun set-theme (theme)
   (interactive

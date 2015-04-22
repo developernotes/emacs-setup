@@ -7,6 +7,7 @@
 
 (setq required-packages
       '(ag
+        atom-dark-theme
         browse-kill-ring
         flx
         flx-ido
@@ -25,7 +26,6 @@
         monokai-theme
         org
         paredit
-        projectile
         racket-mode
         scratch
         smyx

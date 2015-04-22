@@ -19,6 +19,10 @@
     (if file
         (find-file file))))
 
+(defun dictionary-lookup (word)
+  (interactive "sLookup word? ")
+  (shell-command (format "open dict://%s" word)))
+
 (defun create-tags (directory)
   "Create tags file."
   (interactive "DDirectory: ")
