@@ -15,7 +15,6 @@
         git-commit-mode
         git-rebase-mode
         grizzl
-        helm
         haskell-mode
         ibuffer-git
         ido-vertical-mode
@@ -31,6 +30,7 @@
         smyx
         solarized-theme
         smex
+        slime
         sublime-themes
         switch-window
         undo-tree
