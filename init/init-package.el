@@ -11,7 +11,6 @@
         browse-kill-ring
         flx
         flx-ido
-        geiser
         git-commit-mode
         git-rebase-mode
         grizzl
