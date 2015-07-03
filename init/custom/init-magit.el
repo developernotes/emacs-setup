@@ -1,7 +1,5 @@
 (eval-after-load 'magit
   '(progn
-     (set-face-foreground 'magit-diff-add "green3")
-     (set-face-foreground 'magit-diff-del "red3")
      (define-key magit-mode-map (kbd "q") 'magit-quit-session)))
 
 (defun mine-toggle-vc ()

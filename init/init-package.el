@@ -11,8 +11,6 @@
         browse-kill-ring
         flx
         flx-ido
-        git-commit-mode
-        git-rebase-mode
         grizzl
         haskell-mode
         ibuffer-git

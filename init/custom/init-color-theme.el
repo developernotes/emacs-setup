@@ -37,7 +37,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (set-theme 'spacegray))
+  (set-theme 'flatland))
 
 (defun set-random-theme ()
   (interactive)
