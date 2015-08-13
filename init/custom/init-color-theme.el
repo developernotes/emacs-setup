@@ -13,6 +13,7 @@
         ir-black
         junio
         monokai
+        noctilux
         odersky
         smyx
         solarized-dark
@@ -37,7 +38,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (set-theme 'flatland))
+  (set-theme 'noctilux))
 
 (defun set-random-theme ()
   (interactive)

@@ -1,32 +1,31 @@
-(defvar mine-font-name-normal)
-(defvar mine-font-name-large)
-
 (show-paren-mode t)
 
-(case system-type
-  ('windows-nt (setq mine-font-name-normal "Ubuntu Mono-12"
-                     mine-font-name-large "DejaVu Sans Mono-18:bold"))
-  ('gnu/linux  (setq mine-font-name-normal "DejaVu Sans Mono-12:bold"
-                     mine-font-name-large "DejaVu Sans Mono-18:bold"))
-  ('darwin     (setq mine-font-name-normal "DejaVu Sans Mono-18"
-                     mine-font-name-large "DejaVu Sans Mono-22:bold"))
-  ('cygwin     (setq mine-font-name-normal ""
-                     mine-font-name-large "")))
+(defvar font-name "DejaVu Sans Mono")
+(defvar font-normal-size 17)
+(defvar font-large-size 22)
+
+(defun get-font (type)
+  (case type
+    ('normal (format "%s-%s" font-name font-normal-size))
+    ('large  (format "%s-%s:bold" font-name font-large-size))))
+
+(defmacro use-font (type)
+  `(let ((font (get-font ,type)))
+     (set-frame-parameter (selected-frame) 'font font)
+     (add-to-list 'default-frame-alist '(\'font "." font))))
 
 (defun mine-use-normal-font()
   (interactive)
-  (set-frame-parameter (selected-frame) 'font mine-font-name-normal)
-  (add-to-list 'default-frame-alist '(\'font "." mine-font-name-normal)))
+  (use-font 'normal))
+
+(defun mine-use-large-font()
+  (interactive)
+  (use-font 'large))
 
 (defun mine-use-fullscreen ()
   (interactive)
   (set-frame-parameter (selected-frame) 'fullscreen 'fullboth)
   (add-to-list 'default-frame-alist '(fullscreen . 'fullboth)))
-
-(defun mine-use-big-font()
-  (interactive)
-  (set-frame-parameter (selected-frame) 'font mine-font-name-large)
-  (add-to-list 'default-frame-alist '(\'font "." mine-font-name-large)))
 
 (defun mine-use-transparency ()
   (interactive)
@@ -56,7 +55,7 @@
 
 (defun mine-presenter-display ()
   (interactive)
-  (mine-use-big-font)
+  (mine-use-large-font)
   (mine-use-no-transparency))
 
 (mine-normal-display)
