@@ -1,9 +1,9 @@
 (when (string-match "^24\." emacs-version)
   (progn
     (require 'package)
-    (package-initialize)
     (add-to-list 'package-archives
-                 '("melpa" . "http://melpa.milkbox.net/packages/") t)))
+                 '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+    (package-initialize)))
 
 (setq required-packages
       '(ag
@@ -24,11 +24,9 @@
         paredit
         racket-mode
         scratch
-        smyx
         solarized-theme
         smex
         slime
-        sublime-themes
         switch-window
         undo-tree
         yasnippet))
