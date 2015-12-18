@@ -21,12 +21,14 @@
 ;; ido
 (ido-mode t)
 (ido-everywhere 1)
-;;(ido-vertical-mode 1)
+(ido-vertical-mode 1)
+(setq )
 ;;(flx-ido-mode 1)
-(setq ido-enable-flex-matching t
-      ido-use-virtual-buffers t
+(setq ido-use-virtual-buffers t
+      ido-enable-flex-matching t
+      ido-create-new-buffer 'always
       confirm-nonexistent-file-or-buffer nil
-      ido-create-new-buffer 'always)
+      ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
