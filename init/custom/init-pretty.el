@@ -1,7 +1,7 @@
 (show-paren-mode t)
 
-(defvar font-name "DejaVu Sans Mono")
-(defvar font-normal-size 17)
+(defvar font-name "Hack")
+(defvar font-normal-size 20)
 (defvar font-large-size 22)
 
 (defun get-font (type)
