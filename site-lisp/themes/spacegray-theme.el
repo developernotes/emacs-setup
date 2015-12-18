@@ -162,6 +162,9 @@
    ;; which-function
    `(which-func ((,class (:foreground ,blue :background nil))))
 
+   ;; eshell
+   `(eshell-prompt ((,class (:foreground "#98AFC7" :bold t))))
+
    ;; Emacs interface
    `(cursor ((,class (:background ,orange))))
    `(fringe ((,class (:background ,background))))

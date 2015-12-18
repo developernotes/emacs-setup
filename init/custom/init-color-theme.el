@@ -38,7 +38,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (set-theme 'noctilux))
+  (set-theme 'spacegray))
 
 (defun set-random-theme ()
   (interactive)
