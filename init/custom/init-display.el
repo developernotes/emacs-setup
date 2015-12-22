@@ -60,4 +60,4 @@
 
 (mine-normal-display)
 
-(provide 'init-pretty)
+(provide 'init-display)
