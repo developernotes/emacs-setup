@@ -1,13 +1,33 @@
 (show-paren-mode t)
 
-(defvar font-name "Hack")
-(defvar font-normal-size 20)
+(defvar next-font nil)
+(defvar fonts
+  '("Hack" "Triplicate T4c" "Monaco" "DejaVu Sans Mono" "Iosevka"
+    "Source Code Pro" "Ubuntu Mono" "Menlo" "PragmataPro Mono"))
+
+(defvar current-font "PragmataPro Mono")
+(defvar font-normal-size 18)
 (defvar font-large-size 22)
+
+(defun set-random-font ()
+  (interactive)
+  (setq next-font current-font)
+  (while (string= current-font next-font)
+    (setq next-font (nth (random (length fonts)) fonts)))
+  (set-font next-font))
+
+(defun set-font (font)
+  (interactive
+   (list
+    (intern (completing-read "Set font: " fonts))))
+   (setq current-font font)
+   (use-font 'normal)
+   (message (format "Set font to %s" font)))
 
 (defun get-font (type)
   (case type
-    ('normal (format "%s-%s" font-name font-normal-size))
-    ('large  (format "%s-%s:bold" font-name font-large-size))))
+    ('normal (format "%s-%s" current-font font-normal-size))
+    ('large  (format "%s-%s:bold" current-font font-large-size))))
 
 (defmacro use-font (type)
   `(let ((font (get-font ,type)))

@@ -3,33 +3,24 @@
 
 (setq dark-themes
       '(atom-dark
-        brin
-        dorsey
+        badwolf
         flatland
-        fogus
-        graham
-        granger
-        hickey
+        gruvbox
         ir-black
-        junio
         monokai
         noctilux
-        odersky
         smyx
         solarized-dark
         spacegray
-        spolsky
         tango-2
         tomorrow-night
-        underwater
-        wilson
-        zenburn))
+        underwater))
 
 (setq light-themes
-      '(mccarthy
-        soft-stone
+      '(soft-stone
         solarized-light
         standard-light
+        standard-reeder
         standard-stone))
 
 (defun mine-light-color-theme ()
@@ -38,7 +29,7 @@
 
 (defun mine-dark-color-theme ()
   (interactive)
-  (set-theme 'spacegray))
+  (set-theme 'badwolf))
 
 (defun set-random-theme ()
   (interactive)
@@ -70,9 +61,9 @@
   (setq current-theme theme)
   (message (format "Set theme to %s" theme)))
 
-(when (string-match "^24\." emacs-version)
+(when (string-match "^25\." emacs-version)
   (add-to-list 'custom-theme-load-path (concat emacs-root "site-lisp/themes")))
 
 (mine-light-color-theme)
 
-(provide 'init-color-theme)
+(provide 'init-theme)

@@ -21,6 +21,7 @@
 (global-set-key (kbd "C-c C-f") 'ag)
 (global-set-key (kbd "C-x 0") 'delete-other-window)
 (global-set-key (kbd "C-x m")  (lambda () (interactive) (push-mark)))
+(global-set-key (kbd "<f5>")  (lambda () (interactive) (dired "~/org")))
 
 
 

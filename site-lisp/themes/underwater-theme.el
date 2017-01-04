@@ -81,7 +81,7 @@
    `(highlight-face ((t (:background, *current-line*))))
    `(hl-line ((t (:background, *current-line* :underline t))))
    `(info-xref ((t (:foreground, *keywords* :underline t))))
-   `(region ((t (:background, *visual-selection*))))
+   `(region ((t (:background "#ebcb8b" :foreground "#ffffff"))))
    `(underline ((nil (:underline t))))
 
    ;; font-lock

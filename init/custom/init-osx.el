@@ -1,7 +1,7 @@
 (add-to-list 'exec-path "/usr/local/git/bin")
 (add-to-list 'exec-path "/usr/local/mysql/bin")
 (add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'exec-path "/Applications/Racket/bin")
+(add-to-list 'exec-path "/Applications/Racket v6.5/bin")
 
 (setq doc-view-ghostscript-program "/usr/local/bin/gs"
       inferior-lisp-program "/usr/local/bin/sbcl"

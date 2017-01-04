@@ -1,3 +1,13 @@
+(defun center-selected-frame ()
+  "Centers the current selected frame within the desktop."
+  (interactive)
+  (let* ((center-x (/ (nth 3 (assq 'geometry (car (display-monitor-attributes-list)))) 2))
+         (center-y (/ (nth 4 (assq 'geometry (car (display-monitor-attributes-list)))) 2))
+         (x (- center-x
+               (/ (frame-pixel-width (selected-frame)) 2)))
+         (y (- center-y
+               (/ (frame-pixel-height (selected-frame)) 2))))
+    (set-frame-position (selected-frame) x y)))
 
 (defun beginning-of-line-or-back-to-indention ()
   (interactive)

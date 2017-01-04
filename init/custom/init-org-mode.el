@@ -6,7 +6,7 @@
       org-hide-leading-stars t
       org-odd-levels-only t
       org-use-speed-commands t
-      org-src-fontify-natively nil
+      org-src-fontify-natively t
       org-agenda-restore-windows-after-quit t
       org-agenda-prefix-format "           %t %s"
       safe-local-variable-values (quote ((eval org-display-inline-images)))

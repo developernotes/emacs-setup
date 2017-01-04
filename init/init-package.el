@@ -1,4 +1,4 @@
-(when (string-match "^24\." emacs-version)
+(when (string-match "^25\." emacs-version)
   (progn
     (require 'package)
     (add-to-list 'package-archives
@@ -9,6 +9,7 @@
       '(ag
         atom-dark-theme
         browse-kill-ring
+        csharp-mode
         flx
         flx-ido
         grizzl
@@ -31,7 +32,7 @@
         undo-tree
         yasnippet))
 
-(defun install-required-packages ()
+(defun package-install-required-packages ()
   "Install packages defined within the variable `required-packages'."
   (interactive)
   (package-refresh-contents)

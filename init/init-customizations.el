@@ -8,6 +8,7 @@
       c-basic-offset 2
       debug-on-error nil
       linum-format " %d "
+      column-number-mode t
       redisplay-dont-pause t
       ring-bell-function 'ignore
       display-time-24hr-format t
@@ -18,6 +19,8 @@
       initial-scratch-message nil
       ispell-program-name "aspell"
       ediff-window-setup-function 'ediff-setup-windows-plain
+      mouse-wheel-progressive-speed nil
+      mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil))
       bkup-backup-directory-info '((t "~/.backups" ok-create full-path))
       custom-file (concat emacs-root "/mine/mine-customizations.el")
       kill-buffer-query-functions    (remq 'process-kill-buffer-query-function
@@ -45,6 +48,14 @@
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
+(when window-system
+  (let* ((window-width 120)
+        (window-height 50)
+        (pos-x (/ (display-pixel-width) 2))
+        (pos-y (/ (display-pixel-height) 2)))
+    (set-frame-size (selected-frame) window-width window-height)
+    ;;(set-frame-position (selected-frame) pos-x pos-y)
+  ))
 
 (eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
 (setq hippie-expand-try-functions-list

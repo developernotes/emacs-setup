@@ -34,4 +34,12 @@
   (previous-line)
   (dired-move-to-filename))
 
-(provide 'init-dired)
+(defun dired-locate-file (file)
+  (interactive
+   (list
+    (intern
+     (completing-read "File to locate: "
+                      (file-expand-wildcards (format "%s*" (dired-current-directory)))))))
+    (dired-filter-by-name file))
+
+   (provide 'init-dired)
