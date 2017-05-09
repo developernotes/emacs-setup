@@ -22,8 +22,6 @@
 (ido-mode t)
 (ido-everywhere 1)
 (ido-vertical-mode 1)
-(setq )
-(flx-ido-mode 1)
 (setq ido-use-virtual-buffers t
       ido-enable-flex-matching t
       ido-create-new-buffer 'always

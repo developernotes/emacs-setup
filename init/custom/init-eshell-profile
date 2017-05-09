@@ -5,6 +5,7 @@ export JAVA_HOME=$(shell-command-to-string "/usr/libexec/java_home")
 export ANDROID_HOME=$(expand-file-name "~/bin/android-sdk")
 export ANDROID_NDK_ROOT=$(expand-file-name "~/bin/android-ndk")
 export PATH=/usr/local/bin:$(expand-file-name "~/bin/scripts"):$PATH
+export GRADLE_OPTS=-Dorg.gradle.native=false
 
 (case system-type
   ('windows-nt

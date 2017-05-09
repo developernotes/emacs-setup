@@ -146,13 +146,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mode-line
      ((,class (:foreground ,flatland-green+1
                            :background ,flatland-bg-1
-                           :box (:line-width -1 :color ,flatland-selection)))
+                           ;; :box (:line-width -1 :color ,flatland-selection)
+                           ))
       (t :inverse-video t)))
    `(mode-line-buffer-id ((t (:foreground ,flatland-yellow :weight bold))))
    `(mode-line-inactive
      ((t (:foreground ,flatland-selection
                       :background ,flatland-bg-05
-                      :box (:line-width -1 :color ,flatland-bg-1)))))
+                      ;; :box (:line-width -1 :color ,flatland-bg-1)
+                      ))))
    `(region ((,class (:background ,flatland-selection))
              (t :inverse-video t)))
    `(secondary-selection ((t (:background ,flatland-bg+2))))

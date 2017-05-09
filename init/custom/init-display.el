@@ -70,8 +70,7 @@
 
 (defun mine-normal-display ()
   (interactive)
-  (mine-use-normal-font)
-  (mine-use-no-transparency))
+  (set-frame-font (format "%s-%s" current-font font-normal-size)))
 
 (defun mine-presenter-display ()
   (interactive)

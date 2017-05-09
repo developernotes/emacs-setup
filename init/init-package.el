@@ -2,7 +2,7 @@
   (progn
     (require 'package)
     (add-to-list 'package-archives
-                 '("melpa" . "https://melpa.org/packages/") t)
+                 '("melpa" . "https://www.melpa.org/packages/") t)
     (package-initialize)))
 
 (setq required-packages
@@ -11,7 +11,6 @@
         browse-kill-ring
         csharp-mode
         flx
-        flx-ido
         grizzl
         haskell-mode
         ibuffer-git
