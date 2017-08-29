@@ -6,7 +6,7 @@
     "Source Code Pro" "Ubuntu Mono" "Menlo" "PragmataPro Mono"))
 
 (defvar current-font "PragmataPro Mono")
-(defvar font-normal-size 18)
+(defvar font-normal-size 17)
 (defvar font-large-size 22)
 
 (defun set-random-font ()

@@ -6,6 +6,18 @@
 (require 'recentf)
 (require 'imenu)
 
+(defvar project-root "~/src")
+(defun mine-goto-project (project-name)
+  (interactive
+   (list
+    (intern (ido-completing-read "Select project: "
+                             (split-string
+                                      (shell-command-to-string
+                                       (format "ls %s" project-root)))))))
+  (let* ((project-path (format "%s/%s" project-root project-name)))
+    (add-to-list 'tags-table-list project-path)
+    (dired project-path)))
+
 ;; enable winmove
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))

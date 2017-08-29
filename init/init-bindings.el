@@ -19,11 +19,11 @@
 (global-set-key (kbd "C-c f f") 'find-function)
 (global-set-key (kbd "M-j")     (lambda () (interactive) (join-line -1)))
 (global-set-key (kbd "C-c C-f") 'ag)
-(global-set-key (kbd "C-x 0") 'delete-other-window)
-(global-set-key (kbd "C-x m")  (lambda () (interactive) (push-mark)))
-(global-set-key (kbd "<f5>")  (lambda () (interactive) (dired "~/org")))
-
-
+(global-set-key (kbd "C-x 0")   'delete-other-window)
+(global-set-key (kbd "C-x m")   (lambda () (interactive) (push-mark)))
+(global-set-key (kbd "<f5>")    (lambda () (interactive) (dired "~/org")))
+(global-set-key (kbd "C-x p")   'mine-goto-project)
+(global-set-key (kbd "C-c i")   'cleanup-buffer-or-region)
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")

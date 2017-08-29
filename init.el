@@ -1,5 +1,3 @@
-
-
 (let ((file-name-handler-alist nil))
   (defvar emacs-root (concat (getenv "HOME") "/.emacs.d/"))
 
@@ -20,7 +18,8 @@
           (load init-file nil t)
           (message (format "Load time %.3f seconds for %s"
                            (float-time
-                            (time-subtract (current-time) init-file-before-load-time))
+                            (time-subtract (current-time)
+                                           init-file-before-load-time))
                            (file-name-nondirectory init-file))))
         (file-expand-wildcards (concat emacs-root "init/custom/*.el")))
   (require 'init-navigation)
