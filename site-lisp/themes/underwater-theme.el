@@ -108,9 +108,9 @@
    ;;`(linum ((t (:background, *line-number*))))
    `(linum ((t (:background , *background-color* :foreground, *linum-foreground*))))
    `(minibuffer-prompt ((t (:foreground, *variable*))))
-   `(mode-line ((t (:background, *mode-line-bg* :foreground, *mode-line-fg*))))
+   `(mode-line ((t (:background, *mode-line-bg* :foreground, *keywords*))))
    `(mode-line-inactive ((t (:background, *mode-line-bg* :foreground, *mode-line-inactive*))))
-   `(text-cursor ((t (:background, *cursor-underscore*))))
+   `(text-cursor ((t (:background, *keywords*))))
    `(vertical-border ((t (:foreground, *vertical-border*)))) ;; between splits
 
    ;; show-paren
