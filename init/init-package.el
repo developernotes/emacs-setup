@@ -1,16 +1,16 @@
-(when (string-match "^25\." emacs-version)
-  (progn
-    (require 'package)
-    (add-to-list 'package-archives
-                 '("melpa" . "https://www.melpa.org/packages/") t)
-    (package-initialize)))
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://www.melpa.org/packages/") t)
+(package-initialize)
 
 (setq required-packages
       '(ag
         atom-dark-theme
         browse-kill-ring
         csharp-mode
+        fill-column-indicator
         flx
+        flx-ido
         grizzl
         haskell-mode
         ibuffer-git

@@ -1,5 +1,6 @@
 (defvar current-theme nil)
 (defvar next-theme nil)
+(defvar theme-path (concat emacs-root "site-lisp/themes"))
 
 (setq dark-themes
       '(atom-dark
@@ -61,8 +62,9 @@
   (setq current-theme theme)
   (message (format "Set theme to %s" theme)))
 
-(when (string-match "^25\." emacs-version)
-  (add-to-list 'custom-theme-load-path (concat emacs-root "site-lisp/themes")))
+
+(when (not (member theme-path custom-theme-load-path))
+  (add-to-list 'custom-theme-load-path theme-path))
 
 (mine-light-color-theme)
 
