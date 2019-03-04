@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (fill-column-indicator yasnippet undo-tree switch-window solarized-theme smex slime scratch racket-mode popup paredit org neotree monokai-theme markdown-mode magit log4j-mode js2-mode ido-vertical-mode ibuffer-git haskell-mode groovy-mode grizzl flx-ido dired-filter csharp-mode browse-kill-ring base16-theme atom-dark-theme apropospriate-theme ag))))
+    (yasnippet undo-tree switch-window solarized-theme smex slime scratch racket-mode paredit monokai-theme markdown-mode magit log4j-mode js2-mode ido-vertical-mode ibuffer-git haskell-mode groovy-mode grizzl flx-ido fill-column-indicator csharp-mode browse-kill-ring atom-dark-theme ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -12,6 +12,7 @@
         flx
         flx-ido
         grizzl
+        groovy-mode
         haskell-mode
         ibuffer-git
         ido-vertical-mode
