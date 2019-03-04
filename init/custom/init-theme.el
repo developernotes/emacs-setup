@@ -24,11 +24,11 @@
         standard-reeder
         standard-stone))
 
-(defun mine-light-color-theme ()
+(defun set-light-theme ()
   (interactive)
   (set-theme 'standard-light))
 
-(defun mine-dark-color-theme ()
+(defun set-dark-theme ()
   (interactive)
   (set-theme 'badwolf))
 
@@ -66,6 +66,6 @@
 (when (not (member theme-path custom-theme-load-path))
   (add-to-list 'custom-theme-load-path theme-path))
 
-(mine-light-color-theme)
+(set-light-theme)
 
 (provide 'init-theme)
