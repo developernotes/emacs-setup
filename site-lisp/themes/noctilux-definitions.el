@@ -1,5 +1,6 @@
 (eval-when-compile
-  (require 'cl))
+  ;;(require 'cl)
+  )
 
 (defconst noctilux-description
   "A Light Table inspired color theme based on Solarized's definitions.")

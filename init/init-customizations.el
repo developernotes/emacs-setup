@@ -20,6 +20,7 @@
       ispell-program-name "aspell"
       ediff-window-setup-function 'ediff-setup-windows-plain
       mouse-wheel-progressive-speed nil
+      global-display-fill-column-indicator-mode t
       mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil))
       bkup-backup-directory-info '((t "~/.backups" ok-create full-path))
       custom-file (concat emacs-root "/mine/mine-customizations.el")
@@ -32,6 +33,10 @@
   (display-battery-mode))
 (display-time-mode t)
 (delete-selection-mode t)
+
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+(add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
+(add-hook 'fundamental-mode-hook #'display-fill-column-indicator-mode)
 
 ;; (if (not (eq window-system nil))
 ;;     (require 'init-color-theme))

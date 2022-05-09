@@ -1,8 +1,6 @@
-
 (require 'ido)
 (require 'flx-ido)
 (require 'thingatpt)
-(require 'ibuffer-git)
 (require 'recentf)
 (require 'imenu)
 
@@ -39,25 +37,6 @@
       ido-create-new-buffer 'always
       confirm-nonexistent-file-or-buffer nil
       ido-vertical-define-keys 'C-n-C-p-up-and-down)
-
-;; ibuffer
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(autoload 'ibuffer "ibuffer" "List buffers." t)
-
-(setq ibuffer-expert t
-      ibuffer-auto-mode 1
-      ibuffer-default-sorting-mode 'major-mode
-      ibuffer-formats
-      '((mark modified read-only git-status-mini
-              " "
-              (name 18 18 :left :elide)
-              " "
-              (size 9 -1 :right)
-              " "
-              (mode 16 16 :left :elide)
-              " "
-              (git-status 8 8 :left)
-              " " filename-and-process)))
 
 ;; region/line movement
 (global-set-key [M-S-up] 'move-text-up)

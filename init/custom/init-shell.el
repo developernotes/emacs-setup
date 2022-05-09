@@ -2,6 +2,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 
+(add-hook 'eshell-mode-hook (lambda ()
+                              (eshell/addpath "~/.cargo/bin")))
+
 (when (eq system-type 'windows-nt)
   (require 'bat-mode)
   (setq auto-mode-alist
@@ -11,7 +14,7 @@
          (list (cons "AUTOEXEC\\." 'bat-mode))
          auto-mode-alist)))
 
-(global-set-key (kbd "C-c t") 'eshell)
+;;(global-set-key (kbd "C-c t") 'eshell)
 (global-set-key (kbd "C-c T") 'multi-eshell-switch)
 (global-set-key (kbd "C-c b") 'multi-eshell-go-back)
 (global-set-key (kbd "C-c q") 'eshell/hide-visor)

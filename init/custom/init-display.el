@@ -3,12 +3,40 @@
 (defvar next-font nil)
 (defvar fonts
   '("Hack" "Triplicate T4c" "Monaco" "DejaVu Sans Mono" "Iosevka"
-    "Source Code Pro" "Ubuntu Mono" "Menlo" "PragmataPro Mono"))
+    "Source Code Pro" "Ubuntu Mono" "Menlo" "PragmataPro Mono" "Fira Mono"))
 
 (defvar current-font "PragmataPro Mono")
 (defvar font-normal-size 18)
 (defvar font-large-size 22)
 
+(defun get-font-size ()
+  (interactive)
+  (let ((font-description (frame-parameter (selected-frame) 'font)))
+    (string-match "[0-9]+" font-description)
+    (let ((font-size (match-string 0 font-description)))
+      (message font-size)
+      (string-to-number font-size))))
+
+(defun set-font-size (size)
+  (interactive
+   (list
+    (intern (completing-read "Set font size: "
+                             nil nil nil (number-to-string (get-font-size))))))
+  (let ((font-description (format "%s-%s" current-font size)))
+    (set-frame-parameter (selected-frame) 'font font-description)))
+
+(defun font-size-increase ()
+  (interactive
+   (font-size-modify 1)))
+
+(defun font-size-decrease ()
+  (interactive
+   (font-size-modify -1)))
+
+(defun font-size-modify (value)
+  (let ((new-size (+ value (get-font-size))))
+    (set-font-size new-size)))
+  
 (defun set-random-font ()
   (interactive)
   (setq next-font current-font)
@@ -20,27 +48,25 @@
   (interactive
    (list
     (intern (completing-read "Set font: " fonts))))
-   (setq current-font font)
-   (use-font 'normal)
-   (message (format "Set font to %s" font)))
+  (setq current-font font)
+  (let ((font-description (format "%s-%s" font (get-font-size))))
+  (set-frame-parameter (selected-frame) 'font font-description))
+  (message (format "Set font to %s" font)))
 
 (defun get-font (type)
   (case type
     ('normal (format "%s-%s" current-font font-normal-size))
     ('large  (format "%s-%s:bold" current-font font-large-size))))
 
-(defmacro use-font (type)
-  `(let ((font (get-font ,type)))
-     (set-frame-parameter (selected-frame) 'font font)
-     (add-to-list 'default-frame-alist '(\'font "." font))))
-
 (defun mine-use-normal-font()
   (interactive)
-  (use-font 'normal))
+  (set-font-size font-normal-size)
+  (set-font current-font))
 
 (defun mine-use-large-font()
   (interactive)
-  (use-font 'large))
+  (set-font-size font-large-size)
+  (set-font current-font))
 
 (defun mine-use-fullscreen ()
   (interactive)
@@ -78,5 +104,8 @@
   (mine-use-no-transparency))
 
 (mine-normal-display)
+
+(global-set-key (kbd "M-=") 'font-size-increase)
+(global-set-key (kbd "M--") 'font-size-decrease)
 
 (provide 'init-display)

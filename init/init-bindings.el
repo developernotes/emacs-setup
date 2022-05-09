@@ -24,6 +24,7 @@
 (global-set-key (kbd "<f5>")    (lambda () (interactive) (dired "~/org")))
 (global-set-key (kbd "C-x p")   'mine-goto-project)
 (global-set-key (kbd "C-c i")   'cleanup-buffer-or-region)
+;;(global-set-key (kbd "M-S-SPC") 'mark-word)
 
 ;; extend search to show occurances
 (define-key isearch-mode-map (kbd "C-o")

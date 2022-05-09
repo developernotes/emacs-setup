@@ -19,3 +19,5 @@ ido.last~
 .DS_Store
 network-security.data
 smex-items
+undo/
+transient/

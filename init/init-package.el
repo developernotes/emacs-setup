@@ -1,20 +1,23 @@
 (require 'package)
+(require 'gnutls)
+(add-to-list 'gnutls-trustfiles "/usr/local/etc/openssl/cert.pem")
+
 (add-to-list 'package-archives
              '("melpa" . "https://www.melpa.org/packages/") t)
-(package-initialize)
+;;(package-initialize)
 
 (setq required-packages
       '(ag
         atom-dark-theme
         browse-kill-ring
         csharp-mode
-        fill-column-indicator
+        editorconfig
         flx
         flx-ido
+        find-file-rg
         grizzl
         groovy-mode
         haskell-mode
-        ibuffer-git
         ido-vertical-mode
         js2-mode
         log4j-mode
@@ -30,6 +33,7 @@
         slime
         switch-window
         undo-tree
+        yaml-mode
         yasnippet))
 
 (defun package-install-required-packages ()

@@ -74,7 +74,7 @@
   (require 'json nil t))
 
 (eval-when-compile
-  (require 'cl)
+  ;;(require 'cl)
   (require 'comint)
   (require 'ido)
   (proclaim '(optimize (speed 0) (safety 3))))

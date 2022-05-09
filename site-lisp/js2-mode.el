@@ -86,7 +86,8 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'cl))
+  ;;(require 'cl)
+  )
 
 (require 'imenu)
 (require 'cc-cmds)  ; for `c-fill-paragraph'
