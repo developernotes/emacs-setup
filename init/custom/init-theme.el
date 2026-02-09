@@ -30,7 +30,7 @@
 
 (defun set-dark-theme ()
   (interactive)
-  (set-theme 'badwolf))
+  (set-theme 'doom-ayu-mirage))
 
 (defun set-random-theme ()
   (interactive)

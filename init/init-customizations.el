@@ -6,6 +6,7 @@
 
 (setq visible-bell t
       c-basic-offset 2
+      menu-bar-mode -1
       debug-on-error nil
       linum-format " %d "
       column-number-mode t
@@ -27,7 +28,7 @@
       kill-buffer-query-functions    (remq 'process-kill-buffer-query-function
                                            kill-buffer-query-functions))
 
-(global-linum-mode 1)
+(global-display-line-numbers-mode)
 (blink-cursor-mode t)
 (when (string-match-p "^Battery" (battery))
   (display-battery-mode))

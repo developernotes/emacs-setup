@@ -3,10 +3,16 @@
 (defvar next-font nil)
 (defvar fonts
   '("Hack" "Triplicate T4c" "Monaco" "DejaVu Sans Mono" "Iosevka"
-    "Source Code Pro" "Ubuntu Mono" "Menlo" "PragmataPro Mono" "Fira Mono"))
+    "Source Code Pro" "Ubuntu Mono" "Menlo" "PragmataPro Mono" "Fira Mono"
+    "Bitstream Vera Sans Mono"))
 
-(defvar current-font "PragmataPro Mono")
-(defvar font-normal-size 18)
+;;(defvar current-font "PragmataPro Mono")
+;;(defvar current-font "Fira Code")
+;;(defvar current-font "Source Code Pro")
+
+(defvar current-font "Bitstream Vera Sans Mono")
+(defvar font-weight "medium")
+(defvar font-normal-size 16)
 (defvar font-large-size 22)
 
 (defun get-font-size ()
@@ -49,7 +55,7 @@
    (list
     (intern (completing-read "Set font: " fonts))))
   (setq current-font font)
-  (let ((font-description (format "%s-%s" font (get-font-size))))
+  (let ((font-description (format "%s-%s:weight=%s" font (get-font-size) font-weight)))
   (set-frame-parameter (selected-frame) 'font font-description))
   (message (format "Set font to %s" font)))
 
@@ -96,7 +102,9 @@
 
 (defun mine-normal-display ()
   (interactive)
-  (set-frame-font (format "%s-%s" current-font font-normal-size)))
+  ;;(set-frame-font (format "%s-%s" current-font font-normal-size))
+  (set-font-size font-normal-size)
+  (set-font current-font))
 
 (defun mine-presenter-display ()
   (interactive)
